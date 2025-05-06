@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  //output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+//db schema model
+model Activity {
+  id            Int             @id @default(autoincrement())
+  title         String          @unique
+  description   String
+  date          ActivityDate[]
+  image         ActivityImage[] // array of urls
+  isHighlighted Boolean         @default(false)
+
+  Teach Teach[]
+}
+
+//da capire come gestire le immagini da salvare
+model ActivityImage {
+  id         Int      @id @default(autoincrement())
+  url        String
+  activity   Activity @relation(fields: [activityId], references: [id])
+  activityId Int
+}
+
+model TeacherImage {
+  id        Int     @id @default(autoincrement())
+  url       String
+  teacher   Teacher @relation(fields: [teacherId], references: [id])
+  teacherId Int
+}
+
+//da capire come gestire le date
+model ActivityDate {
+  id         Int      @id @default(autoincrement())
+  data       DateTime
+  activityId Int
+  activity   Activity @relation(fields: [activityId], references: [id])
+}
+
+model Teacher {
+  id          Int            @id @default(autoincrement())
+  name        String
+  surname     String
+  description String
+  image       TeacherImage[] // array of urls
+
+  Teach Teach[]
+}
+
+model Teach {
+  teacherId  Int
+  activityId Int
+
+  teacher  Teacher  @relation(fields: [teacherId], references: [id])
+  activity Activity @relation(fields: [activityId], references: [id])
+
+  @@id([activityId, teacherId])
+}
