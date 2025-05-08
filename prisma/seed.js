@@ -4,10 +4,16 @@ const prisma = new PrismaClient()
 //FILE SEED PER POPOLARE IL DATABASE
 
 async function main() {
+    // Pulisce i dati esistenti
+    await prisma.image.deleteMany();
+    await prisma.teacher.deleteMany();
+
     // 1. Crea 3 insegnanti
     const teachers = await Promise.all([
-        prisma.teacher.create({
-            data: {
+        await prisma.teacher.upsert({
+            where: { name: 'Luca' }, // usa una chiave unica reale
+            update: {},
+            create: {
                 name: 'Luca',
                 surname: 'Rossi',
                 description: 'Esperto di escursionismo e outdoor',
@@ -16,7 +22,7 @@ async function main() {
                 },
             },
         }),
-        prisma.teacher.create({
+    prisma.teacher.create({
             data: {
                 name: 'Giulia',
                 surname: 'Bianchi',
