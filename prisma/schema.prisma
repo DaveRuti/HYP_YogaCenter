@@ -51,12 +51,11 @@ model ActivityDate {
 
 model Teacher {
   id          Int            @id @default(autoincrement())
-  name        String
+  name        String         @unique
   surname     String
   description String
-  image       TeacherImage[] // array of urls
-
-  Teach Teach[]
+  image       TeacherImage[]
+  teach       Teach[]
 }
 
 model Teach {

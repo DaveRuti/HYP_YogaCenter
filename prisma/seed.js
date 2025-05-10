@@ -5,40 +5,47 @@ const prisma = new PrismaClient()
 
 async function main() {
     // Pulisce i dati esistenti
-    await prisma.image.deleteMany();
-    await prisma.teacher.deleteMany();
+    await prisma.teach.deleteMany()
+    await prisma.teacherImage.deleteMany()
+    await prisma.activity.deleteMany()
+    await prisma.teacher.deleteMany()
+
 
     // 1. Crea 3 insegnanti
     const teachers = await Promise.all([
-        await prisma.teacher.upsert({
-            where: { name: 'Luca' }, // usa una chiave unica reale
+        prisma.teacher.upsert({
+            where: { name: 'Luca' },
             update: {},
             create: {
                 name: 'Luca',
                 surname: 'Rossi',
                 description: 'Esperto di escursionismo e outdoor',
                 image: {
-                    create: [{ url: 'https://example.com/luca.jpg' }],
+                    create: [{ url: '/images/luca.png' }],
                 },
             },
         }),
-    prisma.teacher.create({
-            data: {
+        prisma.teacher.upsert({
+            where: { name: 'Giulia' },
+            update: {},
+            create: {
                 name: 'Giulia',
                 surname: 'Bianchi',
                 description: 'Insegnante di yoga certificata',
                 image: {
-                    create: [{ url: 'https://example.com/giulia.jpg' }],
+                    create: [{ url: '/images/giulia.png' }],
                 },
             },
         }),
-        prisma.teacher.create({
-            data: {
+        prisma.teacher.upsert({
+            where: { name: 'Marco' },
+            update: {},
+            create: {
                 name: 'Marco',
                 surname: 'Verdi',
                 description: 'Guida alpina e fotografo naturalista',
                 image: {
-                    create: [{ url: 'https://example.com/marco.jpg' }],
+                    create: [{ url: '/images/marco.png' }],
                 },
             },
         }),
