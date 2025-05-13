@@ -62,7 +62,9 @@
     </div>
   </div>
 </template>
-<style scoped>.lessonsSchedule {
+<style scoped>
+
+.lessonsSchedule {
   position: absolute;
   top: 45px;
   left: 96px;
@@ -127,6 +129,88 @@
   font-size: 80px;
   color: #000;
   font-family: 'Nunito Sans';
+}
+
+@media (max-width: 500px) {
+
+
+  .lessonsSchedule {
+    width: 202px;
+    position: absolute;
+    left: 140px;
+    font-size: 27px;
+    line-height: 14px;
+    display: inline-block;
+    font-family: 'Nunito Sans';
+    color: #000;
+    text-align: right;
+    height: 18.8px;
+    transform-origin: 0 0;
+  }
+
+  .p {
+    margin: 0;
+    white-space: pre-wrap;
+  }
+
+  .monday {
+    width: 172px;
+    position: relative;
+    line-height: 14px;
+    display: inline-block;
+    height: 29px;
+    flex-shrink: 0;
+    margin: 0;
+    left: -80px;
+    white-space: pre-wrap;
+    font-size: 20px;
+  }
+
+  .p1 {
+    margin: 0;
+  }
+
+  .div {
+    width: 202px;
+    position: relative;
+    line-height: 13px;
+    display: inline-block;
+    height: 33px;
+    flex-shrink: 0;
+    margin: 0;
+    left: -110px;
+    white-space: pre-wrap;
+    font-size: 20px;
+  }
+
+  .mondayParent {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 80px;
+  }
+
+  .frameParent {
+    width: 500px;
+    position: absolute;
+    height: 500px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 100px 28px 126px;
+    box-sizing: border-box;
+    gap: 27px;
+    transform-origin: 0 0;
+    text-align: justify;
+    font-size: 20px;
+    color: #000;
+    font-family: 'Nunito Sans';
+    left: 120px;
+    top: 20px;
+  }
+
 }
 
 </style>

@@ -39,4 +39,44 @@
   color: #000;
   font-family: 'Nunito Sans';
 }
+
+@media (max-width: 500px) {
+  .youngWomanDoingYogaOutsideIcon {
+    width: 314px;
+    position: relative;
+    height: 227px;
+    object-fit: cover;
+  }
+  .loremIpsumDolor {
+    margin: 0;
+    white-space: pre-wrap;
+    position: absolute;
+  }
+
+  .loremIpsumDolorContainer {
+    width: 328px;
+    position: relative;
+    line-height: 41px;
+    font-weight: 300;
+    display: inline-block;
+    height: 169px;
+    flex-shrink: 0;
+  }
+  .youngWomanDoingYogaOutsideParent {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 29px 107px;
+    text-align: justify;
+    font-size: 15px;
+    color: #000;
+    font-family: 'Nunito Sans';
+  }
+}
+
 </style>
