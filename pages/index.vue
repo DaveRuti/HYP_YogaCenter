@@ -71,10 +71,12 @@ onMounted(() => {
 }
 
 .footer {
+  padding-top: 50px;
   width: 100%;
 }
 
 .content {
+  padding-top: 100px; /* Spazio per la navbar */
   flex: 1; /* Spinge il footer in basso */
 }
 

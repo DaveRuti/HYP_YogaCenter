@@ -10,6 +10,7 @@ function toggleMenu() {
 
 <template>
   <nav class="navbar">
+    <router-link to="/" class="router-link">
     <div class="logo">
       <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M12.7288 4.2429C10.3855 1.8996 6.58624 1.8996 4.24293 4.24291C1.89963 6.58621 1.89963 10.3855 4.24293 12.7288L27.4035 35.8893C29.7468 38.2326 33.546 38.2326 35.8894 35.8893C38.2327 33.546 38.2327 29.7468 35.8894 27.4035L12.7288 4.2429Z" fill="black"/>
@@ -18,6 +19,7 @@ function toggleMenu() {
       </svg>
       <span>InnerFlow</span>
     </div>
+    </router-link>
 
     <div class="menu-icon" @click="toggleMenu">
       <svg width="41" height="26" viewBox="0 0 41 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,6 +64,12 @@ function toggleMenu() {
   gap: 0.8rem;
   color: black;
   font-size: 35px;
+}
+
+.router-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
 }
 
 .nav-links {

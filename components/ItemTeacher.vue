@@ -36,10 +36,10 @@ export default {
 </script>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
   * {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
   }
 
   .yoga-card {
@@ -56,18 +56,19 @@ export default {
   inset: 0;
   background-size: cover;
   background-position: center;
-  transition: filter 0.3s ease;
+    transition: transform 0.4s ease, filter 0.3s ease;
   z-index: 0;
   }
 
   .yoga-card:hover .background-layer {
-  filter: brightness(0.75);
+    transform: scale(1.05);
+    filter: brightness(0.75);
   }
 
   .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.6) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.9) 100%);
   display: flex;
   align-items: flex-end;
   padding: 5%;

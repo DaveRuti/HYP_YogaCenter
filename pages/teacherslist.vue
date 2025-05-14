@@ -1,12 +1,13 @@
 <template>
-  <div class="page-container">
-    <header>
-      <div  class="navbar">
-        <Navbar/>
+  <div class="page">
+    <div class="navbar">
+      <Navbar />
+    </div>
+    <div class="main">
+      <div class="content">
+        <h1>Our Teachers</h1>
+        <p>They are the ones who will look after your passion</p>
       </div>
-    </header>
-    <body>
-      <h1>Teachers</h1>
       <div class="teachers-list">
         <ItemTeacher
             v-for="teacher in teachers"
@@ -16,19 +17,16 @@
             :route="`/teacher/${teacher.id}`"
         />
       </div>
-    </body>
-    <footer>
-      <div>
-        <Footer />
-      </div>
-    </footer>
+    </div>
+    <div class="footer">
+      <Footer />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 import ItemTeacher from '@/components/ItemTeacher.vue';
-import Navbar from "~/components/navbar.vue";
 
 const teachers = ref([]);
 
@@ -39,17 +37,45 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.page-container {
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+.page {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+.main {
+  flex: 1;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.content {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+h1{
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
 .navbar {
-  /*position: fixed;*/
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.footer {
+  padding-top: 100px;
+  margin: 0;
   width: 100%;
-  z-index: 1000; /* Assicura che la navbar sia sopra gli altri elementi */
 }
 .teachers-list {
   display: grid;

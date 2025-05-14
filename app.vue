@@ -15,4 +15,10 @@ export default {
   font-family: sans-serif;
   text-align: center;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 </style>

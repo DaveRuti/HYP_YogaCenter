@@ -49,6 +49,18 @@ async function main() {
                 },
             },
         }),
+        prisma.teacher.upsert({
+            where: { name: 'Sara' },
+            update: {},
+            create: {
+                name: 'Sara',
+                surname: 'Neri',
+                description: 'Insegnante di meditazione e mindfulness',
+                image: {
+                    create: [{ url: '/images/sara.png' }],
+                },
+            },
+        }),
     ])
 
     // 2. Crea 3 attività con date e immagini
