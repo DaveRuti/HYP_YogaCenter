@@ -59,12 +59,14 @@ model ActivityDate {
 }
 
 model Teacher {
-  id          Int            @id @default(autoincrement())
-  name        String         @unique
-  surname     String
-  description String
-  image       TeacherImage[]
-  teach       Teach[]
+  id               Int            @id @default(autoincrement())
+  name             String         @unique
+  surname          String
+  shortDescription String
+  description      String
+  cv               String
+  image            TeacherImage[]
+  teach            Teach[]
 }
 
 model Teach {
