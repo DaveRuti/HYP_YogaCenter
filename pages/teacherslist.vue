@@ -47,6 +47,8 @@ onMounted(async () => {
 }
 .main {
   flex: 1;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 html, body {
@@ -61,9 +63,10 @@ html, body {
 }
 
 h1{
-  font-size: 5rem;
+  font-size: clamp(3rem, 7vw, 5rem);
   margin-bottom: 20px;
 }
+
 .navbar {
   position: fixed;
   top: 0;
@@ -77,9 +80,21 @@ h1{
   margin: 0;
   width: 100%;
 }
+
 .teachers-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 20px;
+  grid-template-columns: repeat(3, 1fr); /* 3 per riga di default */
+  justify-content: center;     /* Centra la griglia orizzontalmente */
+  align-items: start;
+  max-width: 1540px;            /* Limita la larghezza totale della griglia */
+  margin: 0 auto;
+}
+
+@media (max-width: 1540px) {
+  .teachers-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 per riga su schermi piccoli */
+    max-width: 1020px;
+  }
 }
 </style>

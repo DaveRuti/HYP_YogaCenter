@@ -43,12 +43,14 @@ export default {
   }
 
   .yoga-card {
-  width: 100%;
-  aspect-ratio: 404 / 505;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
+    width: 100%;
+    aspect-ratio: 404 / 505;
+    border-radius: 12px;
+    margin: 0 auto;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    max-width: 500px;
   }
 
   .background-layer {
