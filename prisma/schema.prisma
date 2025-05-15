@@ -15,6 +15,14 @@ datasource db {
 }
 
 //db schema model
+
+enum ActivityType {
+  YOGA
+  MEDITATION
+  PILATES
+  SEMINAR
+}
+
 model Activity {
   id            Int             @id @default(autoincrement())
   title         String          @unique
@@ -22,6 +30,7 @@ model Activity {
   date          ActivityDate[]
   image         ActivityImage[] // array of urls
   isHighlighted Boolean         @default(false)
+  type          ActivityType
 
   Teach Teach[]
 }
