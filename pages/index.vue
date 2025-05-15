@@ -5,9 +5,9 @@
     </div>
     <div class="content">
       <div class="card-container">
-        <ItemActivity id="yoga" />
-        <ItemActivity id="meditation" />
-        <ItemActivity id="meditation" />
+        <Item id="yoga" />
+        <Item id="meditation" />
+        <Item id="meditation" />
       </div>
     </div>
     <li v-for="activity in activities" :key="activity.id">
@@ -23,7 +23,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'; // Importa composables Vue
 import Navbar from "@/components/navbar.vue";
-import ItemActivity from "~/components/ItemActivity.vue";
+import Item from "@/components/Item.vue";
 import Footer from "@/components/footer.vue";
 
 // Dichiarazione di variabili reattive

@@ -1,50 +1,34 @@
 <template>
-  <div class="page">
-    <div class="navbar">
-      <Navbar />
-    </div>
 
-    <div class="main">
+  <div class="navbar">
+    <Navbar />
+  </div>
 
-      <div class="content">
-        <h1 class="title">Our Activities</h1>
-        <p class="subtitle">Flow into peace and explore your wellness</p>
-      </div>
+  <h1 class="page-title">Our Activities</h1>
+  <p class="page-subtitle">
+    Flow into peace and explore your wellness
+  </p>
 
-      <!--<h1 class="page-title">Our Activities</h1>
-      <p class="page-subtitle">
-        Flow into peace and explore your wellness
-      </p>-->
-
-      <b class="yoga">Yoga</b>
-
-      <div class="card-container">
-        <ItemActivity id="yin Yoga"/>
-        <ItemActivity id="power Yoga"/>
-        <ItemActivity id="ashtanga Yoga"/>
-
-      </div>
-    </div>
-    <div class="footer">
-      <Footer />
-    </div>
+  <div class="card-container">
+    <Item id="yin Yoga"/>
+    <Item id="power Yoga"/>
+    <Item id="ashtanga Yoga"/>
   </div>
 </template>
 
 <script>
-import ItemActivity from '~/components/ItemActivity.vue';
+import Item from '@/components/Item.vue';
 import Navbar from "@/components/navbar.vue";
 
 export default {
   name: "ActivitiesListPage",
-  components: {Navbar, Item: ItemActivity },
+  components: {Navbar, Item: Item },
 };
 </script>
 
 <style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;700&family=Roboto:wght@500&display=swap');
-@import "assets/global.css";
 
 .card-container {
   display: grid;
@@ -52,7 +36,6 @@ export default {
   gap: 24px;
 
   justify-content: center; /* Questo centra tutta la griglia */
-  margin-top: 140px;
 }
 
 .navbar {
@@ -63,62 +46,11 @@ export default {
   z-index: 1000; /* Assicura che la navbar sia sopra gli altri elementi */
 }
 
-/*.page-title {
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 30px;
-  color: #555;
-  margin: 0;
-}
-
 .page-subtitle {
   font-family: "Nunito Sans", sans-serif;
   font-size: 30px;
   color: #555;
   margin: 0;
-}*/
-
-.content {
-  padding-top: 100px;
-  padding-bottom: 100px;
-  font-family: 'Nunito Sans', sans-serif;
-}
-
-.page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.main {
-  flex: 1;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.title {
-  font-size: 80px;
-}
-
-.subtitle {
-  font-size: 20px;
-  margin-bottom: 0px;
-}
-
-h1{
-  margin-bottom: 20px;
-}
-
-.yoga {
-  width: 714px;
-  position: relative;
-  font-size: 72px;
-  letter-spacing: -0.03em;
-  line-height: 80%;
-  color: #000;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  height: 220px;
 }
 
 </style>
