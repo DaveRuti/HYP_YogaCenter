@@ -16,14 +16,38 @@
         Flow into peace and explore your wellness
       </p>-->
 
-      <b class="yoga">Yoga</b>
+      <b class="activityTitle">Yoga</b>
 
       <div class="card-container">
         <ItemActivity id="yin Yoga"/>
         <ItemActivity id="power Yoga"/>
         <ItemActivity id="ashtanga Yoga"/>
-
+        <ItemActivity id="vinyasa Yoga"/>
+        <ItemActivity id="hata Yoga"/>
       </div>
+
+      <b class="activityTitle">Meditation</b>
+
+      <div class="card-container">
+        <ItemActivity id="mindfulness Meditation"/>
+        <ItemActivity id="zen Meditation"/>
+      </div>
+
+      <b class="activityTitle">Pilates</b>
+
+      <div class="card-container">
+        <ItemActivity id="pilates 1"/>
+        <ItemActivity id="pilates 2"/>
+        <ItemActivity id="pilates 3"/>
+      </div>
+
+      <b class="activityTitle">Seminars</b>
+
+      <div class="card-container">
+        <ItemActivity id="seminar"/>
+        <ItemActivity id="workshop"/>
+      </div>
+
     </div>
     <div class="footer">
       <Footer />
@@ -53,6 +77,7 @@ export default {
 
   justify-content: center; /* Questo centra tutta la griglia */
   margin-top: 140px;
+  margin-bottom: 140px;
 }
 
 .navbar {
@@ -108,7 +133,7 @@ h1{
   margin-bottom: 20px;
 }
 
-.yoga {
+.activityTitle {
   width: 714px;
   position: relative;
   font-size: 72px;
@@ -119,6 +144,7 @@ h1{
   align-items: center;
   justify-content: center;
   height: 220px;
+  margin-top: 140px;
 }
 
 </style>
