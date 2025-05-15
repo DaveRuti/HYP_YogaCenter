@@ -49,7 +49,15 @@ function goBack() {
 
 .main {
   text-align: center;
-  padding: 50px 20px;
+  padding: 100px 20px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .back-button {

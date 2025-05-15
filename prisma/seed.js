@@ -61,15 +61,40 @@ async function main() {
                 },
             },
         }),
+        prisma.teacher.upsert({
+            where: { name: 'Sara' },
+            update: {},
+            create: {
+                name: 'Sara',
+                surname: 'Neri',
+                description: 'Insegnante di meditazione e mindfulness',
+                image: {
+                    create: [{ url: '/images/sara.png' }],
+                },
+            },
+        }),
+        prisma.teacher.upsert({
+            where: { name: 'Francesco' },
+            update: {},
+            create: {
+                name: 'Francesco',
+                surname: 'Gialli',
+                description: 'Guida esperta di arrampicata e alpinismo',
+                image: {
+                    create: [{ url: '/images/francesco.png' }],
+                },
+            },
+        }),
     ])
 
     // 2. Crea 3 attività con date e immagini
     const activities = await Promise.all([
         prisma.activity.create({
             data: {
-                title: 'Trekking in montagna',
-                description: 'Escursione panoramica tra i monti',
+                title: 'Yin Yoga',
+                description: '',
                 isHighlighted: true,
+                type: 'YOGA',
                 date: {
                     create: [{ data: new Date('2025-06-15') }],
                 },
@@ -80,9 +105,10 @@ async function main() {
         }),
         prisma.activity.create({
             data: {
-                title: 'Lezione di yoga all\'aperto',
+                title: 'Power Yoga',
                 description: 'Sessione di yoga immersi nella natura',
                 isHighlighted: false,
+                type: 'YOGA',
                 date: {
                     create: [{ data: new Date('2025-07-01') }],
                 },
@@ -93,14 +119,71 @@ async function main() {
         }),
         prisma.activity.create({
             data: {
-                title: 'Workshop di fotografia naturalistica',
+                title: 'Ashtanga Yoga',
                 description: 'Impara a fotografare flora e fauna',
                 isHighlighted: false,
+                type: 'YOGA',
                 date: {
                     create: [{ data: new Date('2025-08-10') }],
                 },
                 image: {
                     create: [{ url: 'https://example.com/foto.jpg' }],
+                },
+            },
+        }),
+        prisma.activity.create({
+            data: {
+                title: 'Vinyasa Yoga',
+                description: 'Sessione di meditazione al tramonto',
+                isHighlighted: false,
+                type: 'YOGA',
+                date: {
+                    create: [{ data: new Date('2025-09-20') }],
+                },
+                image: {
+                    create: [{ url: 'https://example.com/meditazione.jpg' }],
+                },
+            },
+        }),
+        prisma.activity.create({
+            data: {
+                title: 'Mindfulness',
+                description: 'Sessione di meditazione al tramonto',
+                isHighlighted: false,
+                type: 'MEDITATION',
+                date: {
+                    create: [{ data: new Date('2025-10-25') }],
+                },
+                image: {
+                    create: [{ url: 'https://example.com/meditazione.jpg' }],
+                },
+            },
+        }),
+        prisma.activity.create({
+            data: {
+                title: 'Zen Meditation',
+                description: 'Sessione di meditazione al tramonto',
+                isHighlighted: false,
+                type: 'MEDITATION',
+                date: {
+                    create: [{ data: new Date('2025-11-15') }],
+                },
+                image: {
+                    create: [{ url: 'https://example.com/meditazione.jpg' }],
+                },
+            },
+        }),
+        prisma.activity.create({
+            data: {
+                title: 'Pilates',
+                description: 'Sessione di meditazione al tramonto',
+                isHighlighted: false,
+                type: 'PILATES',
+                date: {
+                    create: [{ data: new Date('2025-12-05') }],
+                },
+                image: {
+                    create: [{ url: 'https://example.com/meditazione.jpg' }],
                 },
             },
         }),
