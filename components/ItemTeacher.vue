@@ -1,5 +1,5 @@
 <template>
-  <div class="yoga-card" @click="handleClick">
+  <div class="yoga-card" @click="goToTeacherPage">
     <div class="background-layer" :style="{ backgroundImage: 'url(' + imageUrl + ')' }"></div>
     <div class="overlay">
       <span class="label">{{ title }}</span>
@@ -15,21 +15,19 @@ export default {
       type: String,
       required: true
     },
+    id: {
+      type: String,
+      required: true
+    },
     imageUrl: {
       type: String,
       required: false,
       default: 'https://via.placeholder.com/300x200?text=No+Image'
-    },
-    route: {
-      type: String,
-      required: false
     }
   },
   methods: {
-    handleClick() {
-      if (this.route) {
-        this.$router.push(this.route);
-      }
+    goToTeacherPage() {
+      this.$router.push(`/api/teacher/${this.id}`);
     }
   }
 };

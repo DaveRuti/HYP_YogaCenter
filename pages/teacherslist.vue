@@ -11,7 +11,7 @@
       <div class="teachers-list">
         <ItemTeacher
             v-for="teacher in teachers"
-            :key="teacher.id"
+            :id="teacher.id"
             :title="`${teacher.name} ${teacher.surname}`"
             :imageUrl="teacher.image[0]?.url"
             :route="`/teacher/${teacher.id}`"
