@@ -87,14 +87,14 @@ h1{
   grid-template-columns: repeat(3, 1fr); /* 3 per riga di default */
   justify-content: center;     /* Centra la griglia orizzontalmente */
   align-items: start;
-  max-width: 1540px;            /* Limita la larghezza totale della griglia */
+  max-width: 1250px;            /* Limita la larghezza totale della griglia */
   margin: 0 auto;
 }
 
-@media (max-width: 1540px) {
+@media (max-width: 1400px) {
   .teachers-list {
     grid-template-columns: repeat(2, 1fr); /* 2 per riga su schermi piccoli */
-    max-width: 1020px;
+    max-width: 820px;
   }
 }
 </style>
