@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     goToActivityPage() {
-      this.$router.push(`/api/teacher/${this.id}`);
+      this.$router.push(`/api/activity/${this.id}`);
     }
   }
 };

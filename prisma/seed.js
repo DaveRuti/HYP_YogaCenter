@@ -5,8 +5,6 @@ const prisma = new PrismaClient()
 
 async function main() {
     // Pulisce i dati esistenti
-    await prisma.teach.deleteMany()
-    await prisma.teacherImage.deleteMany()
     await prisma.activity.deleteMany()
     await prisma.teacher.deleteMany()
 
@@ -228,98 +226,187 @@ async function main() {
         prisma.activity.create({
             data: {
                 title: 'Yin Yoga',
-                description: '',
+                shortDescription: 'Deep Release & Inner Stillness',
+                description: 'Yin Yoga is a slow and meditative style of yoga that targets the deep' +
+                    ' connective tissues of the body—ligaments, joints, fascia—through long-held, passive postures. ' +
+                    'This practice invites stillness, both physically and mentally, offering a powerful counterbalance ' +
+                    'to more dynamic forms of yoga and to the pace of everyday life. In this class, poses are held for ' +
+                    'several minutes, allowing the body to gradually release tension and improve mobility while calming ' +
+                    'the nervous system. Through mindful breathing and silence, Yin Yoga creates space for introspection, ' +
+                    'presence, and emotional release.',
                 isHighlighted: true,
                 type: 'YOGA',
                 date: {
                     create: [{ data: new Date('2025-06-15') }],
                 },
                 image: {
-                    create: [{ url: 'https://example.com/trekking.jpg' }],
+                    create: [{ url: '/images/activity/YinYoga.png' }],
                 },
             },
         }),
         prisma.activity.create({
             data: {
                 title: 'Power Yoga',
-                description: 'Sessione di yoga immersi nella natura',
+                shortDescription: 'Strength, Energy & Focus',
+                description: 'Power Yoga is a dynamic and energizing practice that builds strength, endurance, ' +
+                    'and mental focus through a vigorous flow of postures. Inspired by Ashtanga Yoga but with ' +
+                    'more flexibility in sequencing, Power Yoga challenges the body while cultivating breath ' +
+                    'awareness and presence. This class combines powerful movement, balance, and core work ' +
+                    'with fluid transitions to awaken energy and leave you feeling strong, grounded, and ' +
+                    'revitalized. Set to motivating music and guided with clear cues, Power Yoga is ideal for ' +
+                    'those who enjoy an active, fitness-oriented approach to yoga.',
                 isHighlighted: false,
                 type: 'YOGA',
                 date: {
                     create: [{ data: new Date('2025-07-01') }],
                 },
                 image: {
-                    create: [{ url: 'https://example.com/yoga.jpg' }],
+                    create: [{ url: '/images/activity/PowerYoga.png' }],
                 },
             },
         }),
         prisma.activity.create({
             data: {
                 title: 'Ashtanga Yoga',
-                description: 'Impara a fotografare flora e fauna',
+                shortDescription: 'Discipline, Breath & Inner Fire',
+                description: 'Ashtanga Yoga is a traditional and structured practice that follows a precise ' +
+                    'sequence of postures, synchronized with breath (ujjayi), gaze (drishti), and energy locks ' +
+                    '(bandha). Rooted in the teachings of Sri K. Pattabhi Jois, this dynamic and physically ' +
+                    'intense style promotes strength, flexibility, and deep concentration. The class guides ' +
+                    'students through the Primary Series (Yoga Chikitsa), focusing on alignment, flow, and ' +
+                    'consistent breath-to-movement connection. Ashtanga develops both physical endurance and ' +
+                    'mental clarity, offering a transformative experience through repetition and self-observation.',
                 isHighlighted: false,
                 type: 'YOGA',
                 date: {
                     create: [{ data: new Date('2025-08-10') }],
                 },
                 image: {
-                    create: [{ url: 'https://example.com/foto.jpg' }],
+                    create: [{ url: '/images/activity/AshtangaYoga.png' }],
                 },
             },
         }),
         prisma.activity.create({
             data: {
                 title: 'Vinyasa Yoga',
-                description: 'Sessione di meditazione al tramonto',
+                shortDescription: 'Flow, Breath & Creativity',
+                description: 'Vinyasa Yoga is a fluid and creative style that links movement and breath in a continuous, ' +
+                    'flowing sequence. Each class is unique and thoughtfully designed, often guided by a theme, a peak ' +
+                    'pose, or an energetic intention. The transitions between postures are just as important as the ' +
+                    'poses themselves, creating a moving meditation that strengthens the body and quiets the mind. ' +
+                    'Vinyasa is both dynamic and adaptable, offering a balance of effort and ease, power and softness. ' +
+                    'Whether you\'re building heat through strong standing flows or finding stillness in deep stretches, ' +
+                    'this practice supports both physical vitality and mental clarity.',
                 isHighlighted: false,
                 type: 'YOGA',
                 date: {
                     create: [{ data: new Date('2025-09-20') }],
                 },
                 image: {
-                    create: [{ url: 'https://example.com/meditazione.jpg' }],
+                    create: [{ url: '/images/activity/VinyasaYoga.png' }],
                 },
             },
         }),
         prisma.activity.create({
             data: {
                 title: 'Mindfulness',
-                description: 'Sessione di meditazione al tramonto',
+                shortDescription: 'Presence, Awareness & Inner Calm',
+                description: 'Mindfulness Meditation is a practice of cultivating present-moment awareness ' +
+                    'with an attitude of openness and non-judgment. Rooted in ancient contemplative traditions and ' +
+                    'supported by modern neuroscience, mindfulness helps reduce stress, improve emotional balance, and ' +
+                    'foster clarity of mind. In this class, you’ll be gently guided through techniques such as breath ' +
+                    'awareness, body scans, and observing thoughts and emotions without attachment. Whether you\'re ' +
+                    'new to meditation or looking to deepen your practice, each session offers a space to slow down, ' +
+                    'reconnect, and develop greater resilience in everyday life.',
                 isHighlighted: false,
                 type: 'MEDITATION',
                 date: {
                     create: [{ data: new Date('2025-10-25') }],
                 },
                 image: {
-                    create: [{ url: 'https://example.com/meditazione.jpg' }],
+                    create: [{ url: '/images/activity/Mindfulness.png' }],
                 },
             },
         }),
         prisma.activity.create({
             data: {
                 title: 'Zen Meditation',
-                description: 'Sessione di meditazione al tramonto',
+                shortDescription: 'Stillness, Clarity & Inner Discipline',
+                description: 'Zen Meditation, also known as Zazen, is a practice of seated stillness rooted in the Zen ' +
+                    'Buddhist tradition. It emphasizes posture, breath, and silence as gateways to insight and awareness. ' +
+                    'Unlike guided forms of meditation, Zen invites you to simply sit, observe, and be — without trying ' +
+                    'to change or achieve anything. In this class, you’ll learn the fundamentals of Zazen: upright ' +
+                    'sitting posture, breath observation, and non-reactive awareness of thoughts and sensations. The ' +
+                    'simplicity of the practice is its depth — allowing the mind to settle naturally and the present ' +
+                    'moment to unfold without effort. Each session includes silent sitting, walking meditation (kinhin), ' +
+                    'and a brief reflection or reading from Zen teachings.',
                 isHighlighted: false,
                 type: 'MEDITATION',
                 date: {
                     create: [{ data: new Date('2025-11-15') }],
                 },
                 image: {
-                    create: [{ url: 'https://example.com/meditazione.jpg' }],
+                    create: [{ url: '/images/activity/ZenMeditation.png' }],
                 },
             },
         }),
         prisma.activity.create({
             data: {
                 title: 'Pilates',
-                description: 'Sessione di meditazione al tramonto',
+                shortDescription: 'Core Strength, Flexibility & Body Awareness',
+                description: 'Pilates is a low-impact exercise method focused on strengthening the core muscles, ' +
+                    'improving posture, and enhancing overall body awareness. Developed by Joseph Pilates, this practice ' +
+                    'combines controlled movements, precise breathing, and alignment principles to promote strength, ' +
+                    'flexibility, and balance. In this class, you’ll engage in a series of exercises that target the ' +
+                    'deep stabilizing muscles of the abdomen, back, and pelvis, helping to prevent injury and improve ' +
+                    'functional movement. Pilates is suitable for all fitness levels and can be adapted to individual ' +
+                    'needs, from beginners to advanced practitioners.',
                 isHighlighted: false,
                 type: 'PILATES',
                 date: {
                     create: [{ data: new Date('2025-12-05') }],
                 },
                 image: {
-                    create: [{ url: 'https://example.com/meditazione.jpg' }],
+                    create: [{ url: '/images/activity/Pilates.png' }],
+                },
+            },
+        }),
+        prisma.activity.create({
+            data: {
+                title: 'Mindful Eating & Yoga',
+                shortDescription: 'Nourish Your Body, Awaken Your Awareness',
+                description: 'This immersive seminar blends the ancient wisdom of yoga with the modern practice of ' +
+                    'mindful eating to create a conscious relationship with food, body, and breath. Through a ' +
+                    'combination of gentle yoga sessions, guided meditations, and mindful eating practices, participants ' +
+                    'will explore how to listen to the body’s true needs, recognize emotional patterns linked to food, ' +
+                    'and cultivate a deep sense of presence at the table and on the mat. This seminar is not about ' +
+                    'restriction or diet — it\'s an invitation to rediscover the joy of eating and moving with awareness.',
+                isHighlighted: false,
+                type: 'SEMINAR',
+                date: {
+                    create: [{ data: new Date('2026-01-10') }],
+                },
+                image: {
+                    create: [{ url: '' }],
+                },
+            },
+        }),
+        prisma.activity.create({
+            data: {
+                title: 'Yoga & Sound Healing',
+                shortDescription: 'Harmonize Your Body, Mind & Spirit',
+                description: 'This unique workshop combines the transformative power of yoga with the healing vibrations ' +
+                    'of sound. Participants will flow through a series of yoga postures designed to open the body and calm the mind, ' +
+                    'followed by a deep relaxation session enhanced by sound healing instruments such as crystal bowls, gongs, and chimes. ' +
+                    'The resonance of sound waves helps to release tension, balance energy centers (chakras), and promote a profound sense of peace. ' +
+                    'This workshop is suitable for all levels and offers a beautiful opportunity to connect with oneself and the healing power of sound.',
+                isHighlighted: false,
+                type: 'SEMINAR',
+                date: {
+                    create: [{ data: new Date('2026-02-20') }],
+                },
+                image: {
+                    create: [{ url: '' }],
                 },
             },
         }),

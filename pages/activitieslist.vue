@@ -3,51 +3,21 @@
     <div class="navbar">
       <Navbar />
     </div>
-
     <div class="main">
-
       <div class="content">
-        <h1 class="title">Our Activities</h1>
-        <p class="subtitle">Flow into peace and explore your wellness</p>
+        <h1>Our Activity</h1>
+        <p>Flow into peace and explore your wellness</p>
       </div>
-
-      <!--<h1 class="page-title">Our Activities</h1>
-      <p class="page-subtitle">
-        Flow into peace and explore your wellness
-      </p>-->
-
-      <b class="activityTitle">Yoga</b>
-
-      <div class="card-container">
-        <ItemActivity id="yin Yoga"/>
-        <ItemActivity id="power Yoga"/>
-        <ItemActivity id="ashtanga Yoga"/>
-        <ItemActivity id="vinyasa Yoga"/>
-        <ItemActivity id="hata Yoga"/>
+      <div class="teachers-list">
+        <ItemActivity
+            v-for="activity in activities"
+            :id="activity.id"
+            :key="activity.id"
+            :title="activity.title"
+            :imageUrl="activity.image?.[0]?.url"
+            :route="`/activity/${activity.id}`"
+        />
       </div>
-
-      <b class="activityTitle">Meditation</b>
-
-      <div class="card-container">
-        <ItemActivity id="mindfulness Meditation"/>
-        <ItemActivity id="zen Meditation"/>
-      </div>
-
-      <b class="activityTitle">Pilates</b>
-
-      <div class="card-container">
-        <ItemActivity id="pilates 1"/>
-        <ItemActivity id="pilates 2"/>
-        <ItemActivity id="pilates 3"/>
-      </div>
-
-      <b class="activityTitle">Seminars</b>
-
-      <div class="card-container">
-        <ItemActivity id="seminar"/>
-        <ItemActivity id="workshop"/>
-      </div>
-
     </div>
     <div class="footer">
       <Footer />
@@ -55,96 +25,77 @@
   </div>
 </template>
 
-<script>
-import ItemActivity from '~/components/ItemActivity.vue';
-import Navbar from "@/components/navbar.vue";
+<script setup>
+import { ref, onMounted } from 'vue';
+import ItemActivity from '@/components/ItemActivity.vue';
 
-export default {
-  name: "ActivitiesListPage",
-  components: {Navbar, Item: ItemActivity },
-};
+const activities = ref([]);
+
+onMounted(async () => {
+  const res = await fetch('/api/activities');
+  activities.value = await res.json();
+});
 </script>
 
 <style scoped>
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;700&family=Roboto:wght@500&display=swap');
-@import "assets/global.css";
-
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(3, 404px);
-  gap: 24px;
-
-  justify-content: center; /* Questo centra tutta la griglia */
-  margin-top: 140px;
-  margin-bottom: 140px;
-}
-
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000; /* Assicura che la navbar sia sopra gli altri elementi */
-}
-
-/*.page-title {
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 30px;
-  color: #555;
-  margin: 0;
-}
-
-.page-subtitle {
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 30px;
-  color: #555;
-  margin: 0;
-}*/
-
-.content {
-  padding-top: 100px;
-  padding-bottom: 100px;
-  font-family: 'Nunito Sans', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
 .page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-
 .main {
   flex: 1;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.title {
-  font-size: 80px;
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.subtitle {
-  font-size: 20px;
-  margin-bottom: 0px;
+.content {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 h1{
+  font-size: clamp(3rem, 7vw, 5rem);
   margin-bottom: 20px;
 }
 
-.activityTitle {
-  width: 714px;
-  position: relative;
-  font-size: 72px;
-  letter-spacing: -0.03em;
-  line-height: 80%;
-  color: #000;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  height: 220px;
-  margin-top: 140px;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
+.footer {
+  padding-top: 100px;
+  margin: 0;
+  width: 100%;
+}
+
+.teachers-list {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr); /* 3 per riga di default */
+  justify-content: center;     /* Centra la griglia orizzontalmente */
+  align-items: start;
+  max-width: 1250px;            /* Limita la larghezza totale della griglia */
+  margin: 0 auto;
+}
+
+@media (max-width: 1400px) {
+  .teachers-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 per riga su schermi piccoli */
+    max-width: 820px;
+  }
+}
 </style>

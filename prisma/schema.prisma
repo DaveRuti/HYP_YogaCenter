@@ -24,13 +24,14 @@ enum ActivityType {
 }
 
 model Activity {
-  id            Int             @id @default(autoincrement())
-  title         String          @unique
-  description   String
-  date          ActivityDate[]
-  image         ActivityImage[] // array of urls
-  isHighlighted Boolean         @default(false)
-  type          ActivityType
+  id               Int             @id @default(autoincrement())
+  title            String          @unique
+  shortDescription String
+  description      String
+  date             ActivityDate[]
+  image            ActivityImage[] // array of urls
+  isHighlighted    Boolean         @default(false)
+  type             ActivityType
 
   Teach Teach[]
 }

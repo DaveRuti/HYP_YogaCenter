@@ -1,12 +1,14 @@
-import { PrismaClient } from '@prisma/client'
+import {PrismaClient} from '@prisma/client'
 
 const prisma = new PrismaClient()
 
 export default defineEventHandler(async (event) => {
     try {
-        const activities = await prisma.activity.findMany()
-
-        return activities // Restituisce le attività al client
+        return await prisma.activity.findMany({
+            include: {
+                image: true
+            }
+        });
 
     } catch (error) {
         console.error('Errore durante la query:', error)
