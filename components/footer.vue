@@ -9,7 +9,7 @@
         <div class="footer-column">
           <h3>School</h3>
           <ul>
-            <li><a href="#">Teachers</a></li>
+            <li><router-link to="/teacherslist">Teachers</router-link></li>
             <li><a href="#">Courses</a></li>
             <li><a href="#">Regulation</a></li>
           </ul>
@@ -31,7 +31,7 @@
           <h3>Account</h3>
           <ul>
             <li><a href="#">FAQ</a></li>
-            <li><a href="#">Contacts</a></li>
+            <li><router-link to="/contacts">Contacts</router-link></li>
           </ul>
         </div>
       </div>
