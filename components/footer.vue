@@ -1,5 +1,6 @@
 <script setup>
 
+import Contacts from "~/pages/contacts.vue";
 </script>
 
 <template>
@@ -24,7 +25,7 @@
           <h3>Support</h3>
           <ul>
             <li><a href="#">FAQ</a></li>
-            <li><a href="#">Contacts</a></li>
+            <li><router-link to="/contacts">Contacts</router-link></li>
           </ul>
         </div>
         <div class="footer-column">
