@@ -38,9 +38,9 @@ import FAQ from "~/components/FAQ.vue";
 import ContactComponent from "~/components/ContactComponent.vue";
 
 const contacts = [
-  { title: "Chat to support", imageUrl: "contact.png" },
-  { title: "Visit us", imageUrl: "location.png" },
-  { title: "Call us", imageUrl: "contact.png" }
+  { title: "Chat to support", imageUrl: "/icons/ChatSupport.png" },
+  { title: "Visit us", imageUrl: "/icons/location.png" },
+  { title: "Call us", imageUrl: "/icons/phone.png" }
 ];
 
 const router = useRouter()

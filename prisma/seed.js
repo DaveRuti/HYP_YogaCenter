@@ -387,7 +387,7 @@ async function main() {
                     create: [{ data: new Date('2026-01-10') }],
                 },
                 image: {
-                    create: [{ url: '' }],
+                    create: [{ url: 'images/activity/MindfulEating.png' }],
                 },
             },
         }),
@@ -406,7 +406,7 @@ async function main() {
                     create: [{ data: new Date('2026-02-20') }],
                 },
                 image: {
-                    create: [{ url: '' }],
+                    create: [{ url: 'images/activity/SoundHealing.png' }],
                 },
             },
         }),
