@@ -14,7 +14,7 @@ export default {
 .rounded-button {
   background-color: #08663A;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 30px;
   font-size: 16px;
   border: none;
   border-radius: 999px; /* Angoli completamente stondati */
