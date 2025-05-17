@@ -195,26 +195,25 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .footer-top, .footer-bottom {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .footer-top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Due colonne */
+    gap: 20px; /* Spaziatura tra le colonne */
+    text-align: left; /* Allinea il testo a sinistra */
   }
 
   .footer-column {
-    flex: 1 1 100%;
-    margin: 10px 0;
+    margin: 0; /* Rimuove margini extra */
   }
 
-  .footer-logo {
-    margin: 0 0 50px 0;
-    align-items: center;
-    text-align: center;
+  .footer-bottom {
+    flex-direction: column; /* Disposizione verticale */
+    text-align: center; /* Centra il testo */
   }
 
-  .footer-contacts{
-    margin: 0 0 50px 0;
-    text-align: center;
+  .footer-contacts {
+    margin: 20px 0; /* Spaziatura verticale */
+    align-items: center; /* Centra gli elementi */
   }
 }
 </style>
