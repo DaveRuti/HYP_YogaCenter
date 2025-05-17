@@ -10,7 +10,7 @@
           <h3>School</h3>
           <ul>
             <li><router-link to="/teacherslist">Teachers</router-link></li>
-            <li><a href="#">Courses</a></li>
+            <li><router-link to="/activitieslist">Courses</router-link></li>
             <li><a href="#">Regulation</a></li>
           </ul>
         </div>

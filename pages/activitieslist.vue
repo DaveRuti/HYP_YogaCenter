@@ -5,10 +5,10 @@
     </div>
     <div class="main">
       <div class="content">
-        <h1>Our Activity</h1>
+        <h1>Our Activities</h1>
         <p>Flow into peace and explore your wellness</p>
       </div>
-      <div class="teachers-list">
+      <div class="activities-list">
         <ItemActivity
             v-for="activity in activities"
             :id="activity.id"
@@ -82,7 +82,7 @@ h1{
   width: 100%;
 }
 
-.teachers-list {
+.activities-list {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(3, 1fr); /* 3 per riga di default */
@@ -93,7 +93,7 @@ h1{
 }
 
 @media (max-width: 1400px) {
-  .teachers-list {
+  .activities-list {
     grid-template-columns: repeat(2, 1fr); /* 2 per riga su schermi piccoli */
     max-width: 820px;
   }
