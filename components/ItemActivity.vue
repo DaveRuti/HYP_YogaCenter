@@ -49,7 +49,7 @@ export default {
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  max-width: 500px;
+  max-width: 400px;
 }
 
 .background-layer {
