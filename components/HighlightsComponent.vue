@@ -84,7 +84,7 @@ export default {
   text-decoration: none;
 }
 
-.btn {
+/*.btn {
   padding: 10.036px 24.087px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -96,7 +96,7 @@ export default {
   border: none;
   border-radius: 799.2px;
   cursor: pointer;
-}
+}*/
 
 
 @media (max-width: 768px) {
@@ -131,11 +131,11 @@ export default {
     line-height: 24px;
     text-align: center;
   }
-  .btn {
+  /*.btn {
     width: 100%;
     max-width: 240px;
     padding: 12px 0;
-  }
+  }*/
 }
 </style>
 
