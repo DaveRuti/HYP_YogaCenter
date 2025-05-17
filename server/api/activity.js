@@ -9,7 +9,9 @@ export default defineEventHandler(async (event) => {
 
         //Recupero attività
         const activity = await prisma.activity.findUnique({
-            where: { id: parseInt(id) },
+            where: {
+                id: parseInt(id)
+            },
             include: {
                 image: true,
                 date: true,

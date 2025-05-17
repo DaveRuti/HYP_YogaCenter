@@ -8,7 +8,9 @@ export default defineEventHandler(async (event) => {
         const { id } = event.context.params.id;
 
         const teacher = await prisma.teacher.findUnique({
-            where: { id: parseInt(id) },
+            where: {
+                id: parseInt(id)
+            },
             include: {
                 image: true,
             },
