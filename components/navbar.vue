@@ -21,18 +21,16 @@ function toggleMenu() {
     </div>
     </router-link>
 
-    <div class="menu-icon" @click="toggleMenu">
-      <svg width="41" height="26" viewBox="0 0 41 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="41" height="4" rx="2" fill="black"/>
-        <rect y="11" width="41" height="4" rx="2" fill="black"/>
-        <rect y="22" width="41" height="4" rx="2" fill="black"/>
-      </svg>
+    <div class="menu-icon" :class="{ open: isMenuVisible }" @click="toggleMenu">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
 
     <ul class="nav-links" :class="{ show: isMenuVisible }">
-      <li><router-link to="/activitieslist">Activities</router-link></li>
-      <li><router-link to="/teacherslist">Teachers</router-link></li>
-      <li><router-link to="/highlights">Highlights</router-link></li>
+      <li><router-link to="/activitieslist" active-class="active-link">Activities</router-link></li>
+      <li><router-link to="/teacherslist" active-class="active-link">Teachers</router-link></li>
+      <li><router-link to="/highlights" exact-active-class="active-link">Highlights</router-link></li>
       <li><a href="#">About</a></li>
     </ul>
   </nav>
@@ -41,6 +39,7 @@ function toggleMenu() {
 <style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
 * {
   margin: 0;
@@ -53,7 +52,7 @@ function toggleMenu() {
   position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   background-color: white;
   padding: 1rem 2rem;
 }
@@ -75,58 +74,136 @@ function toggleMenu() {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .nav-links li {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .nav-links li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: black;
   text-decoration: none;
+  border-radius: 12px;
   font-size: 1rem;
-  transition: color 0.3s;
-  background: none;
+  padding: 0 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  height: 100%;
 }
 
 .nav-links li a:hover {
-  color: forestgreen;
+  background-color: #00ff88;
+  color: black;
+  box-shadow: 0 0 10px #00ff88aa, 0 0 20px #00ff88aa;
+}
+
+.active-link {
+  background-color: #8cffc9;
+  color: black;
+  box-shadow: 0 0 10px #8cffc9, 0 0 20px #8cffc9;
 }
 
 .menu-icon {
-  display: none;
+  display: block;
   cursor: pointer;
 }
 
-@media (max-width: 640px) {
-  .nav-links {
+.menu-icon {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-icon span {
+  display: block;
+  height: 4px;
+  background-color: black;
+  margin: 8px 0;
+  border-radius: 3px;
+  transition: 0.4s;
+  transform-origin: center;
+}
+
+/* Icona animata in X */
+.menu-icon.open span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(9px, -9px);
+}
+
+@media (max-width: 850px) {
+    .nav-links {
     position: absolute;
     top: 100%;
+    left: 1;
     right: 0;
-    left: 70%;
-    background-color: #f8f9fa;
+    background-color: #f0f0f0;
     flex-direction: column;
     text-align: center;
     display: none;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+    gap: 0;
+}
 
   .nav-links.show {
     display: flex;
   }
 
-  .menu-icon {
-    display: block;
+  .nav-links li {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    gap : 0;
   }
 
-  .nav-links li {
-    text-align: center;
-    padding: 1rem;
+  .nav-links li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 56px;
     width: 100%;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .nav-links li a:hover {
+    background-color: #00ff88;
+    color: black;
+    box-shadow: 0 0 10px #00ff88aa, 0 0 20px #00ff88aa;
+  }
+
+  .active-link {
+    background-color: #8cffc9;
+    color: black;
+    box-shadow: 0 0 10px #8cffc9, 0 0 20px #8cffc9;
+  }
+
+  .menu-icon {
+    display: block;
+    cursor: pointer;
   }
 }
 
