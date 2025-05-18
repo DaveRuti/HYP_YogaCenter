@@ -278,12 +278,38 @@ async function main() {
                     'mental clarity, offering a transformative experience through repetition and self-observation.',
                 isHighlighted: false,
                 type: 'YOGA',
-                date: {
-                    create: [{ data: new Date('2025-08-10') }],
-                },
                 image: {
                     create: [{ url: '/images/activity/AshtangaYoga.png' }],
                 },
+                timeSchedule: {
+                    create: [
+                        {
+                            day: 'Monday',
+                            startTime: '18:00',
+                            endTime: '19:30',
+                        },
+                        {
+                            day: 'Tuesday',
+                            startTime: '16:00',
+                            endTime: '17:30',
+                        },
+                        {
+                            day: 'Wednesday',
+                            startTime: '18:00',
+                            endTime: '19:30',
+                        },
+                        {
+                            day: 'Thursday',
+                            startTime: '16:00',
+                            endTime: '17:30',
+                        },
+                        {
+                            day: 'Friday',
+                            startTime: '18:00',
+                            endTime: '19:30',
+                        }
+                    ],
+                }
             },
         }),
         prisma.activity.create({
@@ -299,12 +325,38 @@ async function main() {
                     'this practice supports both physical vitality and mental clarity.',
                 isHighlighted: false,
                 type: 'YOGA',
-                date: {
-                    create: [{ data: new Date('2025-09-20') }],
-                },
                 image: {
                     create: [{ url: '/images/activity/VinyasaYoga.png' }],
                 },
+                timeSchedule: {
+                    create: [
+                        {
+                            day: 'Monday',
+                            startTime: '10:00',
+                            endTime: '11:30',
+                        },
+                        {
+                            day: 'Tuesday',
+                            startTime: '18:00',
+                            endTime: '19:30',
+                        },
+                        {
+                            day: 'Wednesday',
+                            startTime: '10:00',
+                            endTime: '11:30',
+                        },
+                        {
+                            day: 'Thursday',
+                            startTime: '18:00',
+                            endTime: '19:30',
+                        },
+                        {
+                            day: 'Friday',
+                            startTime: '10:00',
+                            endTime: '11:30',
+                        }
+                    ],
+                }
             },
         }),
         prisma.activity.create({
@@ -320,12 +372,28 @@ async function main() {
                     'reconnect, and develop greater resilience in everyday life.',
                 isHighlighted: false,
                 type: 'MEDITATION',
-                date: {
-                    create: [{ data: new Date('2025-10-25') }],
-                },
                 image: {
                     create: [{ url: '/images/activity/Mindfulness.png' }],
                 },
+                timeSchedule: {
+                    create: [
+                        {
+                            day: 'Monday',
+                            startTime: '19:00',
+                            endTime: '20:00',
+                        },
+                        {
+                            day: 'Wednesday',
+                            startTime: '19:00',
+                            endTime: '20:00',
+                        },
+                        {
+                            day: 'Friday',
+                            startTime: '19:00',
+                            endTime: '20:00',
+                        }
+                    ],
+                }
             },
         }),
         prisma.activity.create({
@@ -342,12 +410,28 @@ async function main() {
                     'and a brief reflection or reading from Zen teachings.',
                 isHighlighted: false,
                 type: 'MEDITATION',
-                date: {
-                    create: [{ data: new Date('2025-11-15') }],
-                },
                 image: {
                     create: [{ url: '/images/activity/ZenMeditation.png' }],
                 },
+                timeSchedule: {
+                    create: [
+                        {
+                            day: 'Tuesday',
+                            startTime: '19:00',
+                            endTime: '20:00',
+                        },
+                        {
+                            day: 'Thursday',
+                            startTime: '19:00',
+                            endTime: '20:00',
+                        },
+                        {
+                            day: 'Saturday',
+                            startTime: '10:00',
+                            endTime: '11:30',
+                        }
+                    ],
+                }
             },
         }),
         prisma.activity.create({
@@ -363,12 +447,38 @@ async function main() {
                     'needs, from beginners to advanced practitioners.',
                 isHighlighted: false,
                 type: 'PILATES',
-                date: {
-                    create: [{ data: new Date('2025-12-05') }],
-                },
                 image: {
                     create: [{ url: '/images/activity/Pilates.png' }],
                 },
+                timeSchedule: {
+                    create: [
+                        {
+                            day: 'Monday',
+                            startTime: '10:00',
+                            endTime: '11:30',
+                        },
+                        {
+                            day: 'Tuesday',
+                            startTime: '18:00',
+                            endTime: '19:30',
+                        },
+                        {
+                            day: 'Wednesday',
+                            startTime: '10:00',
+                            endTime: '11:30',
+                        },
+                        {
+                            day: 'Thursday',
+                            startTime: '18:00',
+                            endTime: '19:30',
+                        },
+                        {
+                            day: 'Friday',
+                            startTime: '10:00',
+                            endTime: '11:30',
+                        }
+                    ],
+                }
             },
         }),
         prisma.activity.create({
@@ -383,12 +493,18 @@ async function main() {
                     'restriction or diet — it\'s an invitation to rediscover the joy of eating and moving with awareness.',
                 isHighlighted: false,
                 type: 'SEMINAR',
-                date: {
-                    create: [{ data: new Date('2026-01-10') }],
-                },
                 image: {
                     create: [{ url: 'images/activity/MindfulEating.png' }],
                 },
+                timeSchedule: {
+                    create: [
+                        {
+                            day: 'Saturday',
+                            startTime: '10:00',
+                            endTime: '12:00',
+                        }
+                    ],
+                }
             },
         }),
         prisma.activity.create({
@@ -402,37 +518,110 @@ async function main() {
                     'This workshop is suitable for all levels and offers a beautiful opportunity to connect with oneself and the healing power of sound.',
                 isHighlighted: false,
                 type: 'SEMINAR',
-                date: {
-                    create: [{ data: new Date('2026-02-20') }],
-                },
                 image: {
                     create: [{ url: 'images/activity/SoundHealing.png' }],
                 },
+                timeSchedule: {
+                    create: [
+                        {
+                            day: 'Sunday',
+                            startTime: '10:00',
+                            endTime: '12:00',
+                        }
+                    ],
+                }
             },
         }),
     ])
 
     // 3. Crea le relazioni tra insegnanti e attività
-    await Promise.all([
+    const relations = await Promise.all([
         prisma.teach.create({
             data: {
-                teacherId: teachers[0].id,
-                activityId: activities[0].id,
+                teacherId: teachers[0].id, // Luca
+                activityId: activities[0].id, // Yin Yoga
             },
         }),
         prisma.teach.create({
             data: {
-                teacherId: teachers[1].id,
-                activityId: activities[1].id,
+                teacherId: teachers[0].id, // Luca
+                activityId: activities[1].id, // Power Yoga
             },
         }),
         prisma.teach.create({
             data: {
-                teacherId: teachers[2].id,
-                activityId: activities[2].id,
+                teacherId: teachers[0].id, // Luca
+                activityId: activities[4].id, // Mindfulness
             },
         }),
-    ])
+        prisma.teach.create({
+            data: {
+                teacherId: teachers[1].id, // Giulia
+                activityId: activities[0].id, // Yin Yoga
+            },
+        }),
+        prisma.teach.create({
+            data: {
+                teacherId: teachers[1].id, // Giulia
+                activityId: activities[1].id, // Power Yoga
+            },
+        }),
+        prisma.teach.create({
+            data: {
+                teacherId: teachers[1].id, // Giulia
+                activityId: activities[2].id, // Ashtanga Yoga
+            },
+        }),
+        prisma.teach.create({
+            data: {
+                teacherId: teachers[2].id, // Marco
+                activityId: activities[6].id, // Pilates
+            },
+        }),
+        prisma.teach.create({
+            data: {
+                teacherId: teachers[3].id, // Sara
+                activityId: activities[2].id, // Ashtanga Yoga
+            },
+        }),
+        prisma.teach.create({
+            data: {
+                teacherId: teachers[3].id, // Sara
+                activityId: activities[6].id, // Pilates
+            },
+        }),
+        prisma.teach.create({
+            data: {
+                teacherId: teachers[3].id, // Sara
+                activityId: activities[7].id, // Mindful Eating & Yoga
+            },
+        }),
+        prisma.teach.create({
+            data: {
+                teacherId: teachers[4].id, // Francesco
+                activityId: activities[3].id, // Vinyasa Yoga
+            },
+        }),
+        prisma.teach.create({
+            data: {
+                teacherId: teachers[4].id, // Francesco
+                activityId: activities[8].id, // Yoga & Sound Healing
+            },
+        }),
+        prisma.teach.create({
+            data: {
+                teacherId: teachers[5].id, // Elena
+                activityId: activities[4].id, // Mindfulness
+            },
+        }),
+        prisma.teach.create({
+            data: {
+                teacherId: teachers[5].id, // Elena
+                activityId: activities[5].id, // Zen Meditation
+            },
+        }),
+    ]);
+
 
     console.log('Database popolato con successo!')
 }

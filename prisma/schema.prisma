@@ -23,12 +23,31 @@ enum ActivityType {
   SEMINAR
 }
 
+enum WeekDay {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
+}
+
+model ActivityDate {
+  id         Int      @id @default(autoincrement())
+  activityId Int
+  day        WeekDay
+  startTime  DateTime
+  endTime    DateTime
+  activity   Activity @relation(fields: [activityId], references: [id])
+}
+
 model Activity {
   id               Int             @id @default(autoincrement())
   title            String          @unique
   shortDescription String
   description      String
-  date             ActivityDate[]
+  timeSchedule     ActivityDate[]
   image            ActivityImage[] // array of urls
   isHighlighted    Boolean         @default(false)
   type             ActivityType
@@ -49,14 +68,6 @@ model TeacherImage {
   url       String
   teacher   Teacher @relation(fields: [teacherId], references: [id])
   teacherId Int
-}
-
-//da capire come gestire le date
-model ActivityDate {
-  id         Int      @id @default(autoincrement())
-  data       DateTime
-  activityId Int
-  activity   Activity @relation(fields: [activityId], references: [id])
 }
 
 model Teacher {
