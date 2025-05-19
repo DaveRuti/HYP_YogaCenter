@@ -5,6 +5,12 @@
     </div>
     <div class="main">
       <div class="content">
+
+        <OrientationLink
+          :text="'Activities'"
+          :route="'activitieslist'"
+          :activity="'Ashtanga Yoga'"/>
+
         <h1>{{ activity.title }}</h1>
         <img :src="activity.image?.[0]?.url">
         <p>{{ activity.description }}</p>

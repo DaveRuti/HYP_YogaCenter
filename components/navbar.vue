@@ -31,7 +31,7 @@ function toggleMenu() {
       <li><router-link to="/activitieslist" active-class="active-link">Activities</router-link></li>
       <li><router-link to="/teacherslist" active-class="active-link">Teachers</router-link></li>
       <li><router-link to="/highlights" exact-active-class="active-link">Highlights</router-link></li>
-      <li><a href="#">About</a></li>
+      <li><router-link to="/about" exact-active-class="active-link">About</router-link></li>
     </ul>
   </nav>
 </template>

@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'Item',
+  name: 'ItemTeacher',
   props: {
     title: {
       type: String,
