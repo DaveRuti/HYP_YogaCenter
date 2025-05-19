@@ -11,7 +11,7 @@ export default defineEventHandler(async () => {
             },
             include: {
                 image: true,
-                date: true,
+              /*  date: true, */
             },
         });
 
