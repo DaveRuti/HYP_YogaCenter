@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'Item',
+  name: 'ItemActivity',
   props: {
     title: {
       type: String,
@@ -28,7 +28,9 @@ export default {
   methods: {
     goToActivityPage() {
       //this.$router.push(`/api/activity/${this.id}`);
-      this.$router.push(`/activity`);
+      //this.$router.push({ path: '/activity', query: { id: this.id } });
+      //this.$router.push('/activity');
+      this.$router.push({name: 'activity', params:{id: this.id}});
     }
   }
 };

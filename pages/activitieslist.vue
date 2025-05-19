@@ -9,14 +9,13 @@
         <p>Flow into peace and explore your wellness</p>
       </div>
       <div class="activities-list">
+
         <ItemActivity
             v-for="activity in activities"
             :id="activity.id"
             :key="activity.id"
             :title="activity.title"
-            :imageUrl="activity.image?.[0]?.url"
-            :route="`/activity/${activity.id}`"
-        />
+            :imageUrl="activity.image?.[0]?.url"/>
       </div>
     </div>
     <div class="footer">

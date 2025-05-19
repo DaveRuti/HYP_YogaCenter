@@ -10,10 +10,9 @@
       <div class="error-container">
         <div class="content">
           <h1 v-if="error.statusCode === 500">500 - Internal Server Error</h1>
-          <h1 v-if="error.statusCode === 404">404 - Page not found
-          <br><h2>Even websites lose their balance sometimes.</h2>
-          </h1>
-          <h1 v-else>Oops! Something went wrong</h1>
+          <h1 v-if="error.statusCode === 404">404 - Page not found</h1>
+          <h1 v-else>Oops! Something went wrong</h1><br>
+          <h2>Even websites lose their balance sometimes.</h2>
 
           <p>{{ error.message }}</p>
         </div>

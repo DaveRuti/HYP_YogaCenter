@@ -5,9 +5,9 @@
     </div>
     <div class="main">
       <div class="content">
-        <h1>{{ title }}</h1>
-        <img :src="{ imageUrl }">
-        <p>{{ description }}</p>
+        <h1>{{ activity.title }}</h1>
+        <img :src="activity.image?.[0]?.url">
+        <p>{{ activity.description }}</p>
 
         <LessonsSchedule />
 
@@ -36,40 +36,27 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, onMounted } from 'vue';
 import ItemActivity from "~/components/ItemActivity.vue";
 import LessonSchedule from "~/components/LessonsSchedule.vue";
 import ItemTeacher from "~/components/ItemTeacher.vue";
 import ActivityLesson from "~/components/ActivityLesson.vue";
 
-export default {
-  name: 'ActivityPage',
-  components: {ItemTeacher, ItemActivity, LessonSchedule, ActivityLesson},
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    id: {
-      type: String,
-      required: true
-    },
-    imageUrl: {
-      type: String,
-      required: true,
-      default: 'https://via.placeholder.com/300x200?text=No+Image'
-    },
-    description: {
-      type: String,
-      required: true
-    },
-    teachers: {
-      type: [],
-      required: true
-    }
-  }
-};
+const activity = 0;
+const teachers = ref([]);
+
+const route = useRoute();
+const id = route.params.id;
+
+console.log(route + "\n\n --------------- \n\n");
+console.log(id);
+
+
+onMounted(async () => {
+  const res = await fetch('/api/teachers');
+  teachers.value = await res.json();
+  })
 
 </script>
 
