@@ -236,12 +236,29 @@ async function main() {
                     'presence, and emotional release.',
                 isHighlighted: true,
                 type: 'YOGA',
-                date: {
-                    create: [{ data: new Date('2025-06-15') }],
-                },
                 image: {
                     create: [{ url: '/images/activity/YinYoga.png' }],
                 },
+                timeSchedule: {
+                    create: [
+                        {
+                            day: "MONDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                        },
+                        {
+                            day: "WEDNESDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                        },
+                        {
+                            day: "FRIDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                        }
+                    ]
+                }
+
             },
         }),
         prisma.activity.create({
@@ -257,12 +274,29 @@ async function main() {
                     'those who enjoy an active, fitness-oriented approach to yoga.',
                 isHighlighted: false,
                 type: 'YOGA',
-                date: {
-                    create: [{ data: new Date('2025-07-01') }],
-                },
                 image: {
                     create: [{ url: '/images/activity/PowerYoga.png' }],
                 },
+                timeSchedule: {
+                    create: [
+                        {
+                            day: "MONDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                        },
+                        {
+                            day: "WEDNESDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                        },
+                        {
+                            day: "FRIDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                        }
+                    ]
+                }
+
             },
         }),
         prisma.activity.create({
@@ -284,32 +318,23 @@ async function main() {
                 timeSchedule: {
                     create: [
                         {
-                            day: 'Monday',
-                            startTime: '18:00',
-                            endTime: '19:30',
+                            day: "MONDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         },
                         {
-                            day: 'Tuesday',
-                            startTime: '16:00',
-                            endTime: '17:30',
+                            day: "WEDNESDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         },
                         {
-                            day: 'Wednesday',
-                            startTime: '18:00',
-                            endTime: '19:30',
-                        },
-                        {
-                            day: 'Thursday',
-                            startTime: '16:00',
-                            endTime: '17:30',
-                        },
-                        {
-                            day: 'Friday',
-                            startTime: '18:00',
-                            endTime: '19:30',
+                            day: "FRIDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         }
-                    ],
+                    ]
                 }
+
             },
         }),
         prisma.activity.create({
@@ -331,32 +356,23 @@ async function main() {
                 timeSchedule: {
                     create: [
                         {
-                            day: 'Monday',
-                            startTime: '10:00',
-                            endTime: '11:30',
+                            day: "MONDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         },
                         {
-                            day: 'Tuesday',
-                            startTime: '18:00',
-                            endTime: '19:30',
+                            day: "WEDNESDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         },
                         {
-                            day: 'Wednesday',
-                            startTime: '10:00',
-                            endTime: '11:30',
-                        },
-                        {
-                            day: 'Thursday',
-                            startTime: '18:00',
-                            endTime: '19:30',
-                        },
-                        {
-                            day: 'Friday',
-                            startTime: '10:00',
-                            endTime: '11:30',
+                            day: "FRIDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         }
-                    ],
+                    ]
                 }
+
             },
         }),
         prisma.activity.create({
@@ -378,22 +394,23 @@ async function main() {
                 timeSchedule: {
                     create: [
                         {
-                            day: 'Monday',
-                            startTime: '19:00',
-                            endTime: '20:00',
+                            day: "MONDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         },
                         {
-                            day: 'Wednesday',
-                            startTime: '19:00',
-                            endTime: '20:00',
+                            day: "WEDNESDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         },
                         {
-                            day: 'Friday',
-                            startTime: '19:00',
-                            endTime: '20:00',
+                            day: "FRIDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         }
-                    ],
+                    ]
                 }
+
             },
         }),
         prisma.activity.create({
@@ -416,22 +433,23 @@ async function main() {
                 timeSchedule: {
                     create: [
                         {
-                            day: 'Tuesday',
-                            startTime: '19:00',
-                            endTime: '20:00',
+                            day: "MONDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         },
                         {
-                            day: 'Thursday',
-                            startTime: '19:00',
-                            endTime: '20:00',
+                            day: "WEDNESDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         },
                         {
-                            day: 'Saturday',
-                            startTime: '10:00',
-                            endTime: '11:30',
+                            day: "FRIDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         }
-                    ],
+                    ]
                 }
+
             },
         }),
         prisma.activity.create({
@@ -453,32 +471,23 @@ async function main() {
                 timeSchedule: {
                     create: [
                         {
-                            day: 'Monday',
-                            startTime: '10:00',
-                            endTime: '11:30',
+                            day: "MONDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         },
                         {
-                            day: 'Tuesday',
-                            startTime: '18:00',
-                            endTime: '19:30',
+                            day: "WEDNESDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         },
                         {
-                            day: 'Wednesday',
-                            startTime: '10:00',
-                            endTime: '11:30',
-                        },
-                        {
-                            day: 'Thursday',
-                            startTime: '18:00',
-                            endTime: '19:30',
-                        },
-                        {
-                            day: 'Friday',
-                            startTime: '10:00',
-                            endTime: '11:30',
+                            day: "FRIDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         }
-                    ],
+                    ]
                 }
+
             },
         }),
         prisma.activity.create({
@@ -499,12 +508,23 @@ async function main() {
                 timeSchedule: {
                     create: [
                         {
-                            day: 'Saturday',
-                            startTime: '10:00',
-                            endTime: '12:00',
+                            day: "MONDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                        },
+                        {
+                            day: "WEDNESDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                        },
+                        {
+                            day: "FRIDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         }
-                    ],
+                    ]
                 }
+
             },
         }),
         prisma.activity.create({
@@ -524,12 +544,23 @@ async function main() {
                 timeSchedule: {
                     create: [
                         {
-                            day: 'Sunday',
-                            startTime: '10:00',
-                            endTime: '12:00',
+                            day: "MONDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                        },
+                        {
+                            day: "WEDNESDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                        },
+                        {
+                            day: "FRIDAY",
+                            startTime: new Date("2025-05-20T19:00:00.000Z"),
+                            endTime: new Date("2025-05-20T20:00:00.000Z")
                         }
-                    ],
+                    ]
                 }
+
             },
         }),
     ])
