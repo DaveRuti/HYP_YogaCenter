@@ -73,7 +73,9 @@
       </div>
     </section>
 
-    <Footer />
+    <div class="footer">
+      <Footer />
+    </div>
   </div>
 </template>
 
