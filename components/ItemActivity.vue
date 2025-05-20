@@ -30,7 +30,7 @@ export default {
       //this.$router.push(`/api/activity/${this.id}`);
       //this.$router.push({ path: '/activity', query: { id: this.id } });
       //this.$router.push('/activity');
-      this.$router.push({name: 'activity', params:{id: this.id}});
+      this.$router.push({name: 'activity', params:{activity: this.id}});
     }
   }
 };

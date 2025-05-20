@@ -5,7 +5,15 @@ const prisma = new PrismaClient();
 export default defineEventHandler(async (event) => {
     try {
         //Estraggo l'id
-        const { id } = event.context.params.activity;
+        const id = event.context.params.activity;
+
+        console.log(id + "\n\n --------------- \n\n");
+        console.log('params:', event.context.params);
+        console.log('params:', event.context.params.activity);
+
+        if (!id) {
+            return { error: 'Missing ID' };
+        }
 
         //Recupero attività
         const activity = await prisma.activity.findUnique({

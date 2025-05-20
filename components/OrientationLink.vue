@@ -41,7 +41,7 @@ export default {
 <style  scoped>
 
 .activities {
-  width: 173px;
+  width: 570px;
   position: absolute;
   font-size: 28px;
   text-decoration: underline;
@@ -53,7 +53,8 @@ export default {
   display: inline-block;
   height: 43px;
   cursor: pointer;
-  left: 61px;
+  left: -150px;
+  top: -28px;
 }
 
 .activity {

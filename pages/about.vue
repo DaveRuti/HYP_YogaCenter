@@ -30,7 +30,9 @@
 
 
       <div class="AboutUsEpilogueContainer">
-        <h3>Regulation</h3>
+        <h2>Regulation</h2>
+        <br>
+        <br>
         <ol>
           <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
           <li>Lorem ipsum dolor sit amet</li>
@@ -69,7 +71,7 @@
   line-height: 41px;
   font-weight: 300;
   display: inline-block;
-  height: 492px;
+  height: 500px;
   flex-shrink: 0;
 }
 .loremIpsumDolor1 {
@@ -92,7 +94,7 @@
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
-  gap: 38px 104px;
+  gap: 78px 104px;
 }
 
 .frameChild {
@@ -153,6 +155,10 @@ li {
   display: inline-block;
   height: 587px;
   margin-top: 160px;
+}
+
+h2{
+  text-align: center;
 }
 
 </style>

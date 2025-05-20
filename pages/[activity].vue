@@ -9,7 +9,7 @@
         <OrientationLink
           :text="'Activities'"
           :route="'activitieslist'"
-          :activity="'Ashtanga Yoga'"/>
+          :activity="activity.title"/>
 
         <h1>{{ activity.title }}</h1>
         <img :src="activity.image?.[0]?.url">
@@ -49,19 +49,23 @@ import LessonSchedule from "~/components/LessonsSchedule.vue";
 import ItemTeacher from "~/components/ItemTeacher.vue";
 import ActivityLesson from "~/components/ActivityLesson.vue";
 
-const activity = 0;
+const activity = ref({});
 const teachers = ref([]);
 
 const route = useRoute();
-const id = route.params.id;
+const id = route.params.activity;
 
-console.log(route + "\n\n --------------- \n\n");
-console.log(id);
+console.log(id + "\n\n --------------- \n\n");
+console.log(route.params.activity + "\n\n --------------- \n\n");
+console.log(route.name);
 
 
 onMounted(async () => {
   const res = await fetch('/api/teachers');
   teachers.value = await res.json();
+  const res2 = await fetch(`/api/activity/${id}`);
+  activity.value = await res2.json();
+  console.log(activity.value.title);
   })
 
 </script>
