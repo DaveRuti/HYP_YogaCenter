@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view /> <!-- Qui viene visualizzata la pagina attiva -->
+    <Nuxt-page /> <!-- Qui viene visualizzata la pagina attiva -->
   </div>
 </template>
 
