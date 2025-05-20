@@ -1,10 +1,8 @@
 <template>
-  <div class="square">
-    <slot>
-      <img :src="imageUrl" alt="Image" class="icon" />
-      <p>{{ title }}</p>
-    </slot>
-  </div>
+  <router-link :to="to" class="square" @click="$emit('clicked')">
+    <img :src="imageUrl" alt="Image" class="icon" />
+    <p>{{ title }}</p>
+  </router-link>
 </template>
 
 <script setup>
@@ -16,6 +14,11 @@ defineProps({
   imageUrl: {
     type: String,
     required: true,
+    default: 'https://via.placeholder.com/300x200?text=No+Image'
+  },
+  to: {
+    type: String,
+    required: true
   }
 });
 </script>
@@ -24,22 +27,26 @@ defineProps({
 .square {
   width: 150px;
   height: 150px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #f8f8f6;
-  border: 1px solid #ddd;
+  border: 1px solid #f0f0f0;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
 }
 
 .square:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  background-color: #00ff88;
+  border: 1px solid #00ff88;
+  box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
 }
 
 .icon {
@@ -52,5 +59,6 @@ p {
   font-size: 1rem;
   color: #333;
   font-weight: bold;
+  text-decoration: none;
 }
 </style>

@@ -31,7 +31,7 @@ function toggleMenu() {
       <li><router-link to="/activitieslist" active-class="active-link">Activities</router-link></li>
       <li><router-link to="/teacherslist" active-class="active-link">Teachers</router-link></li>
       <li><router-link to="/highlights" exact-active-class="active-link">Highlights</router-link></li>
-      <li><router-link to="/about" exact-active-class="active-link">About</router-link></li>
+      <li><router-link to="/about" exact-active-class="active-link">About Us</router-link></li>
     </ul>
   </nav>
 </template>
@@ -98,6 +98,7 @@ function toggleMenu() {
 }
 
 .nav-links li a:hover {
+  transform: translateY(-2px);
   background-color: #00ff88;
   color: black;
   box-shadow: 0 0 10px #00ff88aa, 0 0 20px #00ff88aa;
@@ -192,7 +193,7 @@ function toggleMenu() {
   .nav-links li a:hover {
     background-color: #00ff88;
     color: black;
-    box-shadow: 0 0 10px #00ff88aa, 0 0 20px #00ff88aa;
+    box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
   }
 
   .active-link {

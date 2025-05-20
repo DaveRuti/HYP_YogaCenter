@@ -37,8 +37,15 @@ function toggleAnswer(index) {
 </script>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+* {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
 .faq-container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
@@ -57,7 +64,8 @@ function toggleAnswer(index) {
 }
 
 .faq-question {
-  font-weight: 600;
+  font-weight: 900;
+  font-size: 1.3rem;
   color: #333;
   display: flex;
   justify-content: space-between;
@@ -82,6 +90,6 @@ function toggleAnswer(index) {
 .faq-answer {
   margin-top: 5px;
   color: #666;
-  font-size: 0.95rem;
+  font-size: 1.3rem;
 }
 </style>

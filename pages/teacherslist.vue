@@ -34,11 +34,16 @@ onMounted(async () => {
   const res = await fetch('/api/teachers');
   teachers.value = await res.json();
 });
+
 </script>
 
 <style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+* {
+  font-family: 'Nunito Sans', sans-serif;
+}
 
 .page {
   display: flex;
@@ -59,7 +64,6 @@ html, body {
 .content {
   padding-top: 100px;
   padding-bottom: 100px;
-  font-family: 'Nunito Sans', sans-serif;
 }
 
 h1{

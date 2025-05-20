@@ -56,7 +56,7 @@ export default {
   inset: 0;
   background-size: cover;
   background-position: center;
-    transition: transform 0.4s ease, filter 0.3s ease;
+  transition: transform 0.4s ease, filter 0.3s ease;
   z-index: 0;
   }
 
