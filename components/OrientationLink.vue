@@ -58,7 +58,7 @@ export default {
 }
 
 .activity {
-  width: 273px;
+  width: 473px;
   position: absolute;
   font-size: 28px;
   text-decoration: underline;

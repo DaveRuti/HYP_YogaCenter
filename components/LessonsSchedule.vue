@@ -129,6 +129,7 @@
   font-size: 80px;
   color: #000;
   font-family: 'Nunito Sans';
+  max-width: 1500px;
 }
 
 @media (max-width: 500px) {

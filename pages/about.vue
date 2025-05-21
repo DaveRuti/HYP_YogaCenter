@@ -73,6 +73,7 @@
   display: inline-block;
   height: 500px;
   flex-shrink: 0;
+  font-size: 30px;
 }
 .loremIpsumDolor1 {
   width: 560px;
@@ -82,6 +83,7 @@
   display: inline-block;
   height: 500px;
   flex-shrink: 0;
+  font-size: 30px;
 }
 .ourHistoryParent {
   position: relative;

@@ -12,12 +12,12 @@
           :activity="activity.title"/>
 
         <h1>{{ activity.title }}</h1>
-        <img :src="activity.image?.[0]?.url">
-        <p>{{ activity.description }}</p>
+        <img :src="activity.image?.[0]?.url" class="icon">
+        <p class="activity-description">{{ activity.description }}</p>
 
-        <LessonsSchedule />
+        <LessonsSchedule id="lessonScheduleTab" />
 
-        <b>Teachers</b>
+        <h1>Teachers</h1>
 
         <div class="teachers-list">
           <ItemTeacher
@@ -31,9 +31,9 @@
 
       </div>
 
-      <b>Lessons</b>
+      <h1>Lessons</h1>
 
-        <ActivityLesson />
+        <ActivityLesson class="activity-lessons"/>
 
     </div>
     <div class="footer">
@@ -44,7 +44,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import ItemActivity from "~/components/ItemActivity.vue";
+//import ItemActivity from "~/components/ItemActivity.vue";
 import LessonSchedule from "~/components/LessonsSchedule.vue";
 import ItemTeacher from "~/components/ItemTeacher.vue";
 import ActivityLesson from "~/components/ActivityLesson.vue";
@@ -72,6 +72,7 @@ onMounted(async () => {
 
 <style scoped>
 @import "../assets/global.css" ;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
 .teachers-list {
   display: grid;
@@ -81,6 +82,53 @@ onMounted(async () => {
   align-items: start;
   max-width: 1250px;            /* Limita la larghezza totale della griglia */
   margin: 0 auto;
+}
+
+.icon {
+  /*width: 50%;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 885px;
+  object-fit: cover;*/
+  height: 1205px;
+  margin-bottom: 100px;
+}
+
+h1{
+  margin-top: 100px;
+  margin-bottom:  140px;
+}
+
+.activity-description{
+  margin-bottom: 150px;
+
+  width: 100%;
+  position: relative;
+  font-size: 25px;
+  line-height: 41px;
+  font-weight: 300;
+  font-family: 'Nunito Sans';
+  color: #000;
+  text-align: justify;
+  display: inline-block;
+  height: 188px;
+  padding-right: 250px;
+  padding-left: 250px;
+}
+
+#lessonScheduleTab{
+  align-content: center;
+  left: 10%;
+  right: 10%;
+  margin-bottom: 150px;
+}
+
+.activity-lessons{
+  margin-top: 50px;
+  left: 15%;
+  right: 10%;
+  margin-bottom: 150px;
 }
 
 </style>
