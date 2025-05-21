@@ -11,7 +11,7 @@
 <style scoped>.youngWomanDoingYogaOutsideIcon {
   width: 475px;
   position: relative;
-  height: 377px;
+  height: 577px;
   object-fit: cover;
 }
 .loremIpsumDolor {
