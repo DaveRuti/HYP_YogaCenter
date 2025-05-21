@@ -1,11 +1,24 @@
 
-<\script>
+<script>
+
+export default {
+  name: 'DaySchedule',
+  props: {
+    activity: {
+      type: ref({}),
+      required: true
+    }
+  }
+};
+
+</script>
 
 <template>
   <div class="lessonsScheduleParent">
     <b class="lessonsSchedule">Lessons Schedule</b>
     <div class="frameParent">
-      <div class="mondayParent">
+
+      <!--<div class="mondayParent">
         <div class="monday">
           <p class="p">Monday:                 </p>
           <p class="p">   </p>
@@ -14,55 +27,25 @@
           <p class="p1">13:00 - 16:00</p>
         </div>
       </div>
-      <div class="mondayParent">
-        <div class="monday">
-          <p class="p">Thursday:                 </p>
-          <p class="p">   </p>
-        </div>
-        <div class="div">
-          <p class="p1">13:00 - 16:00</p>
-        </div>
-      </div>
-      <div class="mondayParent">
-        <div class="monday">
-          <p class="p">Tuesday:                 </p>
-          <p class="p">   </p>
-        </div>
-        <div class="div">
-          <p class="p1">13:00 - 16:00</p>
-        </div>
-      </div>
-      <div class="mondayParent">
-        <div class="monday">
-          <p class="p">Friday:                 </p>
-          <p class="p">   </p>
-        </div>
-        <div class="div">
-          <p class="p1">13:00 - 16:00</p>
-        </div>
-      </div>
-      <div class="mondayParent">
-        <div class="monday">
-          <p class="p">Wednesday:                 </p>
-          <p class="p">   </p>
-        </div>
-        <div class="div">
-          <p class="p1">13:00 - 16:00</p>
-        </div>
-      </div>
-      <div class="mondayParent">
-        <div class="monday">
-          <p class="p">Saturday:                 </p>
-          <p class="p">   </p>
-        </div>
-        <div class="div">
-          <p class="p1">13:00 - 16:00</p>
-        </div>
-      </div>
+
+      <DaySchedule :v-for="daySchedule in activity.timeSchedule"
+                   :day="daySchedule.day"
+                   :start-time="daySchedule.startTime"
+                   :end-time="daySchedule.endTime"
+      />-->
+
+      <DaySchedule
+          :day="'Monday'"
+          :start-time="'13:00'"
+          :end-time="'16:00'"
+      />
+
     </div>
   </div>
 </template>
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
 .lessonsSchedule {
   position: absolute;
@@ -110,7 +93,7 @@
   left: 164px;
   width: 1114px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -118,13 +101,14 @@
   gap: 43px 190px;
   text-align: justify;
   font-size: 32px;
+  height: 278px;
 }
 .lessonsScheduleParent {
   width: 100%;
   position: relative;
   border-radius: 88px;
   background-color: rgba(8, 102, 58, 0.24);
-  height: 498px;
+  height: 598px;
   text-align: left;
   font-size: 80px;
   color: #000;
@@ -132,7 +116,7 @@
   max-width: 1500px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
 
 
   .lessonsSchedule {
@@ -149,7 +133,7 @@
     transform-origin: 0 0;
   }
 
-  .p {
+  /*.p {
     margin: 0;
     white-space: pre-wrap;
   }
@@ -191,12 +175,12 @@
     align-items: center;
     justify-content: flex-start;
     gap: 80px;
-  }
+  }*/
 
   .frameParent {
     width: 500px;
     position: absolute;
-    height: 500px;
+    height: 600px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
