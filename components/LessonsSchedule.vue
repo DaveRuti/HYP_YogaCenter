@@ -1,5 +1,5 @@
 
-<script>
+<!--<script>
 
 export default {
   name: 'DaySchedule',
@@ -10,6 +10,19 @@ export default {
     }
   }
 };
+
+//console.log(this.activity);
+
+</script>-->
+
+<script setup>
+import { toRef } from 'vue'
+
+const props = defineProps({
+  timeSchedule: Object,  // or use Ref type if using TS
+})
+
+console.log(props.timeSchedule + "-------------");
 
 </script>
 
@@ -36,6 +49,30 @@ export default {
 
       <DaySchedule
           :day="'Monday'"
+          :start-time="'13:00'"
+          :end-time="'16:00'"
+      />
+
+      <DaySchedule
+          :day="'Tuesday'"
+          :start-time="'13:00'"
+          :end-time="'16:00'"
+      />
+
+      <DaySchedule
+          :day="'Wednesday'"
+          :start-time="'13:00'"
+          :end-time="'16:00'"
+      />
+
+      <DaySchedule
+          :day="'Thursday'"
+          :start-time="'13:00'"
+          :end-time="'16:00'"
+      />
+
+      <DaySchedule
+          :day="'Friday'"
           :start-time="'13:00'"
           :end-time="'16:00'"
       />

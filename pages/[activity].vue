@@ -15,7 +15,7 @@
         <img :src="activity.image?.[0]?.url" class="icon">
         <p class="activity-description">{{ activity.description }}</p>
 
-        <LessonsSchedule id="lessonScheduleTab" />
+        <LessonsSchedule id="lessonScheduleTab" :activity="activity.timeSchedule"/>
 
         <h1>Teachers</h1>
 
@@ -55,17 +55,13 @@ const teachers = ref([]);
 const route = useRoute();
 const id = route.params.activity;
 
-console.log(id + "\n\n --------------- \n\n");
-console.log(route.params.activity + "\n\n --------------- \n\n");
-console.log(route.name);
-
 
 onMounted(async () => {
   const res = await fetch('/api/teachers');
   teachers.value = await res.json();
   const res2 = await fetch(`/api/activity/${id}`);
   activity.value = await res2.json();
-  console.log(activity.value.title);
+  console.log(activity.value.timeSchedule);
   })
 
 </script>

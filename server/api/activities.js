@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
     try {
         return await prisma.activity.findMany({
             include: {
-                image: true
+                image: true,
             }
         });
 
