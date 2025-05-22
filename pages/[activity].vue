@@ -57,11 +57,11 @@ const id = route.params.activity;
 
 
 onMounted(async () => {
-  const res = await fetch('/api/teachers');
+  const res = await fetch(`/api/activity-teachers/${id}`);
   teachers.value = await res.json();
   const res2 = await fetch(`/api/activity/${id}`);
   activity.value = await res2.json();
-  console.log(activity.value.timeSchedule);
+  console.log(teachers.value);
   })
 
 </script>
