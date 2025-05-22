@@ -61,13 +61,13 @@ onMounted(async () => {
   teachers.value = await res.json();
   const res2 = await fetch(`/api/activity/${id}`);
   activity.value = await res2.json();
-  console.log(teachers.value);
+  console.log(activity.value);
   })
 
 </script>
 
 <style scoped>
-@import "../assets/global.css" ;
+@import "../../assets/global.css";
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
 .teachers-list {

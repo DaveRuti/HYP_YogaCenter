@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     goToTeacherPage() {
-      this.$router.push({name: 'teacher', params:{teacher: this.id}});
+      this.$router.push({name: 'teacher-teacher', params:{teacher: this.id}});
     }
   }
 };

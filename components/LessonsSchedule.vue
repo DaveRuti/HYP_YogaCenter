@@ -55,26 +55,26 @@ console.log(props.timeSchedule + "-------------");
 
       <DaySchedule
           :day="'Tuesday'"
-          :start-time="'13:00'"
-          :end-time="'16:00'"
+          :start-time="'10:00'"
+          :end-time="'12:00'"
       />
 
       <DaySchedule
           :day="'Wednesday'"
-          :start-time="'13:00'"
+          :start-time="'14:00'"
           :end-time="'16:00'"
       />
 
       <DaySchedule
           :day="'Thursday'"
-          :start-time="'13:00'"
-          :end-time="'16:00'"
+          :start-time="'15:00'"
+          :end-time="'17:00'"
       />
 
       <DaySchedule
           :day="'Friday'"
-          :start-time="'13:00'"
-          :end-time="'16:00'"
+          :start-time="'10:00'"
+          :end-time="'11:00'"
       />
 
     </div>
