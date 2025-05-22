@@ -28,10 +28,10 @@ function toggleMenu() {
     </div>
 
     <ul class="nav-links" :class="{ show: isMenuVisible }">
-      <li><router-link to="/activitieslist" active-class="active-link">Activities</router-link></li>
-      <li><router-link to="/teacherslist" active-class="active-link">Teachers</router-link></li>
-      <li><router-link to="/highlights" exact-active-class="active-link">Highlights</router-link></li>
-      <li><router-link to="/about" exact-active-class="active-link">About Us</router-link></li>
+      <li><NuxtLink to="/activitieslist" active-class="active-link">Activities</NuxtLink></li>
+      <li><NuxtLink to="/teacherslist" active-class="active-link">Teachers</NuxtLink></li>
+      <li><NuxtLink to="/highlights" exact-active-class="active-link">Highlights</NuxtLink></li>
+      <li><NuxtLink to="/about" exact-active-class="active-link">About Us</NuxtLink></li>
     </ul>
   </nav>
 </template>
@@ -89,25 +89,25 @@ function toggleMenu() {
   justify-content: center;
   color: black;
   text-decoration: none;
-  border-radius: 12px;
   font-size: 1rem;
   padding: 0 1.5rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  /*transition: all 0.3s ease;*/
+  transition: border-color 0.3s ease; /* Smooth transition for the border */
+  border-bottom: 6px solid transparent; /* Invisible border initially */
   height: 100%;
 }
 
 .nav-links li a:hover {
   transform: translateY(-2px);
-  background-color: #00ff88;
+  /*background-color: #00ff88;
   color: black;
-  box-shadow: 0 0 10px #00ff88aa, 0 0 20px #00ff88aa;
+  box-shadow: 0 0 10px #00ff88aa, 0 0 20px #00ff88aa;*/
+  border-bottom: 6px solid #00ff88; /* Green underline on hover */
 }
 
-.active-link {
-  background-color: #8cffc9;
-  color: black;
-  box-shadow: 0 0 10px #8cffc9, 0 0 20px #8cffc9;
+.nav-links li a.active-link {
+  border-bottom: 6px solid #8cffc9;
 }
 
 .menu-icon {
@@ -191,15 +191,15 @@ function toggleMenu() {
   }
 
   .nav-links li a:hover {
-    background-color: #00ff88;
+    transform: translateY(-2px);
+    /*background-color: #00ff88;
     color: black;
-    box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+    box-shadow: 0 0 10px #00ff88aa, 0 0 20px #00ff88aa;*/
+    border-bottom: 6px solid #00ff88; /* Green underline on hover */
   }
 
-  .active-link {
-    background-color: #8cffc9;
-    color: black;
-    box-shadow: 0 0 10px #8cffc9, 0 0 20px #8cffc9;
+  .nav-links li a.active-link {
+    border-bottom: 6px solid #8cffc9;
   }
 
   .menu-icon {
