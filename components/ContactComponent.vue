@@ -32,8 +32,7 @@ defineProps({
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f8f8f6;
-  border: 1px solid #f0f0f0;
+  background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -44,9 +43,7 @@ defineProps({
 
 .square:hover {
   transform: translateY(-5px);
-  background-color: #00ff88;
-  border: 1px solid #00ff88;
-  box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+  background-color: #eee;
 }
 
 .icon {

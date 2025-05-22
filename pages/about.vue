@@ -7,17 +7,22 @@
       <Navbar />
     </div>
     <div class="main">
+
+      <div class="title">
         <div class="content">
-
-          <br><h1>About Us</h1>
-          <img src="/yogaCenterAboutUs.jpg" alt="About Us Image" id="aboutUs"/>
-
+          <h1>About Us</h1>
+          <p>Our story, our passion for yoga, and our community.</p>
         </div>
+      <img src="/aboutUs1.png" alt="About Us Image" class="top-image">
+      </div>
 
       <div class="ourHistoryParent">
-        <b class="ourHistory">Our History</b>
-        <div class="loremIpsumDolor">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </div>
-        <div class="loremIpsumDolor1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </div>
+        <div class="loremIpsumDolor">InnerFlow was born from a simple, powerful idea: that true balance begins within.
+          Founded in 2021 by a group of friends and yoga teachers, InnerFlow started as a shared dream—to create a peaceful
+          space in the heart of the city where people could reconnect with themselves, breathe deeply, and move with intention.</div>
+        <div class="loremIpsumDolor1">Each of us came to yoga for different reasons: to heal, to slow down, to grow stronger,
+          to find clarity. What we discovered was something deeper—a practice that connected body, mind, and spirit, and
+          a community that supported us along the way. InnerFlow grew from those roots.</div>
       </div>
 
       <div class="rectangleParent">
@@ -51,45 +56,108 @@
 </template>
 
 <style scoped>
+
 @import "../assets/global.css" ;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
-#aboutUs{
-  margin-top: 80px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+}
 
+.content {
+  flex: 1;
+  min-width: 280px;
+  box-sizing: border-box;
+}
+
+.main {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+h1 {
+  font-size: clamp(3rem, 6vw, 4rem);
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+p {
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding-top: 60px;
+
+  flex-wrap: wrap; /* permette layout a colonna su mobile */
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.top-image{
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
 }
 
 .ourHistory {
-  width: 857px;
   position: relative;
-  font-size: 60px;
+  font-size: 40px;
   line-height: 114px;
   display: inline-block;
-  text-align: center;
+  text-align: left;
   flex-shrink: 0;
-}
-.loremIpsumDolor {
-  width: 560px;
-  position: relative;
-  line-height: 41px;
-  font-weight: 300;
-  display: inline-block;
-  height: 500px;
-  flex-shrink: 0;
-  font-size: 30px;
-}
-.loremIpsumDolor1 {
-  width: 560px;
-  position: relative;
-  line-height: 41px;
-  font-weight: 300;
-  display: inline-block;
-  height: 500px;
-  flex-shrink: 0;
-  font-size: 30px;
 }
 .ourHistoryParent {
   position: relative;
-  top: 0px;
+  line-height: 41px;
+  font-weight: 300;
+  display: inline-block;
+  height: 500px;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.loremIpsumDolor {
+  width: 500px;
+  position: relative;
+  line-height: 41px;
+  font-weight: 300;
+  display: inline-block;
+  height: 500px;
+  flex-shrink: 0;
+  font-size: 20px;
+  text-align: justify;
+}
+
+.loremIpsumDolor1 {
+  width: 500px;
+  position: relative;
+  line-height: 41px;
+  font-weight: 300;
+  display: inline-block;
+  height: 500px;
+  flex-shrink: 0;
+  font-size: 20px;
+  text-align: justify;
+}
+
+.ourHistoryParent {
+  position: relative;
   left: calc(50% - 616px);
   width: 1224px;
   display: flex;
@@ -102,15 +170,16 @@
 }
 
 .frameChild {
-  //width: 616px;
+  /*width: 616px;
+  height: 580px;*/
   height: 100%;
   width: 100%;
   position: relative;
-  //height: 580px;
   object-fit: cover;
   max-width: 616px;
   max-height: 580px;
 }
+
 .imageIcon {
   position: absolute;
   height: 100%;

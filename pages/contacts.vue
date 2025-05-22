@@ -7,8 +7,8 @@
       <div class="contact-container">
         <div class="content">
 
-            <br><h1>Contacts of our team</h1>
-            <h2>Ask Us Anything, Anywhere</h2>
+            <h1>Contacts of our team</h1>
+            <p>Ask Us Anything, Anywhere</p>
 
         </div>
         <img src="/contact.png" alt="Contact Image" class="page-image"/>
@@ -41,8 +41,6 @@
         />
       </div>
     </div>
-
-    <FAQ/>
     <div class="footer">
       <Footer />
     </div>
