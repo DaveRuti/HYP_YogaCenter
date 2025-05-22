@@ -25,12 +25,13 @@
         <div class="teacher">
           <img class="imageIcon" alt="" src="/aboutUsTeacher2.png" />
         </div>
+
       </div>
 
-
+      <b class="content" id="regulation">Regulation</b>
 
       <div class="AboutUsEpilogueContainer">
-        <h2>Regulation</h2>
+
         <br>
         <br>
         <ol>
@@ -54,6 +55,7 @@
 
 #aboutUs{
   margin-top: 80px;
+
 }
 
 .ourHistory {
@@ -100,10 +102,14 @@
 }
 
 .frameChild {
-  width: 616px;
+  //width: 616px;
+  height: 100%;
+  width: 100%;
   position: relative;
-  height: 580px;
+  //height: 580px;
   object-fit: cover;
+  max-width: 616px;
+  max-height: 580px;
 }
 .imageIcon {
   position: absolute;
@@ -114,7 +120,7 @@
   bottom: 0%;
   left: 0%;
   max-width: 100%;
-  overflow: hidden;
+  //overflow: hidden;
   max-height: 100%;
   object-fit: cover;
 }
@@ -132,6 +138,16 @@
   justify-content: flex-start;
   gap: 68px;
   margin-left: 400px;
+  left: calc(50% - 1016px);
+
+ /* position: relative;
+  top: 0px;
+  left: calc(50% - 616px);
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;*/
 }
 
 ol {
@@ -156,11 +172,56 @@ li {
   text-align: justify;
   display: inline-block;
   height: 587px;
-  margin-top: 160px;
+  margin-top: -100px;
 }
 
-h2{
+#regulation{
   text-align: center;
+  margin-top: 40px;
+  width: 587px;
+  position: relative;
+  font-size: 60px;
+  line-height: 114px;
+  display: inline-block;
+  flex-shrink: 0;
+  left: calc(20% - 180px);
+  margin-right: calc(20%);
+}
+
+@media (min-width: 450px) and (max-width: 1824px) {
+  #regulation{
+    left: calc(20% - 140px);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  #regulation{
+    left: calc(20% - 100px);
+  }
+}
+
+@media (max-width: 1468px) {
+  #aboutUs{
+    width: 80%;
+    min-height: 200px;
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .ourHistory{
+    font-size: 45px;
+  };
+  #regulation{
+    font-size: 45px;
+  };
+}
+
+@media (max-width: 1200px) {
+  .rectangleParent{
+    flex-direction: column;
+  }
+
 }
 
 </style>
