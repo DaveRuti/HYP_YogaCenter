@@ -3,9 +3,12 @@
     <Navbar />
   </div>
 
-  <div class="highlights-container">
-    <h1 class="title">Highlights</h1>
-    <p class="subtitle">Taste our newest activities designed for your yoga needs</p>
+  <div class="main">
+
+    <div class="content">
+      <h1>Highlights</h1>
+      <p>Taste our newest activities designed for your yoga needs</p>
+    </div>
 
     <!-- Highlights Sections -->
     <div
@@ -65,6 +68,23 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+* {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.content {
+  padding-top: 200px;
+  padding-bottom: 100px;
+}
+
+h1{
+  font-size: clamp(3rem, 7vw, 5rem);
+  margin-bottom: 20px;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -73,25 +93,13 @@ onMounted(() => {
   z-index: 10;
 }
 
-.highlights-container {
+.main {
+  flex: 1;
+  padding-left: 20px;
+  padding-right: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  font-family: Arial, sans-serif;
-  padding-top: 150px; /* spazio sotto navbar */
-}
 
-.title {
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  text-align: center;
-  color: #666;
-  margin-bottom: 3rem;
 }
 
 .highlight-section {
