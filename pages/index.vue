@@ -50,7 +50,7 @@
       </div>
     </section>
 
-    <section class="cta" :style="{ backgroundImage: `url(${ctaImage})` }">
+    <section class="cta">
       <div class="cta-content">
         <h2 class="cta-title">Connect, Grow and<br>Thrive Together</h2>
         <p class="cta-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -92,7 +92,7 @@ export default {
   },
   setup() {
     const heroImage = ref('/assets/hero yoga image.jpg');
-    const ctaImage = ref('https://source.unsplash.com/random/1600x900/?yoga,nature');
+    const ctaImage = ref('/assets/green background.png');
     const highlightedActivities = ref([]);
     const teachers = ref([]);
 
@@ -388,6 +388,7 @@ body {
   position: relative;
   height: 100vh;
   width: 100%;
+  background-image: url('/assets/greenBackground.png') ;
   background-position: center;
   background-size: cover;
   display: flex;
@@ -406,7 +407,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  //background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
