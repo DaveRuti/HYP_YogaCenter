@@ -127,4 +127,34 @@ h1{
   margin-bottom: 150px;
 }
 
+/*.main{
+  padding-right: 150px;
+}*/
+
+@media (max-width: 1200px) {
+  .activity-lessons{
+    padding-right: 100px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .activity-lessons{
+    padding-right: 250px;
+  }
+}
+
+@media (max-width: 700px) {
+  .activity-lessons{
+    padding-right: 150px;
+  }
+}
+
+@media (max-width: 450px) {
+  .activity-lessons{
+    padding-right: 90px;
+  }
+}
+
+
+
 </style>

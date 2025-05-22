@@ -8,7 +8,11 @@
     </div>
   </div>
 </template>
-<style scoped>.youngWomanDoingYogaOutsideIcon {
+<style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+.youngWomanDoingYogaOutsideIcon {
   width: 475px;
   position: relative;
   height: 577px;
@@ -40,11 +44,11 @@
   font-family: 'Nunito Sans';
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
   .youngWomanDoingYogaOutsideIcon {
     width: 314px;
     position: relative;
-    height: 227px;
+    height: 427px;
     object-fit: cover;
   }
   .loremIpsumDolor {
@@ -63,20 +67,24 @@
     flex-shrink: 0;
   }
   .youngWomanDoingYogaOutsideParent {
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-content: center;
-    gap: 29px 107px;
-    text-align: justify;
     font-size: 15px;
+    gap: 69px 107px;
+    flex-direction: column;
+    align-content: center;
+    text-align: justify;
     color: #000;
     font-family: 'Nunito Sans';
   }
 }
+
+@media (max-width: 500px) {
+  .youngWomanDoingYogaOutsideIcon {
+    width: 314px;
+    position: relative;
+    height: 327px;
+    object-fit: cover;
+  }
+}
+
 
 </style>
