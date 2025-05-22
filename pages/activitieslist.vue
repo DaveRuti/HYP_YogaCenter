@@ -40,6 +40,10 @@ onMounted(async () => {
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
+* {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
 .page {
   display: flex;
   flex-direction: column;
@@ -57,9 +61,8 @@ html, body {
   box-sizing: border-box;
 }
 .content {
-  padding-top: 100px;
+  padding-top: 200px;
   padding-bottom: 100px;
-  font-family: 'Nunito Sans', sans-serif;
 }
 
 h1{
