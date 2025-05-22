@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { ref, onMounted, useRoute, useHead } from 'vue'
+import { ref, onMounted } from 'vue'
 
 export default {
   name: 'TeacherProfilePage',
@@ -75,7 +75,7 @@ export default {
 
     const fetchTeacher = async () => {
       try {
-        const id = route.params.id
+        const id = route.params.teacher
         loading.value = true
         const response = await fetch(`/api/teacher/${id}`)
         const data = await response.json()
@@ -98,7 +98,7 @@ export default {
     })
 
     // SEO handling
-    useHead(() => ({
+    /*useHead(() => ({
       title: teacher.value ? `${teacher.value.name} ${teacher.value.surname}` : 'Teacher Profile',
       meta: [
         {
@@ -106,7 +106,7 @@ export default {
           content: teacher.value?.shortDescription || 'Teacher profile page'
         }
       ]
-    }))
+    }))*/
 
     return {
       teacher,

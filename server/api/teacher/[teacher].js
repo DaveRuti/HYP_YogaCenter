@@ -5,7 +5,9 @@ const prisma = new PrismaClient();
 export default defineEventHandler(async (event) => {
     try {
 
-        const { id } = event.context.params.id;
+        //const { id } = event.context.params.id;
+
+        const id = event.context.params.teacher;
 
         const teacher = await prisma.teacher.findUnique({
             where: {
