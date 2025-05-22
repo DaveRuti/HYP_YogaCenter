@@ -24,14 +24,14 @@ import Contacts from "~/pages/contacts.vue";
         <div class="footer-column">
           <h3>Support</h3>
           <ul>
-            <li><a href="#">FAQ</a></li>
+            <li><router-link to="/faq">FAQ</router-link></li>
             <li><router-link to="/contacts">Contacts</router-link></li>
           </ul>
         </div>
         <div class="footer-column">
           <h3>Account</h3>
           <ul>
-            <li><a href="#">FAQ</a></li>
+            <li><router-link to="/faq">FAQ</router-link></li>
             <li><router-link to="/contacts">Contacts</router-link></li>
           </ul>
         </div>
@@ -87,8 +87,8 @@ import Contacts from "~/pages/contacts.vue";
 
 
 footer {
-  background-color: #F8F8F6;
-  padding: 40px 0 0 0; /* più simmetrico, solo top se vuoi */
+  background-color: #f9f9f9;
+  padding: 40px 0 0 0;
   width: 100%;
   bottom : 0;
   position: relative;

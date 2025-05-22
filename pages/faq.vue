@@ -4,11 +4,11 @@
       <Navbar />
     </div>
     <div class="main">
-      <div class="contact-container">
+      <div class="title-container">
         <div class="content">
 
-          <br><h1>FAQ</h1>
-          <h2>Frequently Asked Questions and Answers</h2>
+          <h1>FAQ</h1>
+          <p>Frequently Asked Questions and Answers</p>
 
         </div>
         <img src="/faq.png" alt="Contact Image" class="page-image"/>
@@ -70,7 +70,7 @@ const contacts = [
   z-index: 10;
 }
 
-.contact-container {
+.title-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,12 +98,18 @@ const contacts = [
   box-sizing: border-box;
 }
 
+.faq-container {
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .contact-row {
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding: 20px;
-  padding-top: 40px;
+  padding-top: 100px;
   flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
