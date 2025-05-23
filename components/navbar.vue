@@ -32,6 +32,8 @@ function toggleMenu() {
       <li><NuxtLink to="/activitieslist" active-class="active-link">Activities</NuxtLink></li>
       <li><NuxtLink to="/teacherslist" active-class="active-link">Teachers</NuxtLink></li>
       <li><NuxtLink to="/about" exact-active-class="active-link">About Us</NuxtLink></li>
+      <li><NuxtLink to="/contacts" exact-active-class="active-link">Contacts</NuxtLink></li>
+      <li><NuxtLink to="/faq" exact-active-class="active-link">FAQ</NuxtLink></li>
     </ul>
   </nav>
 </template>

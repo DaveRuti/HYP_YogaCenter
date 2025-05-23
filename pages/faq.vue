@@ -13,9 +13,7 @@
         </div>
         <img src="/faq.png" alt="Contact Image" class="page-image"/>
       </div>
-      <div class="faq-container">
         <FAQ/>
-      </div>
       <div class="contact-row">
         <ContactComponent
             v-for="(contact, index) in contacts"
