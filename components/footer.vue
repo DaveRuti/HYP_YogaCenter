@@ -11,25 +11,12 @@ import Contacts from "~/pages/contacts.vue";
           <h3>School</h3>
           <ul>
             <li><router-link to="/teacherslist">Teachers</router-link></li>
-            <li><router-link to="/activitieslist">Courses</router-link></li>
+            <li><router-link to="/activitieslist">Activities</router-link></li>
             <li><a href="#">Regulation</a></li>
           </ul>
         </div>
         <div class="footer-column">
-          <h3>Content</h3>
-          <ul>
-            <li><a href="#">Newsletter</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
           <h3>Support</h3>
-          <ul>
-            <li><router-link to="/faq">FAQ</router-link></li>
-            <li><router-link to="/contacts">Contacts</router-link></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Account</h3>
           <ul>
             <li><router-link to="/faq">FAQ</router-link></li>
             <li><router-link to="/contacts">Contacts</router-link></li>
@@ -48,10 +35,10 @@ import Contacts from "~/pages/contacts.vue";
             <span>InnerFlow</span>
           </div>
           <div class="social-icons">
-            <a href="#"><img src='../assets/twitter.png' alt="Twitter"></a>
-            <a href="#"><img src='../assets/instagram.png' alt="Instagram"></a>
-            <a href="#"><img src='../assets/facebook.png' alt="Facebook"></a>
-            <a href="#"><img src='../assets/telegram.png' alt="Telegram"></a>
+            <a href="https://x.com/KiribatiGov"><img src='../assets/twitter.png' alt="Twitter"></a>
+            <a href="https://www.instagram.com/metrocagliari/"><img src='../assets/instagram.png' alt="Instagram"></a>
+            <a href="https://www.facebook.com/groups/1101641663587587"><img src='../assets/facebook.png' alt="Facebook"></a>
+            <a href="https://t.me/GruppoTelegramCalabria"><img src='../assets/telegram.png' alt="Telegram"></a>
           </div>
         </div>
         <div class="footer-contacts">
