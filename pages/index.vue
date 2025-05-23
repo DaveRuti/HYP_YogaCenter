@@ -9,7 +9,7 @@
         <div class="hero-text-container">
           <h1 class="hero-title">Flow into - Peace<br>One Pose at a Time</h1>
           <p class="hero-description">Whether you are mastering or beginning your journey, join our community for rejuvenating towards well-being</p>
-          <a href="#" class="btn btn-light">See All Activities</a>
+          <a href="/activitieslist" class="btn btn-light">See All Activities</a>
         </div>
 
         <div class="stats">
@@ -32,13 +32,14 @@
     <section class="activities">
       <h2 class="section-title">Your healthy activities</h2>
       <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <a href="#" class="btn btn-green">See Highlights</a>
+      <a href="/highlights" class="btn btn-green">See Highlights</a>
 
       <div class="cards-container">
-        <div
+        <HighlightsHome
             class="card"
             v-for="(activity, index) in highlightedActivities"
-            :key="activity.id"
+            :title="activity.title"
+            :id="activity.id"
             :class="{ 'offset-card': index % 2 !== 0 }"
         >
           <img :src="activity.image?.[0]?.url" :alt="activity.title" class="card-image">
@@ -46,7 +47,7 @@
             <h3 class="card-title">{{ activity.title }}</h3>
             <p class="card-description">{{ activity.description }}</p>
           </div>
-        </div>
+        </HighlightsHome>
       </div>
     </section>
 
@@ -54,14 +55,14 @@
       <div class="cta-content">
         <h2 class="cta-title">Connect, Grow and<br>Thrive Together</h2>
         <p class="cta-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a href="#" class="btn btn-light">See All Activities</a>
+        <a href="/activitieslist" class="btn btn-light">See All Activities</a>
       </div>
     </section>
 
     <section class="teachers">
       <h2 class="section-title">Know your teachers</h2>
       <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <a href="#" class="btn btn-green">Know your teachers</a>
+      <a href="/teacherslist" class="btn btn-green">Know your teachers</a>
 
       <div class="slider-container">
         <button class="arrow left" @click="scrollLeft">❮</button>
