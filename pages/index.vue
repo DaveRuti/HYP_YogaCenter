@@ -64,12 +64,17 @@
       <a href="#" class="btn btn-green">Know your teachers</a>
 
       <div class="slider-container">
+        <button class="arrow left" @click="scrollLeft">❮</button>
         <div class="slider">
-          <div class="slide" v-for="teacher in teachers" :key="teacher.id">
-            <img :src="teacher.image?.[0]?.url" :alt="`${teacher.name} ${teacher.surname}`" class="slide-image">
-            <div class="slide-title">{{ teacher.name }} {{ teacher.surname }}</div>
-          </div>
+            <ItemTeacher
+                v-for="teacher in teachers"
+                :id="teacher.id"
+                :title="`${teacher.name} ${teacher.surname}`"
+                :imageUrl="teacher.image[0]?.url"
+                :route="`/teacher/${teacher.id}`"
+            />
         </div>
+        <button class="arrow right" @click="scrollRight">❯</button>
       </div>
     </section>
 
@@ -83,12 +88,24 @@
 import { ref, onMounted } from 'vue';
 import Navbar from "@/components/navbar.vue";
 import Footer from "@/components/footer.vue";
+import ItemTeacher from "~/components/ItemTeacher.vue";
 
 export default {
   name: 'App',
   components: {
+    ItemTeacher,
     Navbar,
     Footer
+  },
+  methods: {
+    scrollLeft() {
+      const slider = this.$el.querySelector('.slider');
+      slider.scrollLeft -= 300; // Scorri a sinistra di 300px
+    },
+    scrollRight() {
+      const slider = this.$el.querySelector('.slider');
+      slider.scrollLeft += 300; // Scorri a destra di 300px
+    }
   },
   setup() {
     const heroImage = ref('/assets/hero yoga image.jpg');
@@ -134,11 +151,21 @@ export default {
       fetchTeachers();
 
       // Horizontal scroll for slider with mouse wheel
-      const sliderContainer = document.querySelector('.slider-container');
-      if (sliderContainer) {
-        sliderContainer.addEventListener('wheel', (e) => {
+      const slider = document.querySelector('.slider');
+
+      if (slider) {
+
+        slider.addEventListener('wheel', (e) => {
+          const isHorizontalScroll = Math.abs(e.deltaX) > Math.abs(e.deltaY);
+
+          if (!isHorizontalScroll) {
+            // Permetti lo scrolling verticale
+            return;
+          }
+
+          // Impedisci lo scrolling verticale di default solo per lo slider
           e.preventDefault();
-          sliderContainer.scrollLeft += e.deltaY;
+          slider.scrollLeft += e.deltaY;
         });
       }
 
@@ -432,72 +459,63 @@ body {
 
 /* Teachers Section */
 .teachers {
-  padding: 8rem 10%;
+  padding: 8rem 0;
   background-color: white;
   text-align: center;
+  align-items: center;
 }
 
 .slider-container {
   position: relative;
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  margin-top: 4rem;
-  padding: 0;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-}
-
-.slider-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
 .slider {
+  justify-content: center; /* Centra il contenuto orizzontalmente */
   display: flex;
   gap: 30px;
-  width: fit-content;
-  padding: 0 10%;
-  margin: 0 auto;
-}
-
-.slide {
-  position: relative;
-  min-width: calc(45% - 14px);
-  flex: 0 0 calc(45% - 14px);
-  overflow: hidden;
-  border-radius: 10px;
-  max-width: 650px;
-  aspect-ratio: 3/4;
-  margin: 0 7px;
-}
-
-.slide-image {
+  overflow-x: auto;
+  scroll-behavior: smooth;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 10px;
 }
 
-.slide-title {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+.slider > * {
+  flex: 0 0 auto; /* Ensures children maintain their natural size */
 }
+
+.slider::-webkit-scrollbar {
+  display: none; /* Nasconde la scrollbar */
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
 
 /* Responsive */
 @media (max-width: 1200px) {
   .card {
     width: calc(33.33% - 1.5rem);
-  }
-
-  .slide {
-    min-width: calc(70% - 20px);
-    flex: 0 0 calc(70% - 20px);
   }
 }
 
@@ -521,11 +539,8 @@ body {
 }
 
 @media (max-width: 768px) {
-  .slide {
-    min-width: calc(100% - 20px);
-    flex: 0 0 calc(100% - 20px);
-    max-width: 500px;
-    margin: 0 auto;
+  .slider {
+    gap: 20px;
   }
 }
 
