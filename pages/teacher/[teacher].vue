@@ -1,20 +1,20 @@
 <template>
+  <div class="navbar">
+    <Navbar />
+  </div>
+
   <div class="container">
-    <!-- TITOLO PRINCIPALE -->
     <header>
       <h1>{{ teacher?.name }} {{ teacher?.surname }}</h1>
     </header>
 
-    <!-- IMMAGINE PRINCIPALE -->
     <div class="main-image-wrapper">
-      <img v-if="teacher?.image && teacher.image.length > 0"
-           :src="teacher.image[0].url"
-           :alt="`${teacher.name} ${teacher.surname}`" />
-      <img v-else src="https://via.placeholder.com/1200x800.png?text=No+Image"
-           alt="No image available" />
+      <img
+          :src="teacher?.image?.[0]?.url"
+          :alt="`${teacher?.name} ${teacher?.surname}`"
+      />
     </div>
 
-    <!-- SEZIONE INTRO TESTUALE -->
     <section class="intro">
       <h2>Description</h2>
       <div class="intro-text">
@@ -22,111 +22,92 @@
       </div>
     </section>
 
-    <!-- SEZIONE ACTIVITIES -->
-    <section class="text-link">
+    <section class="activities">
       <h2>Activities</h2>
       <div class="activities-grid">
         <div
-            v-for="(act, idx) in activities"
-            :key="idx"
+            v-for="activity in teacherActivities"
+            :key="activity.id"
             class="activity-item"
         >
-          <img :src="act.image" :alt="act.title" />
-          <span class="activity-title">{{ act.title }}</span>
+          <NuxtLink :to="`/activity/${activity.id}`">
+            <item-activity
+                :src="activity.image?.[0]?.url"
+                :alt="activity.title"
+            />
+            <span class="activity-title">{{ activity.title }}</span>
+          </NuxtLink>
         </div>
       </div>
     </section>
 
-    <!-- SEZIONE CURRICULUM -->
     <section class="cv">
       <h2>CV</h2>
       <p v-html="teacher?.cv"></p>
     </section>
 
-    <!-- GALLERIA FINALE -->
-    <section class="gallery" v-if="teacher?.image && teacher.image.length > 1">
+    <section class="gallery">
       <div
-          v-for="(img, idx) in teacher.image.slice(1)"
+          v-for="(img, idx) in teacher?.image?.slice(1)"
           :key="idx"
           class="gallery-item"
       >
-        <img :src="img.url" :alt="`${teacher.name} ${teacher.surname} - image ${idx+2}`" />
+        <img
+            :src="img.url"
+            :alt="`${teacher?.name} ${teacher?.surname} - image ${idx + 2}`"
+        />
       </div>
     </section>
   </div>
+
+  <div class="footer">
+    <Footer />
+  </div>
 </template>
 
-<script>
+<script setup>
 import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 
-export default {
-  name: 'TeacherProfilePage',
-  setup() {
-    const route = useRoute()
-    const teacher = ref(null)
-    const loading = ref(true)
-    const error = ref(null)
+const teacher = ref({})
+const teacherActivities = ref([])
 
-    const activities = ref([
-      { image: 'https://via.placeholder.com/300x200.png?text=Yin+Yoga', title: 'Yin Yoga' },
-      { image: 'https://via.placeholder.com/300x200.png?text=Ashtanga+Yoga', title: 'Ashtanga Yoga' },
-      { image: 'https://via.placeholder.com/300x200.png?text=Power+Yoga', title: 'Power Yoga' },
-    ])
+const route = useRoute()
+const id = route.params.teacher
 
-    const fetchTeacher = async () => {
-      try {
-        const id = route.params.teacher
-        loading.value = true
-        const response = await fetch(`/api/teacher/${id}`)
-        const data = await response.json()
+onMounted(async () => {
+  // fetch teacher data
+  const res1 = await fetch(`/api/teacher/${id}`)
+  teacher.value = await res1.json()
 
-        if (data.error) {
-          throw new Error(data.error)
-        }
-
-        teacher.value = data
-      } catch (e) {
-        error.value = e.message || 'Failed to load teacher data'
-        console.error('Error fetching teacher:', e)
-      } finally {
-        loading.value = false
-      }
-    }
-
-    onMounted(() => {
-      fetchTeacher()
-    })
-
-    // SEO handling
-    /*useHead(() => ({
-      title: teacher.value ? `${teacher.value.name} ${teacher.value.surname}` : 'Teacher Profile',
-      meta: [
-        {
-          name: 'description',
-          content: teacher.value?.shortDescription || 'Teacher profile page'
-        }
-      ]
-    }))*/
-
-    return {
-      teacher,
-      loading,
-      error,
-      activities
-    }
-  }
-}
+  // fetch activities for this teacher
+  const res2 = await fetch(`/api/teacher-activities/${id}`)
+  teacherActivities.value = await res2.json()
+})
 </script>
 
 <style scoped>
-/* contenitore centrale */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
-/* titolo in alto */
+.footer {
+  padding-top: 100px;
+  margin: 0;
+  width: 100%;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+  padding-top: 120px;
+}
+
 header h1 {
   text-align: center;
   color: #000;
@@ -134,7 +115,6 @@ header h1 {
   font-size: clamp(2rem, 5vw, 3rem);
 }
 
-/* immagine principale con aspect‐ratio 3/2 */
 .main-image-wrapper img {
   width: 100%;
   aspect-ratio: 3/2;
@@ -143,42 +123,43 @@ header h1 {
   margin-bottom: 2rem;
 }
 
-/* SEZIONE INTRO */
 .intro h2 {
   text-align: center;
   color: #000;
   margin-bottom: 1rem;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
+
 .intro-text {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  text-align: justify;
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
   font-size: clamp(1rem, 2.5vw, 1.25rem);
-  margin-bottom: 2rem;
 }
 
-/* SEZIONE ACTIVITIES */
-.text-link h2 {
+.activities h2 {
   text-align: center;
   color: #000;
   margin-bottom: 1rem;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
+
 .activities-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
+
 .activity-item {
   position: relative;
   overflow: hidden;
 }
+
 .activity-item img {
   width: 100%;
   display: block;
 }
+
 .activity-title {
   position: absolute;
   bottom: 0;
@@ -189,52 +170,57 @@ header h1 {
   font-size: clamp(1rem, 2.5vw, 1.25rem);
 }
 
-/* SEZIONE CV */
 .cv {
-  margin: 2rem 0;
+  margin: 2rem auto;
+  max-width: 1200px;
+  text-align: center;
 }
+
 .cv h2 {
   color: #000;
-  text-align: left;
+  text-align: center;
   margin-bottom: 1rem;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
+  width: 100%;
 }
+
 .cv p {
-  max-width: 800px;
   margin: 0 auto;
   text-align: justify;
   font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.6;
 }
 
-/* GALLERIA FINALE */
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-bottom: 2rem;
 }
+
 .gallery-item img {
   width: 100%;
   display: block;
 }
 
-/* --- BREAKPOINT MEDIO: 3 → 2 colonne in Activities --- */
 @media (max-width: 992px) {
   .activities-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .cv p {
+    max-width: 100%;
+  }
 }
 
-/* --- UNICA MEDIA QUERY MOBILE --- */
 @media (max-width: 480px) {
-  .intro-text {
-    grid-template-columns: 1fr;
-  }
   .activities-grid {
     grid-template-columns: 1fr;
   }
   .gallery {
     grid-template-columns: 1fr;
+  }
+  .intro-text, .cv p {
+    max-width: 100%;
   }
 }
 </style>
