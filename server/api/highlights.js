@@ -22,8 +22,6 @@ export default defineEventHandler(async () => {
         return highlightedActivities;
     } catch (error) {
         console.error('Error fetching highlighted activities:', error);
-        return { error: 'Error retrieving highlighted activities' };
-    } finally {
-        await prisma.$disconnect();
+        return {error: 'Error retrieving highlighted activities'};
     }
 });

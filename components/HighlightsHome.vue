@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="goToActivityPage">
     <div class="card__image"></div>
     <div class="card__body">
       <h2 class="card__title">Yin Yoga</h2>
@@ -12,7 +12,22 @@
 
 <script>
 export default {
-  name: "YinYogaCard"
+  props:{
+    title: {
+      type: String,
+      required: true
+    },
+    id: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    goToActivityPage() {
+      //this.$router.push({name: 'activity', params:{activity: this.id}});
+      this.$router.push({ name: 'activity-activity', params: { activity: this.id } });
+    }
+  }
 };
 </script>
 

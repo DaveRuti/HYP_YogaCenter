@@ -25,7 +25,7 @@
           a community that supported us along the way. InnerFlow grew from those roots.</div>
       </div>
 
-      <div class="imagesParent">
+      <div class="rectangleParent">
         <img class="frameChild" alt="" src="/aboutUsTeacher1.png" />
         <div class="teacher">
           <img class="imageIcon" alt="" src="/aboutUsTeacher2.png" />
@@ -40,9 +40,9 @@
         <br>
         <br>
         <ol>
-          <li>Remember to bring all the necessary things with you to enjoy the lessons at best.</li>
-          <li>Do not leave trash or any other thing around during outside activities.</li>
-          <li>There is no need to fit in every exercise we do, you are here to enjoy the experience!</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+          <li>Lorem ipsum dolor sit amet</li>
+          <li>sed do eiusmod tempor incididunt ut labore et dolore m</li>
         </ol>
       </div>
 
@@ -114,24 +114,22 @@ p {
   box-sizing: border-box;
 }
 
+.ourHistory {
+  position: relative;
+  font-size: 40px;
+  line-height: 114px;
+  display: inline-block;
+  text-align: left;
+  flex-shrink: 0;
+}
 .ourHistoryParent {
   position: relative;
   line-height: 41px;
   font-weight: 300;
-  //height: 500px;
-  //flex-shrink: 0;
-  flex: 1;
+  display: inline-block;
+  height: 500px;
+  flex-shrink: 0;
   font-size: 20px;
-  margin-bottom: 200px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-content: center;
-  gap: 78px 104px;
-  //margin: 0 auto;
 }
 
 .loremIpsumDolor {
@@ -140,7 +138,7 @@ p {
   line-height: 41px;
   font-weight: 300;
   display: inline-block;
-  height: auto;
+  height: 500px;
   flex-shrink: 0;
   font-size: 20px;
   text-align: justify;
@@ -152,10 +150,23 @@ p {
   line-height: 41px;
   font-weight: 300;
   display: inline-block;
-  height: auto;
+  height: 500px;
   flex-shrink: 0;
   font-size: 20px;
   text-align: justify;
+}
+
+.ourHistoryParent {
+  position: relative;
+  left: calc(50% - 616px);
+  width: 1224px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 78px 104px;
 }
 
 .frameChild {
@@ -167,9 +178,6 @@ p {
   object-fit: cover;
   max-width: 616px;
   max-height: 580px;
-  aspect-ratio: 404 / 505;
-  min-width: 200px;
-  min-height: 180px;
 }
 
 .imageIcon {
@@ -180,32 +188,35 @@ p {
   right: 0%;
   bottom: 0%;
   left: 0%;
-  max-width: 616px;
-  max-height: 580px;
+  max-width: 100%;
+  //overflow: hidden;
+  max-height: 100%;
   object-fit: cover;
-  //aspect-ratio: 404 / 505;
 }
 .teacher {
   width: 612px;
   position: relative;
   height: 543px;
 }
-.imagesParent {
+.rectangleParent {
   position: relative;
-  //width: 100%;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   gap: 68px;
-  //margin-left: 400px;
-  //left: calc(50% - 1016px);
-  //margin: 0 auto;
-  //overflow: hidden;
-  //cursor: pointer;
-  padding-left: 30px;
+  margin-left: 400px;
+  left: calc(50% - 1016px);
 
+ /* position: relative;
+  top: 0px;
+  left: calc(50% - 616px);
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;*/
 }
 
 ol {
@@ -220,7 +231,7 @@ li {
 }
 
 .AboutUsEpilogueContainer {
-  width: auto;
+  width: 1430px;
   position: relative;
   font-size: 32px;
   line-height: 41px;
@@ -231,7 +242,6 @@ li {
   display: inline-block;
   height: 587px;
   margin-top: -100px;
-  padding: 120px 120px;
 }
 
 #regulation{
@@ -257,63 +267,30 @@ li {
   #regulation{
     left: calc(20% - 100px);
   }
-  .imagesParent{
-    padding-left: 50px;
-  }
 }
 
-
-@media (max-width: 700px) {
-  .ourHistoryParent{
-    flex-direction: column;
-  };
-
-  .loremIpsumDolor{
-    width: auto;
+@media (max-width: 1468px) {
+  #aboutUs{
+    width: 80%;
+    min-height: 200px;
+    min-width: 300px;
   }
-
-  .loremIpsumDolor1{
-    width: auto;
-  }
-
-  #regulation{
-    font-size: 45px;
-  };
-
-  .teacher{
-    width: 450px;
-    height: 450px;
-  }
-
 }
 
 @media (max-width: 1000px) {
-  .AboutUsEpilogueContainer {
-    padding: 20px 20px;
-    font-size: 24px;
-  }
+  .ourHistory{
+    font-size: 45px;
+  };
+  #regulation{
+    font-size: 45px;
+  };
 }
 
 @media (max-width: 1200px) {
-  .imagesParent{
+  .rectangleParent{
     flex-direction: column;
   }
+
 }
-
-@media (min-width: 1700px) {
-  .imagesParent{
-    margin-left: 350px;
-  }
-}
-
-@media (max-width: 440px) {
-  .teacher{
-    //width: auto;
-    width: 250px;
-    height: 250px;
-  }
-}
-
-
 
 </style>

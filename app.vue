@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Nuxt-page /> <!-- Qui viene visualizzata la pagina attiva -->
+    <NuxtPage /> <!-- Qui viene visualizzata la pagina attiva -->
   </div>
 </template>
 

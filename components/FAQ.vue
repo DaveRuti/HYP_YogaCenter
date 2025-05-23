@@ -69,16 +69,19 @@ function toggleAnswer(index) {
 }
 
 .faq-container {
-  max-width: 800px; /* puoi regolare a piacere */
   width: 100%;
   margin: 0 auto;
   padding: 40px 20px;
   background-color: #fff;
   justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   }
 
 
 .faq-item {
+  max-width: 800px; /* puoi regolare a piacere */
   margin-bottom: 15px;
   border-radius: 12px;
   background-color: #f9f9f9;
