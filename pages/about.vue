@@ -118,8 +118,8 @@ p {
   position: relative;
   line-height: 41px;
   font-weight: 300;
-  //height: 500px;
-  //flex-shrink: 0;
+  /*height: 500px;
+  flex-shrink: 0;*/
   flex: 1;
   font-size: 20px;
   margin-bottom: 200px;
@@ -131,7 +131,7 @@ p {
   flex-wrap: wrap;
   align-content: center;
   gap: 78px 104px;
-  //margin: 0 auto;
+  /*margin: 0 auto;*/
 }
 
 .loremIpsumDolor {
@@ -192,18 +192,18 @@ p {
 }
 .imagesParent {
   position: relative;
-  //width: 100%;
+  /*width: 100%;*/
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   gap: 68px;
-  //margin-left: 400px;
+  /*margin-left: 400px;
   //left: calc(50% - 1016px);
   //margin: 0 auto;
   //overflow: hidden;
-  //cursor: pointer;
+  //cursor: pointer;*/
   padding-left: 30px;
 
 }
@@ -308,7 +308,7 @@ li {
 
 @media (max-width: 440px) {
   .teacher{
-    //width: auto;
+    /*width: auto;*/
     width: 250px;
     height: 250px;
   }
