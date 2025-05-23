@@ -9,13 +9,17 @@
         <OrientationLink
           :text="'Activities'"
           :route="'activitieslist'"
-          :activity="activity.title"/>
+          :activity="activity.title"
+          class="orientation-link"/>
 
-        <h1>{{ activity.title }}</h1>
+        <h1 id="activity-title">{{ activity.title }}</h1>
         <img :src="activity.image?.[0]?.url" class="icon">
         <p class="activity-description">{{ activity.description }}</p>
 
-        <LessonsSchedule id="lessonScheduleTab" :activity="activity.timeSchedule"/>
+        <div class="lessonScheduleContainer">
+          <LessonsSchedule id="lessonScheduleTab" :activity="activity.timeSchedule"/>
+        </div>
+
 
         <h1>Teachers</h1>
 
@@ -78,6 +82,7 @@ onMounted(async () => {
   align-items: start;
   max-width: 1250px;            /* Limita la larghezza totale della griglia */
   margin: 0 auto;
+  min-width: 450px;
 }
 
 .icon {
@@ -87,12 +92,21 @@ onMounted(async () => {
   overflow: hidden;
   height: 885px;
   object-fit: cover;*/
-  height: 1205px;
+  //height: 1205px;
+  height: 100%;
+  max-width: 1000px;
+  max-height: 1085px;
+  min-width: 405px;
+  min-height: 300px;
   margin-bottom: 100px;
+  width: 100%;
+  //aspect-ratio: 404 / 505;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
-h1{
-  margin-top: 100px;
+#activity-title{
+  margin-top: -100px;
   margin-bottom:  140px;
 }
 
@@ -127,19 +141,43 @@ h1{
   margin-bottom: 150px;
 }
 
-/*.main{
-  padding-right: 150px;
-}*/
+h1{
+  margin-bottom:  150px;
+}
+
+.orientation-link{
+  //width: 100%;
+}
+
+.lessonScheduleContainer{
+  padding-right: 300px;
+}
+
+@media (max-width: 1600px) {
+  .activity-description{
+    margin-bottom: 350px;
+  }
+}
 
 @media (max-width: 1200px) {
   .activity-lessons{
     padding-right: 100px;
   }
+  .activity-description{
+    padding-right: 150px;
+    padding-left: 150px;
+    margin-bottom: 250px;
+  }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .activity-lessons{
     padding-right: 250px;
+  }
+  .activity-description{
+    padding-right: 80px;
+    padding-left: 80px;
+    margin-bottom: 450px;
   }
 }
 
@@ -147,11 +185,32 @@ h1{
   .activity-lessons{
     padding-right: 150px;
   }
+  .activity-description{
+    font-size: 17px;
+    margin-bottom: 450px;
+  }
+  #activity-title{
+    margin-top: -150px;
+  }
+}
+
+@media (max-width: 550px) {
+  .activity-description{
+    margin-bottom: 550px;
+  }
 }
 
 @media (max-width: 450px) {
   .activity-lessons{
     padding-right: 90px;
+  }
+  .activity-description{
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-bottom: 640px;
+  }
+  .icon{
+    padding-left: 40px;
   }
 }
 

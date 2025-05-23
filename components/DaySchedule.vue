@@ -63,6 +63,7 @@ export default {
   align-items: center;
   justify-content: flex-start;
   gap: 80px;
+  margin-left: -20px;
 }
 
 @media (max-width: 800px) {
