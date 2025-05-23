@@ -28,9 +28,9 @@ function toggleMenu() {
     </div>
 
     <ul class="nav-links" :class="{ show: isMenuVisible }">
+      <li><NuxtLink to="/highlights" exact-active-class="active-link">Highlights</NuxtLink></li>
       <li><NuxtLink to="/activitieslist" active-class="active-link">Activities</NuxtLink></li>
       <li><NuxtLink to="/teacherslist" active-class="active-link">Teachers</NuxtLink></li>
-      <li><NuxtLink to="/highlights" exact-active-class="active-link">Highlights</NuxtLink></li>
       <li><NuxtLink to="/about" exact-active-class="active-link">About Us</NuxtLink></li>
     </ul>
   </nav>
