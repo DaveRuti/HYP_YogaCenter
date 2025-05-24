@@ -6,6 +6,45 @@ const isMenuVisible = ref(false);
 function toggleMenu() {
   isMenuVisible.value = !isMenuVisible.value;
 }
+
+import { onMounted, watch, nextTick } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+const underlineRef = ref(null)
+const navLinksRef = ref(null)
+
+const moveUnderline = (el) => {
+  if (!el || !underlineRef.value || !navLinksRef.value) return
+
+  const linkRect = el.getBoundingClientRect()
+  const navRect = navLinksRef.value.getBoundingClientRect()
+
+  underlineRef.value.style.width = `${linkRect.width}px`
+  underlineRef.value.style.left = `${linkRect.left - navRect.left}px`
+}
+
+const updateToActive = () => {
+  nextTick(() => {
+    const active = navLinksRef.value?.querySelector('.nav-link.active-link')
+    if (active) moveUnderline(active)
+  })
+}
+
+onMounted(() => {
+  updateToActive()
+
+  const links = navLinksRef.value.querySelectorAll('.nav-link')
+  links.forEach(link => {
+    link.addEventListener('mouseenter', () => moveUnderline(link))
+    link.addEventListener('mouseleave', updateToActive)
+  })
+})
+
+watch(() => route.fullPath, () => {
+  updateToActive()
+})
 </script>
 
 <template>
@@ -27,13 +66,15 @@ function toggleMenu() {
       <span></span>
     </div>
 
-    <ul class="nav-links" :class="{ show: isMenuVisible }">
-      <li><NuxtLink to="/highlights" exact-active-class="active-link">Highlights</NuxtLink></li>
-      <li><NuxtLink to="/activitieslist" active-class="active-link">Activities</NuxtLink></li>
-      <li><NuxtLink to="/teacherslist" active-class="active-link">Teachers</NuxtLink></li>
-      <li><NuxtLink to="/about" exact-active-class="active-link">About Us</NuxtLink></li>
-      <li><NuxtLink to="/contacts" exact-active-class="active-link">Contacts</NuxtLink></li>
-      <li><NuxtLink to="/faq" exact-active-class="active-link">FAQ</NuxtLink></li>
+    <ul class="nav-links" :class="{ show: isMenuVisible }" ref="navLinksRef">
+      <li><NuxtLink to="/" exact-active-class="active-link" class="nav-link">Home</NuxtLink></li>
+      <li><NuxtLink to="/highlights" exact-active-class="active-link" class="nav-link">Highlights</NuxtLink></li>
+      <li><NuxtLink to="/activitieslist" active-class="active-link" class="nav-link">Activities</NuxtLink></li>
+      <li><NuxtLink to="/teacherslist" active-class="active-link" class="nav-link">Teachers</NuxtLink></li>
+      <li><NuxtLink to="/about" exact-active-class="active-link" class="nav-link">About Us</NuxtLink></li>
+      <li><NuxtLink to="/contacts" exact-active-class="active-link" class="nav-link">Contacts</NuxtLink></li>
+      <li><NuxtLink to="/faq" exact-active-class="active-link" class="nav-link">FAQ</NuxtLink></li>
+      <span ref="underlineRef" class="underline"></span>
     </ul>
   </nav>
 </template>
@@ -56,7 +97,6 @@ function toggleMenu() {
   justify-content: space-between;
   align-items: stretch;
   background-color: white;
-  padding: 1rem 2rem;
 }
 
 .logo {
@@ -65,6 +105,7 @@ function toggleMenu() {
   gap: 0.8rem;
   color: black;
   font-size: 35px;
+  padding: 0.7rem 2rem;
 }
 
 .router-link {
@@ -74,47 +115,37 @@ function toggleMenu() {
 }
 
 .nav-links {
-  list-style: none;
+  text-decoration: none;
+  position: relative;
   display: flex;
-  gap: 1rem;
+  list-style: none;
+  padding-right: 1rem;
+  align-items: stretch;
+  justify-items: center;
 }
 
-.nav-links li {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-links li a {
+.nav-link {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: black;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 0 1.5rem;
-  font-weight: 600;
-  /*transition: all 0.3s ease;*/
-  transition: border-color 0.3s ease; /* Smooth transition for the border */
-  border-bottom: 6px solid transparent; /* Invisible border initially */
   height: 100%;
-}
-
-.nav-links li a:hover {
-  transform: translateY(-2px);
-  /*background-color: #00ff88;
+  position: relative;
+  padding: 0 1.5rem;
+  text-decoration: none;
   color: black;
-  box-shadow: 0 0 10px #00ff88aa, 0 0 20px #00ff88aa;*/
-  border-bottom: 6px solid #00ff88; /* Green underline on hover */
-}
-
-.nav-links li a.active-link {
-  border-bottom: 6px solid #8cffc9;
-}
-
-.menu-icon {
-  display: block;
+  font-weight: 600;
   cursor: pointer;
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  /*background-color: #00ff88;  old green color*/
+  background-color: black;
+  transition: all 0.2s ease;
+  width: 0;
+  left: 0;
+  pointer-events: none;
 }
 
 .menu-icon {
@@ -149,7 +180,7 @@ function toggleMenu() {
   transform: rotate(-45deg) translate(9px, -9px);
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1100px) {
     .nav-links {
     position: absolute;
     top: 100%;
@@ -176,39 +207,55 @@ function toggleMenu() {
   }
 
   .nav-links li a {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 56px;
     width: 100%;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding: 2.3rem 5rem;
     font-size: 1.2rem;
     font-weight: 600;
     text-decoration: none;
     color: black;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.4s ease;
+    border-bottom: 6px solid transparent;
   }
 
-  .nav-links li a:hover {
-    transform: translateY(-2px);
-    /*background-color: #00ff88;
-    color: black;
-    box-shadow: 0 0 10px #00ff88aa, 0 0 20px #00ff88aa;*/
-    border-bottom: 6px solid #00ff88; /* Green underline on hover */
+  .nav-links li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: 6px;
+    background-color: black;
+    transition: transform 0.3s ease;
   }
 
-  .nav-links li a.active-link {
-    border-bottom: 6px solid #8cffc9;
+  /* Hover: espande la linea */
+  .nav-links li a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  /* Link attivo: linea nera statica */
+  .nav-links li a.active-link::after {
+    background-color: black;
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  .underline {
+    display: none;
   }
 
   .menu-icon {
     display: block;
     cursor: pointer;
+    margin-top: 0.8rem;
+    margin-right: 1.5rem;
   }
 }
-
 
 </style>
