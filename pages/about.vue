@@ -57,7 +57,7 @@
 
 <style scoped>
 
-@import "../assets/global.css" ;
+@import "../assets/css/global.css";
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
 * {
