@@ -35,19 +35,15 @@
       <a href="/highlights" class="btn btn-green">See Highlights</a>
 
       <div class="cards-container">
-        <HighlightsHome
-            class="card"
+        <HighlightsComponent
             v-for="(activity, index) in highlightedActivities"
-            :title="activity.title"
-            :id="activity.id"
+            :key="activity.id"
             :class="{ 'offset-card': index % 2 !== 0 }"
-        >
-          <img :src="activity.image?.[0]?.url" :alt="activity.title" class="card-image">
-          <div class="card-content">
-            <h3 class="card-title">{{ activity.title }}</h3>
-            <p class="card-description">{{ activity.description }}</p>
-          </div>
-        </HighlightsHome>
+            :title="activity.title"
+            :description="activity.description"
+            :imageUrl="activity.image?.[0]?.url"
+        />
+
       </div>
     </section>
 
@@ -368,49 +364,13 @@ body {
   margin-top: 3rem;
 }
 
-.card {
-  background-color: #f0f0f0;
-  border-radius: 20px;
-  overflow: hidden;
-  width: calc(25% - 1.5rem);
-  min-width: 220px;
-  max-width: 300px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  margin-top: 0;
+
+.cards-container > * {
+  flex: 1 1 calc((100% - 3 * 2.5rem) / 4);
 }
 
-.offset-card {
-  margin-top: 10px;
-  flex-grow: 1;
-}
 
-.card:hover {
-  transform: translateY(-5px);
-}
 
-.card-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.card-content {
-  padding: 2rem;
-  text-align: left;
-}
-
-.card-title {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.card-description {
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.5;
-}
 
 /* Call to Action Section */
 .cta {
@@ -516,30 +476,39 @@ body {
 
 
 /* Responsive */
+
+
 @media (max-width: 1200px) {
-  .card {
-    width: calc(33.33% - 1.5rem);
+  .cards-container > * {
+    flex: 1 1 calc((100% - 2 * 2.5rem) / 3);
   }
 }
+
 
 @media (max-width: 900px) {
   .hero-title {
     font-size: 3rem;
   }
 
+
+  .cards-container > * {
+    flex: 1 1 calc((100% - 1 * 2.5rem) / 2);
+  }
+
+
   .stats {
     flex-direction: column;
     gap: 1rem;
   }
 
-  .card {
-    width: calc(50% - 1.5rem);
-  }
+
+
 
   .cta-title {
     font-size: 2.3rem;
   }
 }
+
 
 @media (max-width: 768px) {
   .slider {
@@ -547,30 +516,36 @@ body {
   }
 }
 
+
 @media (max-width: 600px) {
   .hero-title {
     font-size: 2.5rem;
   }
 
+
   .hero-description {
     font-size: 1rem;
   }
+
 
   .section-title {
     font-size: 2rem;
   }
 
-  .card {
-    width: 100%;
-    margin-top: 0 !important;
+
+  .cards-container > * {
+    flex: 1 1 100%;
   }
+
 
   .cta-title {
     font-size: 2rem;
   }
 
+
   .cta-description {
     font-size: 1rem;
   }
 }
+
 </style>

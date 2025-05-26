@@ -7,6 +7,10 @@ export default defineEventHandler(async (event) => {
         //Estraggo l'id
         const id = event.context.params.activity;
 
+        console.log(id + "\n\n --------------- \n\n");
+        console.log('params:', event.context.params);
+        console.log('params:', event.context.params.activity);
+
         if (!id) {
             return { error: 'Missing ID' };
         }
@@ -18,7 +22,7 @@ export default defineEventHandler(async (event) => {
             },
             include: {
                 image: true,
-                timeSchedule: true,
+                date: true,
             },
         });
 

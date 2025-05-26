@@ -1,142 +1,111 @@
 <template>
-  <div class="component3">
-    <div class="inner">
-      <div class="image"></div>
-      <div class="content">
-        <h1 class="title">Yin Yoga</h1>
-        <p class="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <TheButton/>
-      </div>
+  <div class="card">
+    <img :src="imageUrl" :alt="title" class="card-image" />
+    <div class="card-content">
+      <h3 class="card-title">{{ title }}</h3>
+      <p class="card-description">{{ description }}</p>
     </div>
   </div>
 </template>
 
+
 <script>
 export default {
-  name: "YinYogaComponent"
+  name: 'Card',
+  props: {
+    /**
+     * Card title
+     */
+    title: {
+      type: String,
+      required: true
+    },
+    /**
+     * URL for the card image
+     */
+    imageUrl: {
+      type: String,
+      required: false,
+      default: 'https://via.placeholder.com/300x200?text=No+Image'
+    },
+    /**
+     * Card description text
+     */
+    description: {
+      type: String,
+      required: true
+    }
+  }
 };
 </script>
 
+
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;700&family=Roboto:wght@500&display=swap');
-
-.component3 {
-  width: 1277.6px;
-  height: 724px;
-  /*width: 1277.6px;
-  height: 724px;
-  padding: 40px;
-   */
-  margin: 0 auto;
-  border-radius: 56px;
-  background: #fff;
-  box-shadow: 0 0 21.04px 6.4px #00000040;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.inner {
-  display: flex;
-  align-items: flex-start;
-  gap: 80px;
-}
-
-.image {
-  width: 480px;
-  height: 572px;
+.card {
+  background-color: #f0f0f0;
   border-radius: 20px;
-  background-image: url('../assets/HighlightsImage.png');
-  background-position: -191.2px 0;
-  background-size: 178.894% 100%;
-  flex-shrink: 0;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
-  width: 550.4px;
-}
-
-.title {
+  overflow: hidden;
   width: 100%;
-  color: #000;
-  text-align: center;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 76.8px;
-  font-weight: 700;
-  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin-top: 0;
 }
 
-.description {
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+
+.card-image {
   width: 100%;
-  height: 171.2px;
-  color: #000;
-  text-align: justify;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 25.6px;
-  font-weight: 300;
-  line-height: 32.8px;
-  text-decoration: none;
+  height: 200px;
+  object-fit: cover;
 }
 
-/*.btn {
-  padding: 10.036px 24.087px;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 20.073px;
-  letter-spacing: 0.1px;
-  color: #fff;
-  background-color: #2E7D32;
-  border: none;
-  border-radius: 799.2px;
-  cursor: pointer;
-}*/
 
-
-@media (max-width: 768px) {
-  .component3 {
-    width: 100%;
-    height: auto;
-    padding: 16px;
-    border-radius: 24px;
-  }
-  .inner {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-  .image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 480 / 572;
-    border-radius: 16px;
-    background-position: center;
-    background-size: cover;
-  }
-  .content {
-    width: 100%;
-    gap: 16px;
-  }
-  .title {
-    font-size: 32px;
-  }
-  .description {
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-  }
-  /*.btn {
-    width: 100%;
-    max-width: 240px;
-    padding: 12px 0;
-  }*/
+.card-content {
+  padding: 2rem;
+  text-align: left;
 }
+
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+
+.card-description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+
+/* Responsive Adjustments
+@media (max-width: 1200px) {
+ .card {
+   width: calc(33.33% - 1.5rem);
+ }
+}
+
+
+@media (max-width: 900px) {
+ .card {
+   width: calc(50% - 1.5rem);
+ }
+}
+
+
+@media (max-width: 600px) {
+ .card {
+   width: 100%;
+   margin-top: 0 !important;
+ }
+} */
 </style>
+
 
 
