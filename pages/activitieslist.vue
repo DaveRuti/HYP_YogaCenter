@@ -60,10 +60,6 @@ html, body {
   padding: 0;
   box-sizing: border-box;
 }
-.content {
-  padding-top: 200px;
-  padding-bottom: 100px;
-}
 
 h1{
   font-size: clamp(3rem, 7vw, 5rem);
