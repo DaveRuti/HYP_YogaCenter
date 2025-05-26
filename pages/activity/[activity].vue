@@ -13,6 +13,7 @@
           class="orientation-link"/>
 
         <h1 id="activity-title">{{ activity.title }}</h1>
+        <div id="timetable" class="clickable-div">Time Table</div>
         <img :src="activity.image?.[0]?.url" class="icon">
         <p class="activity-description">{{ activity.description }}</p>
 
@@ -66,7 +67,14 @@ onMounted(async () => {
   const res2 = await fetch(`/api/activity/${id}`);
   activity.value = await res2.json();
   console.log(activity.value);
+  let timetable = document.getElementById("timetable");
+
+  timetable.addEventListener('click', (e) => {
+    window.scrollTo({ top: 1800, left: 0, behavior: 'smooth' })
   })
+  })
+
+
 
 </script>
 
@@ -74,7 +82,24 @@ onMounted(async () => {
 @import "../../assets/css/global.css";
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
+#timetable{
+  position: relative;
+  text-align: center;
+  //padding-left: 100px;
+  left: 100px;
+  top: -240px;
+  border: #181818 2px solid;
+  width: 200px;
+  //height:  200px;
+}
 
+.clickable-div{
+  cursor: pointer;
+}
+
+.clickable-div:hover {
+  text-decoration: underline;
+}
 
 .teachers-list {
   display: grid;
