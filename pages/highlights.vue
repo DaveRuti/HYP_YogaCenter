@@ -1,36 +1,38 @@
 <template>
-  <div class="navbar">
-    <Navbar />
-  </div>
-
-
-  <div class="main">
-
-
-    <div class="content">
-      <h1>Highlights</h1>
-      <p>Taste our newest activities designed for your yoga needs</p>
+  <div class="page">
+    <div class="navbar">
+      <Navbar />
     </div>
 
 
-    <!-- Highlights Sections -->
-    <div class="cards-container">
+    <div class="main">
+
+
+      <div class="content">
+        <h1>Highlights</h1>
+        <p>Taste our newest activities designed for your yoga needs</p>
+      </div>
+
+
+      <!-- Highlights Sections -->
       <div class="cards-container">
-        <HighlightsComponent
-            v-for="(activity, index) in highlightedActivities"
-            :id="activity.id"
-            :class="{ 'offset-card': index % 2 !== 0 }"
-            :title="activity.title"
-            :description="activity.description"
-            :imageUrl="activity.image?.[0]?.url"
-        />
+        <div class="cards-container">
+          <HighlightsComponent
+              v-for="(activity, index) in highlightedActivities"
+              :id="activity.id"
+              :class="{ 'offset-card': index % 2 !== 0 }"
+              :title="activity.title"
+              :description="activity.description"
+              :imageUrl="activity.image?.[0]?.url"
+          />
+        </div>
       </div>
     </div>
-  </div>
 
 
-  <div class="footer">
-    <Footer />
+    <div class="footer">
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -81,7 +83,6 @@ onMounted(() => {
 
 
 .content {
-  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -92,23 +93,7 @@ h1{
 }
 
 
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-}
 
-
-.main {
-  flex: 1;
-  width: 100%;
-  margin: 0 auto;
-  padding: 8rem 10%;
-
-
-}
 
 
 .cards-container {
