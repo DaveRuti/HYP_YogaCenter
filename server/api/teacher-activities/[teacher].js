@@ -12,13 +12,13 @@ export default defineEventHandler(async (event) => {
     // 2) Recuperiamo le attività legate a questo teacher
     const teacherActivities = await prisma.activity.findMany({
         where: {
-            teach: {
+            Teach: {
                 some: { teacherId: parseInt(teacherId) }
             }
         },
         include: {
             image: true,        // per poter fare activity.image[0].url
-            title: true         // (se title non è già campo scalare)
+
         }
     });
 

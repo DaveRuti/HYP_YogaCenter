@@ -3,53 +3,53 @@
     <Navbar />
   </div>
 
+
   <div class="main">
+
 
     <div class="content">
       <h1>Highlights</h1>
       <p>Taste our newest activities designed for your yoga needs</p>
     </div>
 
-    <!-- Highlights Sections -->
-    <div
-        v-for="(activity, index) in highlightedActivities"
-        :key="activity.id"
-        class="highlight-section"
-        :class="{ 'inverted': index % 2 !== 0 }"
-    >
-      <div class="highlight-image" v-if="activity.image && activity.image.length">
-        <img
-            :src="activity.image[0].url"
-            :alt="activity.title"
-        />
-      </div>
 
-      <div class="highlight-content">
-        <h2 class="highlight-title">{{ activity.title }}</h2>
-        <p class="highlight-description">{{ activity.description }}</p>
-        <div class="button-container">
-          <button class="learn-more">Learn more...</button>
-        </div>
+    <!-- Highlights Sections -->
+    <div class="cards-container">
+      <div class="cards-container">
+        <HighlightsComponent
+            v-for="(activity, index) in highlightedActivities"
+            :key="activity.id"
+            :class="{ 'offset-card': index % 2 !== 0 }"
+            :title="activity.title"
+            :description="activity.description"
+            :imageUrl="activity.image?.[0]?.url"
+        />
       </div>
     </div>
   </div>
+
 
   <div class="footer">
     <Footer />
   </div>
 </template>
 
+
 <script setup>
 import { ref, onMounted } from 'vue'
 import Navbar from '@/components/navbar.vue'
 import Footer from '@/components/footer.vue'
+import HighlightsComponent from "~/components/HighlightsComponent.vue";
+
 
 const highlightedActivities = ref([])
+
 
 const fetchHighlightedActivities = async () => {
   try {
     const response = await fetch('/api/highlights')
     const data = await response.json()
+
 
     if (data && !data.error) {
       highlightedActivities.value = data
@@ -62,23 +62,35 @@ const fetchHighlightedActivities = async () => {
   }
 }
 
+
 onMounted(() => {
   fetchHighlightedActivities()
 })
 </script>
 
+
 <style scoped>
 
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
 
 * {
   font-family: 'Nunito Sans', sans-serif;
 }
 
+
+.content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
 h1{
   font-size: clamp(3rem, 7vw, 5rem);
   margin-bottom: 20px;
 }
+
 
 .navbar {
   position: fixed;
@@ -88,76 +100,34 @@ h1{
   z-index: 10;
 }
 
+
 .main {
   flex: 1;
-  padding-left: 20px;
-  padding-right: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-
-}
-
-.highlight-section {
-  display: flex;
-  margin-bottom: 5rem;
-  gap: 2rem;
-  align-items: center;
-}
-
-.highlight-section.inverted {
-  flex-direction: row-reverse;
-}
-
-.highlight-image {
-  flex: 1;
-  max-width: 50%;
-}
-
-.highlight-image img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  padding: 8rem 10%;
+
+
 }
 
-.highlight-content {
-  flex: 1;
+
+.cards-container {
   display: flex;
-  flex-direction: column;
-}
-
-.highlight-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  align-self: center;
-}
-
-.highlight-description {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  color: #333;
-}
-
-.button-container {
-  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 2.5rem;
+  margin-top: 3rem;
 }
 
-.learn-more {
-  background-color: #2e7d32;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
+
+.cards-container > * {
+  flex: 1 1 calc((100% - 3 * 2.5rem) / 4);
 }
 
-.learn-more:hover {
-  background-color: #1b5e20;
-}
+
+
+
+
 
 .footer {
   padding-top: 50px;
@@ -165,27 +135,27 @@ h1{
   margin-top: 2rem;
 }
 
-@media (max-width: 768px) {
-  .highlight-section,
-  .highlight-section.inverted {
-    flex-direction: column;
-  }
 
-  .highlight-image {
-    max-width: 100%;
-    margin-bottom: 1.5rem;
+/* 4 → 3 colonne */
+@media (max-width: 1200px) {
+  .cards-container > * {
+    flex: 1 1 calc((100% - 2 * 2.5rem) / 3);
   }
+}
 
-  .title {
-    font-size: 2.5rem;
+
+/* 3 → 2 colonne */
+@media (max-width: 900px) {
+  .cards-container > * {
+    flex: 1 1 calc((100% - 1 * 2.5rem) / 2);
   }
+}
 
-  .subtitle {
-    font-size: 1rem;
-  }
 
-  .highlight-title {
-    font-size: 2rem;
+/* 2 → 1 colonna */
+@media (max-width: 600px) {
+  .cards-container > * {
+    flex: 1 1 100%;
   }
 }
 </style>

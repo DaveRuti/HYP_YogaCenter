@@ -25,19 +25,14 @@
     <section class="activities">
       <h2>Activities</h2>
       <div class="activities-grid">
-        <div
+        <ItemActivity
             v-for="activity in teacherActivities"
             :key="activity.id"
-            class="activity-item"
-        >
-          <NuxtLink :to="`/activity/${activity.id}`">
-            <item-activity
-                :src="activity.image?.[0]?.url"
-                :alt="activity.title"
-            />
-            <span class="activity-title">{{ activity.title }}</span>
-          </NuxtLink>
-        </div>
+            :id="activity.id"
+            :title="activity.title"
+            :imageUrl="activity.image[0]?.url"
+            :route="`/activity/${activity.id}`"
+        />
       </div>
     </section>
 
@@ -46,18 +41,7 @@
       <p v-html="teacher?.cv"></p>
     </section>
 
-    <section class="gallery">
-      <div
-          v-for="(img, idx) in teacher?.image?.slice(1)"
-          :key="idx"
-          class="gallery-item"
-      >
-        <img
-            :src="img.url"
-            :alt="`${teacher?.name} ${teacher?.surname} - image ${idx + 2}`"
-        />
-      </div>
-    </section>
+
   </div>
 
   <div class="footer">
@@ -68,6 +52,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import ItemActivity from "~/components/ItemActivity.vue";
 
 const teacher = ref({})
 const teacherActivities = ref([])
@@ -150,25 +135,8 @@ header h1 {
   gap: 1rem;
 }
 
-.activity-item {
-  position: relative;
-  overflow: hidden;
-}
 
-.activity-item img {
-  width: 100%;
-  display: block;
-}
 
-.activity-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 0.5rem;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-}
 
 .cv {
   margin: 2rem auto;
@@ -191,17 +159,8 @@ header h1 {
   line-height: 1.6;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
 
-.gallery-item img {
-  width: 100%;
-  display: block;
-}
+
 
 @media (max-width: 992px) {
   .activities-grid {
@@ -216,9 +175,7 @@ header h1 {
   .activities-grid {
     grid-template-columns: 1fr;
   }
-  .gallery {
-    grid-template-columns: 1fr;
-  }
+
   .intro-text, .cv p {
     max-width: 100%;
   }
