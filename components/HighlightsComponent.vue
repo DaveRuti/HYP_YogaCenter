@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="goToTeacherPage">
     <img :src="imageUrl" :alt="title" class="card-image" />
     <div class="card-content">
       <h3 class="card-title">{{ title }}</h3>
@@ -34,6 +34,16 @@ export default {
     description: {
       type: String,
       required: true
+    },
+    id: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    goToTeacherPage() {
+      // Navigate to the teacher page using the provided ID
+      this.$router.push({ name: 'activity-activity', params: { activity: this.id } });
     }
   }
 };

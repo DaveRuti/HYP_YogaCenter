@@ -37,7 +37,7 @@
       <div class="cards-container">
         <HighlightsComponent
             v-for="(activity, index) in highlightedActivities"
-            :key="activity.id"
+            :id="activity.id"
             :class="{ 'offset-card': index % 2 !== 0 }"
             :title="activity.title"
             :description="activity.description"
