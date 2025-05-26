@@ -16,7 +16,6 @@
         <h1 class="title" id="activity-title">{{ activity.title }}</h1>
 
         <div class="image-description">
-          <div id="timetable" class="clickable-div">Time Table</div>
         <img :src="activity.image?.[0]?.url" class="activity-img" alt="Activity Image"/>
           <p class="activity-description">{{ activity.description }}</p>
         </div>
@@ -69,12 +68,6 @@ onMounted(async () => {
   teachers.value = await res.json();
   const res2 = await fetch(`/api/activity/${id}`);
   activity.value = await res2.json();
-  console.log(activity.value);
-  let timetable = document.getElementById("timetable");
-
-  timetable.addEventListener('click', (e) => {
-    window.scrollTo({ top: 1800, left: 0, behavior: 'smooth' })
-  })
   })
 
 
@@ -96,24 +89,7 @@ onMounted(async () => {
   text-align: center;
   padding: 0 20px 50px;
 }
-#timetable{
-  position: relative;
-  text-align: center;
-  //padding-left: 100px;
-  left: 100px;
-  top: -240px;
-  border: #181818 2px solid;
-  width: 200px;
-  //height:  200px;
-}
 
-.clickable-div{
-  cursor: pointer;
-}
-
-.clickable-div:hover {
-  text-decoration: underline;
-}
 .content{
   padding-bottom: 0;
 }
