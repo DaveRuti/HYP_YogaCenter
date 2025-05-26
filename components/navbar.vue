@@ -1,14 +1,16 @@
 <script setup>
 import { ref } from 'vue';
 
+// Side Menu Component
 const isMenuVisible = ref(false);
 
 function toggleMenu() {
   isMenuVisible.value = !isMenuVisible.value;
 }
 
+// Dinamic Underline for Active Link
 import { onMounted, watch, nextTick } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute } from '#app'
 
 const route = useRoute()
 
@@ -25,10 +27,30 @@ const moveUnderline = (el) => {
   underlineRef.value.style.left = `${linkRect.left - navRect.left}px`
 }
 
+const isActivitiesPage = computed(() => {
+  return route.path.startsWith('/activitieslist') || route.path.startsWith('/activity')
+})
+
+const isTeachersPage = computed(() => {
+  return route.path.startsWith('/teacherslist') || route.path.startsWith('/teacher')
+})
+
+
 const updateToActive = () => {
   nextTick(() => {
-    const active = navLinksRef.value?.querySelector('.nav-link.active-link')
-    if (active) moveUnderline(active)
+    let activeLink = navLinksRef.value?.querySelector('.nav-link.active-link')
+
+    // Forza sottolineatura su Activities se siamo in una pagina "Activities"
+    if (isActivitiesPage.value) {
+      activeLink = navLinksRef.value?.querySelector('a[href="/activitieslist"]')
+    }
+
+    // Forza sottolineatura su Teachers se siamo in una pagina "Teachers"
+    if (isTeachersPage.value) {
+      activeLink = navLinksRef.value?.querySelector('a[href="/teacherslist"]')
+    }
+
+    if (activeLink) moveUnderline(activeLink)
   })
 }
 
@@ -67,7 +89,7 @@ watch(() => route.fullPath, () => {
     </div>
 
     <ul class="nav-links" :class="{ show: isMenuVisible }" ref="navLinksRef">
-      <li><NuxtLink to="/" exact-active-class="active-link" class="nav-link">Home</NuxtLink></li>
+      <li><NuxtLink to="/" active-class="active-link" class="nav-link">Home</NuxtLink></li>
       <li><NuxtLink to="/highlights" exact-active-class="active-link" class="nav-link">Highlights</NuxtLink></li>
       <li><NuxtLink to="/activitieslist" active-class="active-link" class="nav-link">Activities</NuxtLink></li>
       <li><NuxtLink to="/teacherslist" active-class="active-link" class="nav-link">Teachers</NuxtLink></li>

@@ -25,8 +25,8 @@
           a community that supported us along the way. InnerFlow grew from those roots.</div>
       </div>
 
-      <div class="image">
-        <img class="frameChild" alt="" src="/OldPhoto.png" />
+      <div class="imageAndText">
+        <img class="image" alt="" src="/OldPhoto.png" />
         <div class="textNextToImage">
           Today, we offer a range of classes from dynamic Vinyasa flows to deeply restorative practices, guided by
           teachers who honor both tradition and personal transformation. Our studio is more than a place to stretch—it’s
@@ -61,6 +61,10 @@
   padding: 100px 20px 50px;
 }
 
+.footer{
+  padding: 0;
+}
+
 h1 {
   font-size: clamp(3rem, 6vw, 4rem);
 }
@@ -71,15 +75,22 @@ p {
   font-size: 1.5rem;
 }
 
+.content{
+  flex: 1;
+  padding-top: 0;
+  padding-bottom: 50px;
+  max-width: 500px;
+}
+
 .title {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  width: 100%;
+  gap: 80px;
   flex-wrap: wrap; /* permette layout a colonna su mobile */
   flex-direction: row;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 60px;
 }
 
 .top-image{
@@ -103,54 +114,58 @@ p {
   flex-shrink: 0;
   align-content: center;
   column-gap: 80px;
-  padding-bottom: 50px;
+  row-gap: 30px;
+  padding-bottom: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .loremIpsumDolor {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   position: relative;
-  line-height: 41px;
-  font-weight: 300;
+  line-height: 40px;
   display: inline-block;
   flex-shrink: 0;
-  font-size: 20px;
+  font-size: clamp(0.5rem, 3vw, 1.2rem);
   text-align: justify;
 }
 
 .loremIpsumDolor1 {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   position: relative;
-  line-height: 41px;
-  font-weight: 300;
+  line-height: 40px;
   display: inline-block;
   flex-shrink: 0;
-  font-size: 20px;
+  font-size: clamp(0.5rem, 3vw, 1.2rem);
   text-align: justify;
 }
 
-.frameChild {
+.image {
   max-width: 500px;
+  width: 100%;
   position: relative;
   align-items: center;
   justify-content: center;
-  gap: 80px;
 }
 
 .textNextToImage {
   max-width: 500px;
+  width: 100%;
   position: relative;
   line-height: 41px;
   font-weight: 300;
   display: inline-block;
   flex-direction: column;
   justify-content: flex-start;
-  font-size: 20px;
+  font-size: clamp(0.5rem, 3vw, 1.2rem);
   text-align: justify;
 }
 
-.image {
+.imageAndText {
   align-items: start;
-  padding-top: 0;
+  padding: 0;
   position: relative;
   width: 100%;
   display: flex;
@@ -158,7 +173,8 @@ p {
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
-  gap: 80px;
+  column-gap: 80px;
+  row-gap: 30px;
 }
 
 ol {
