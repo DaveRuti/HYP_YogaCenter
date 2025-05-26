@@ -150,10 +150,10 @@ console.log(props.timeSchedule + "-------------");
   }
 }
 
-@media (max-width: 1200px){
+@media (max-width: 1270px){
   .frameParent {
     width: 500px;
-    position: absolute;
+    //position: relative;
     height: 600px;
     display: flex;
     align-items: flex-start;
@@ -172,19 +172,20 @@ console.log(props.timeSchedule + "-------------");
 }
 
 @media (max-width: 1000px) {
-  .frameParent{
+  .lessonScheduleParent{
     left: 80px;
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 
 
   .lessonsSchedule {
-    width: 252px;
+    width: 300px;
     position: absolute;
-    left: 140px;
-    font-size: 27px;
+    //left: 140px;
+    left: calc(50% - 180px);
+    font-size: 32px;
     line-height: 14px;
     display: inline-block;
     font-family: 'Nunito Sans';
@@ -192,27 +193,18 @@ console.log(props.timeSchedule + "-------------");
     text-align: right;
     height: 18.8px;
     transform-origin: 0 0;
+    //margin-right: 70px;
+    top: 80px;
   }
 
-  /*.frameParent {
-    width: 500px;
-    position: absolute;
-    height: 600px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 100px 28px 126px;
-    box-sizing: border-box;
-    gap: 27px;
-    transform-origin: 0 0;
-    text-align: justify;
-    font-size: 20px;
-    color: #000;
-    font-family: 'Nunito Sans';
-    left: 120px;
-    top: 20px;
-  }*/
-
 }
+
+@media (max-width: 400px) {
+  .lessonsSchedule{
+    font-size: 26px;
+  }
+}
+
+
 
 </style>

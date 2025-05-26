@@ -150,7 +150,7 @@ h1{
 }
 
 .lessonScheduleContainer{
-  padding-right: 300px;
+  padding-right: 200px;
 }
 
 @media (max-width: 1600px) {
@@ -192,11 +192,20 @@ h1{
   #activity-title{
     margin-top: -150px;
   }
+  .lessonScheduleContainer{
+    padding-right: 80px;
+  }
 }
 
 @media (max-width: 550px) {
   .activity-description{
     margin-bottom: 550px;
+  }
+  #lessonScheduleTab{
+    left: 5%;
+  }
+  .lessonScheduleContainer{
+    padding-right: 40px;
   }
 }
 
@@ -211,6 +220,9 @@ h1{
   }
   .icon{
     padding-left: 40px;
+  }
+  .lessonScheduleContainer{
+    padding-right: 20px;
   }
 }
 

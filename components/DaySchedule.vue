@@ -23,9 +23,10 @@ export default {
   <div class="dayParent">
     <div class="day">
       <p class="p">{{ day }}:                 </p>
-      <p class="p">   </p>
+
     </div>
     <div class="div">
+      <p class="p" style="height: 3px">   </p>
       <p class="p1">{{ startTime }} - {{ endTime }}</p>
     </div>
   </div>
@@ -66,7 +67,7 @@ export default {
   margin-left: -20px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .p {
     margin: 0;
     white-space: pre-wrap;
@@ -109,6 +110,24 @@ export default {
     align-items: center;
     justify-content: flex-start;
     gap: 80px;
+  }
+}
+
+@media (max-width: 500px) {
+  .day {
+    width: 142px;
+    position: relative;
+    line-height: 14px;
+    display: inline-block;
+    height: 29px;
+    flex-shrink: 0;
+    margin: 0;
+    left: -100px;
+    white-space: pre-wrap;
+    font-size: 20px;
+  }
+  .dayParent {
+    gap: 1px;
   }
 }
 
