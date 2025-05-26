@@ -68,7 +68,7 @@
         <button class="arrow left" @click="scrollLeft">❮</button>
         <div class="slider">
             <ItemTeacher
-                v-for="teacher in teachers"
+                v-for="teacher in cyclicTeachers"
                 :id="teacher.id"
                 :title="`${teacher.name} ${teacher.surname}`"
                 :imageUrl="teacher.image[0]?.url"
@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import Navbar from "@/components/navbar.vue";
 import Footer from "@/components/footer.vue";
 import ItemTeacher from "~/components/ItemTeacher.vue";
@@ -101,11 +101,21 @@ export default {
   methods: {
     scrollLeft() {
       const slider = this.$el.querySelector('.slider');
-      slider.scrollLeft -= 300; // Scorri a sinistra di 300px
+      if (slider) {
+        slider.scrollBy({
+          left: -300, // Scroll 300px to the left
+          behavior: 'smooth', // Enable smooth scrolling
+        });
+      }
     },
     scrollRight() {
       const slider = this.$el.querySelector('.slider');
-      slider.scrollLeft += 300; // Scorri a destra di 300px
+      if (slider) {
+        slider.scrollBy({
+          left: +300, // Scroll 300px to the left
+          behavior: 'smooth', // Enable smooth scrolling
+        });
+      }
     }
   },
   setup() {
@@ -113,6 +123,13 @@ export default {
     const ctaImage = ref('/assets/green background.png');
     const highlightedActivities = ref([]);
     const teachers = ref([]);
+
+    // Duplica gli insegnanti per creare un effetto ciclico
+    const cyclicTeachers = computed(() => [
+      ...teachers.value,
+      ...teachers.value,
+      ...teachers.value,
+    ]);
 
     // Fetch delle attività in evidenza dall'API
     const fetchHighlightedActivities = async () => {
@@ -151,7 +168,6 @@ export default {
       fetchHighlightedActivities();
       fetchTeachers();
 
-      // Horizontal scroll for slider with mouse wheel
       const slider = document.querySelector('.slider');
 
       if (slider) {
@@ -160,12 +176,10 @@ export default {
           const isHorizontalScroll = Math.abs(e.deltaX) > Math.abs(e.deltaY);
 
           if (!isHorizontalScroll) {
-            // Permetti lo scrolling verticale
-            return;
+            return; // Allow vertical scrolling
           }
 
-          // Impedisci lo scrolling verticale di default solo per lo slider
-          e.preventDefault();
+          e.preventDefault(); // Prevent default vertical scrolling
           slider.scrollLeft += e.deltaY;
         });
       }
@@ -187,7 +201,8 @@ export default {
       ctaImage,
       highlightedActivities,
       teachers,
-      handleResize
+      handleResize,
+      cyclicTeachers,
     };
   },
   beforeUnmount() {
@@ -206,20 +221,6 @@ export default {
 
 body {
   overflow-x: hidden;
-}
-
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10; /* Assicura che la navbar sia sopra gli altri elementi */
-
-}
-
-.footer {
-  padding-top: 50px;
-  width: 100%;
 }
 
 /* Hero Section */
@@ -435,7 +436,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  //background: rgba(0, 0, 0, 0.4);
+  /*background: rgba(0, 0, 0, 0.4);*/
   z-index: 1;
 }
 
@@ -471,6 +472,7 @@ body {
   display: flex;
   align-items: center;
   overflow: hidden;
+  overflow-x: auto;
 }
 
 .slider {
