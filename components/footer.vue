@@ -75,7 +75,6 @@ import Contacts from "~/pages/contacts.vue";
 
 footer {
   background-color: #f9f9f9;
-  padding: 40px 0 0 0;
   width: 100%;
   bottom : 0;
   position: relative;

@@ -6,38 +6,41 @@
     <div class="main">
       <div class="content">
 
-        <OrientationLink
-          :text="'Activities'"
-          :route="'activitieslist'"
-          :activity="activity.title"
-          class="orientation-link"/>
+          <div class="orientation-link">
+            <OrientationLink
+              :text="'Activities'"
+              :route="'activitieslist'"
+              :activity="activity.title"/>
+          </div>
 
-        <h1 id="activity-title">{{ activity.title }}</h1>
-        <img :src="activity.image?.[0]?.url" class="icon">
-        <p class="activity-description">{{ activity.description }}</p>
+        <h1 class="title" id="activity-title">{{ activity.title }}</h1>
+
+        <div class="image-description">
+          <img :src="activity.image?.[0]?.url" class="activity-img" alt="Activity Image"/>
+          <p class="activity-description">{{ activity.description }}</p>
+        </div>
 
         <div class="lessonScheduleContainer">
-          <LessonsSchedule id="lessonScheduleTab" :activity="activity.timeSchedule"/>
+          <LessonsSchedule v-if="activity && activity.timeSchedule" :timeSchedule="activity.timeSchedule" />
         </div>
 
-
-        <h1>Teachers</h1>
-
-        <div class="teachers-list">
-          <ItemTeacher
-              v-for="teacher in teachers"
-              :id="teacher.id"
-              :title="`${teacher.name} ${teacher.surname}`"
-              :imageUrl="teacher.image[0]?.url"
-              :route="`/teacher/${teacher.id}`"
-          />
+        <div class="teachers-container">
+          <h1 class="teachers-title">Teachers</h1>
+          <div class="teachers-list">
+            <ItemTeacher
+                v-for="teacher in teachers"
+                :id="teacher.id"
+                :title="`${teacher.name} ${teacher.surname}`"
+                :imageUrl="teacher.image[0]?.url"
+                :route="`/teacher/${teacher.id}`"
+            />
+          </div>
         </div>
 
+        <!--<h2>Lessons</h2>
+
+        <ActivityLesson class="activity-lessons"/>-->
       </div>
-
-      <h1>Lessons</h1>
-
-        <ActivityLesson class="activity-lessons"/>
 
     </div>
     <div class="footer">
@@ -74,7 +77,96 @@ onMounted(async () => {
 @import "../../assets/css/global.css";
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+}
 
+.main{
+  text-align: center;
+  padding: 0 20px 50px;
+}
+
+.content{
+  padding-bottom: 0;
+}
+
+.orientation-link{
+  padding: 20px;
+}
+
+.title{
+  font-size: clamp(3rem, 9vw, 5rem);
+  margin-bottom: 20px;
+}
+
+.image-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  column-gap: 80px;
+  padding: 50px;
+  flex-wrap: wrap; /* Permette il wrap */
+}
+
+.activity-description {
+  max-width: 500px;
+  width: 100%; /* Occupa tutta la riga quando va sotto */
+  font-size: 20px;
+  height: auto;
+  line-height: 40px;
+  font-weight: 300;
+  text-align: justify;
+  display: inline-block;
+  margin-top: 20px; /* Spazio sopra quando va sotto */
+}
+
+.activity-img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.lessonScheduleContainer{
+  align-items: center;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+/*.activity-lessons{
+  align-content: center;
+  margin-top: 50px;
+  margin-bottom: 150px;
+}*/
+
+.teachers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.teachers-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 50px;
+  text-align: left;
+  width: 100%;
+  margin-left: 200px;
+}
 
 .teachers-list {
   display: grid;
@@ -84,150 +176,19 @@ onMounted(async () => {
   align-items: start;
   max-width: 1250px;            /* Limita la larghezza totale della griglia */
   margin: 0 auto;
-  min-width: 450px;
-}
-
-.icon {
-  /*width: 50%;
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-  height: 885px;
-  object-fit: cover;
-  height: 1205px;*/
-  height: 100%;
-  max-width: 1000px;
-  max-height: 1085px;
-  min-width: 405px;
-  min-height: 300px;
-  margin-bottom: 100px;
   width: 100%;
-  /*aspect-ratio: 404 / 505;*/
-  padding-left: 100px;
-  padding-right: 100px;
 }
 
-#activity-title{
-  margin-top: -100px;
-  margin-bottom:  140px;
-}
+@media (max-width: 1000px) {
+  .teachers-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 per riga su schermi piccoli */
+    max-width: 820px;
+  }
 
-.activity-description{
-  margin-bottom: 150px;
-
-  width: 100%;
-  position: relative;
-  font-size: 25px;
-  line-height: 41px;
-  font-weight: 300;
-  font-family: 'Nunito Sans';
-  color: #000;
-  text-align: justify;
-  display: inline-block;
-  height: 188px;
-  padding-right: 250px;
-  padding-left: 250px;
-}
-
-#lessonScheduleTab{
-  align-content: center;
-  left: 10%;
-  right: 10%;
-  margin-bottom: 150px;
-}
-
-.activity-lessons{
-  margin-top: 50px;
-  left: 15%;
-  right: 10%;
-  margin-bottom: 150px;
-}
-
-h1{
-  margin-bottom:  150px;
-}
-
-.orientation-link{
-  /*width: 100%;*/
-}
-
-.lessonScheduleContainer{
-  padding-right: 200px;
-}
-
-@media (max-width: 1600px) {
-  .activity-description{
-    margin-bottom: 350px;
+  .teachers-title {
+    margin-left: 0; /* Centra il titolo su schermi piccoli */
+    text-align: center; /* Centra il testo */
   }
 }
-
-@media (max-width: 1200px) {
-  .activity-lessons{
-    padding-right: 100px;
-  }
-  .activity-description{
-    padding-right: 150px;
-    padding-left: 150px;
-    margin-bottom: 250px;
-  }
-}
-
-@media (max-width: 1100px) {
-  .activity-lessons{
-    padding-right: 250px;
-  }
-  .activity-description{
-    padding-right: 80px;
-    padding-left: 80px;
-    margin-bottom: 450px;
-  }
-}
-
-@media (max-width: 700px) {
-  .activity-lessons{
-    padding-right: 150px;
-  }
-  .activity-description{
-    font-size: 17px;
-    margin-bottom: 450px;
-  }
-  #activity-title{
-    margin-top: -115px;
-  }
-  .lessonScheduleContainer{
-    padding-right: 80px;
-  }
-}
-
-@media (max-width: 550px) {
-  .activity-description{
-    margin-bottom: 550px;
-  }
-  #lessonScheduleTab{
-    left: 5%;
-  }
-  .lessonScheduleContainer{
-    padding-right: 40px;
-  }
-}
-
-@media (max-width: 450px) {
-  .activity-lessons{
-    padding-right: 90px;
-  }
-  .activity-description{
-    padding-right: 30px;
-    padding-left: 30px;
-    margin-bottom: 640px;
-  }
-  .icon{
-    padding-left: 40px;
-  }
-  .lessonScheduleContainer{
-    padding-right: 20px;
-  }
-}
-
-
 
 </style>
