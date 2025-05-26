@@ -192,7 +192,7 @@ h1{
     margin-bottom: 450px;
   }
   #activity-title{
-    margin-top: -150px;
+    margin-top: -115px;
   }
   .lessonScheduleContainer{
     padding-right: 80px;

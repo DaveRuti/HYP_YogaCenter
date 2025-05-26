@@ -4,6 +4,7 @@
     <NuxtLink :to="'/' + route">
       <div class="activities">{{ text }} &gt;</div>
     </NuxtLink>
+
   </div>
 </template>
 
