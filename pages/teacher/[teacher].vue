@@ -23,7 +23,7 @@
     </section>
 
     <!-- SEZIONE ACTIVITIES -->
-    <section class="activities">
+    <section class="text-link">
       <h2>Activities</h2>
       <div class="activities-grid">
         <div
@@ -160,7 +160,7 @@ header h1 {
 }
 
 /* SEZIONE ACTIVITIES */
-.activities h2 {
+.text-link h2 {
   text-align: center;
   color: #000;
   margin-bottom: 1rem;

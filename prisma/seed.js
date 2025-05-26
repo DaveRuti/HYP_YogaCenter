@@ -4,9 +4,15 @@ const prisma = new PrismaClient()
 //FILE SEED PER POPOLARE IL DATABASE
 
 async function main() {
-    // Pulisce i dati esistenti
-    await prisma.activity.deleteMany()
-    await prisma.teacher.deleteMany()
+    // Prima elimina le dipendenze
+    await prisma.teach.deleteMany();
+    await prisma.activityDate.deleteMany();
+    await prisma.activityImage.deleteMany();
+    await prisma.teacherImage.deleteMany();
+
+    // Poi elimina le attività
+    await prisma.activity.deleteMany();
+    await prisma.teacher.deleteMany();
 
 
     // 1. Crea 3 insegnanti
@@ -425,7 +431,7 @@ async function main() {
                     'simplicity of the practice is its depth — allowing the mind to settle naturally and the present ' +
                     'moment to unfold without effort. Each session includes silent sitting, walking meditation (kinhin), ' +
                     'and a brief reflection or reading from Zen teachings.',
-                isHighlighted: false,
+                isHighlighted: true,
                 type: 'MEDITATION',
                 image: {
                     create: [{ url: '/images/activity/ZenMeditation.png' }],
@@ -463,7 +469,7 @@ async function main() {
                     'deep stabilizing muscles of the abdomen, back, and pelvis, helping to prevent injury and improve ' +
                     'functional movement. Pilates is suitable for all fitness levels and can be adapted to individual ' +
                     'needs, from beginners to advanced practitioners.',
-                isHighlighted: false,
+                isHighlighted: true,
                 type: 'PILATES',
                 image: {
                     create: [{ url: '/images/activity/Pilates.png' }],
@@ -500,7 +506,7 @@ async function main() {
                     'will explore how to listen to the body’s true needs, recognize emotional patterns linked to food, ' +
                     'and cultivate a deep sense of presence at the table and on the mat. This seminar is not about ' +
                     'restriction or diet — it\'s an invitation to rediscover the joy of eating and moving with awareness.',
-                isHighlighted: false,
+                isHighlighted: true,
                 type: 'SEMINAR',
                 image: {
                     create: [{ url: 'images/activity/MindfulEating.png' }],
