@@ -71,8 +71,10 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-@import "../../assets/global.css";
+@import "../../assets/css/global.css";
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+
 
 .teachers-list {
   display: grid;
@@ -91,8 +93,8 @@ onMounted(async () => {
   max-width: 100%;
   overflow: hidden;
   height: 885px;
-  object-fit: cover;*/
-  //height: 1205px;
+  object-fit: cover;
+  height: 1205px;*/
   height: 100%;
   max-width: 1000px;
   max-height: 1085px;
@@ -100,7 +102,7 @@ onMounted(async () => {
   min-height: 300px;
   margin-bottom: 100px;
   width: 100%;
-  //aspect-ratio: 404 / 505;
+  /*aspect-ratio: 404 / 505;*/
   padding-left: 100px;
   padding-right: 100px;
 }
@@ -146,7 +148,7 @@ h1{
 }
 
 .orientation-link{
-  //width: 100%;
+  /*width: 100%;*/
 }
 
 .lessonScheduleContainer{

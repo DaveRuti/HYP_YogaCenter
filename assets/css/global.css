@@ -1,0 +1,99 @@
+/*
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.main {
+    flex: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+
+* {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.main {
+    flex: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.content {
+    padding-top: 200px;
+    padding-bottom: 100px;
+}
+
+h1{
+    font-size: clamp(3rem, 7vw, 5rem);
+    margin-bottom: 20px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.footer {
+    padding-top: 100px;
+    margin: 0;
+    width: 100%;
+}
+
+/* CSS per the dark mode toggle */
+/*
+body {
+    background-color: white;
+    color: black;
+    transition: background 0.3s, color 0.3s;
+}
+
+.dark body {
+    background-color: #1e5239;
+    color: white;
+}
+*/
+.content {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+h1{
+    font-size: clamp(3rem, 7vw, 5rem);
+    margin-bottom: 20px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.footer {
+    padding-top: 100px;
+    margin: 0;
+    width: 100%;
+}

@@ -25,25 +25,14 @@
           a community that supported us along the way. InnerFlow grew from those roots.</div>
       </div>
 
-      <div class="rectangleParent">
-        <img class="frameChild" alt="" src="/aboutUsTeacher1.png" />
-        <div class="teacher">
-          <img class="imageIcon" alt="" src="/aboutUsTeacher2.png" />
+      <div class="imageAndText">
+        <img class="image" alt="" src="/OldPhoto.png" />
+        <div class="textNextToImage">
+          Today, we offer a range of classes from dynamic Vinyasa flows to deeply restorative practices, guided by
+          teachers who honor both tradition and personal transformation. Our studio is more than a place to stretch—it’s
+          place to feel, to reflect, and to belong. Whether you're stepping onto the mat for the first time or deepening
+          a lifelong practice, InnerFlow welcomes you. This is your space to move inward, breathe fully, and flow freely.
         </div>
-
-      </div>
-
-      <b class="content" id="regulation">Regulation</b>
-
-      <div class="AboutUsEpilogueContainer">
-
-        <br>
-        <br>
-        <ol>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
-          <li>Lorem ipsum dolor sit amet</li>
-          <li>sed do eiusmod tempor incididunt ut labore et dolore m</li>
-        </ol>
       </div>
 
     </div>
@@ -57,7 +46,7 @@
 
 <style scoped>
 
-@import "../assets/global.css" ;
+@import "../assets/css/global.css";
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
 * {
@@ -67,41 +56,41 @@
   font-family: 'Nunito Sans', sans-serif;
 }
 
-.content {
-  flex: 1;
-  min-width: 280px;
-  box-sizing: border-box;
-}
-
 .main {
   text-align: center;
-  padding: 50px 20px;
+  padding: 100px 20px 50px;
+}
+
+.footer{
+  padding: 0;
 }
 
 h1 {
   font-size: clamp(3rem, 6vw, 4rem);
-  margin-bottom: 20px;
 }
 h2 {
   font-size: 1.5rem;
-  margin-bottom: 20px;
 }
 p {
   font-size: 1.5rem;
-  margin-bottom: 50px;
+}
+
+.content{
+  flex: 1;
+  padding-top: 0;
+  padding-bottom: 50px;
+  max-width: 500px;
 }
 
 .title {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  padding-top: 60px;
-
+  width: 100%;
+  gap: 80px;
   flex-wrap: wrap; /* permette layout a colonna su mobile */
   flex-direction: row;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 60px;
 }
 
 .top-image{
@@ -114,109 +103,78 @@ p {
   box-sizing: border-box;
 }
 
-.ourHistory {
-  position: relative;
-  font-size: 40px;
-  line-height: 114px;
-  display: inline-block;
-  text-align: left;
-  flex-shrink: 0;
-}
 .ourHistoryParent {
   position: relative;
-  line-height: 41px;
-  font-weight: 300;
-  display: inline-block;
-  height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   flex-shrink: 0;
-  font-size: 20px;
+  align-content: center;
+  column-gap: 80px;
+  row-gap: 30px;
+  padding-bottom: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .loremIpsumDolor {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   position: relative;
-  line-height: 41px;
-  font-weight: 300;
+  line-height: 40px;
   display: inline-block;
-  height: 500px;
   flex-shrink: 0;
-  font-size: 20px;
+  font-size: clamp(0.5rem, 3vw, 1.2rem);
   text-align: justify;
 }
 
 .loremIpsumDolor1 {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  line-height: 40px;
+  display: inline-block;
+  flex-shrink: 0;
+  font-size: clamp(0.5rem, 3vw, 1.2rem);
+  text-align: justify;
+}
+
+.image {
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.textNextToImage {
+  max-width: 500px;
+  width: 100%;
   position: relative;
   line-height: 41px;
   font-weight: 300;
   display: inline-block;
-  height: 500px;
-  flex-shrink: 0;
-  font-size: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: clamp(0.5rem, 3vw, 1.2rem);
   text-align: justify;
 }
 
-.ourHistoryParent {
+.imageAndText {
+  align-items: start;
+  padding: 0;
   position: relative;
-  left: calc(50% - 616px);
-  width: 1224px;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
-  gap: 78px 104px;
-}
-
-.frameChild {
-  /*width: 616px;
-  height: 580px;*/
-  height: 100%;
-  width: 100%;
-  position: relative;
-  object-fit: cover;
-  max-width: 616px;
-  max-height: 580px;
-}
-
-.imageIcon {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0%;
-  right: 0%;
-  bottom: 0%;
-  left: 0%;
-  max-width: 100%;
-  //overflow: hidden;
-  max-height: 100%;
-  object-fit: cover;
-}
-.teacher {
-  width: 612px;
-  position: relative;
-  height: 543px;
-}
-.rectangleParent {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 68px;
-  margin-left: 400px;
-  left: calc(50% - 1016px);
-
- /* position: relative;
-  top: 0px;
-  left: calc(50% - 616px);
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-content: center;*/
+  column-gap: 80px;
+  row-gap: 30px;
 }
 
 ol {
@@ -230,67 +188,12 @@ li {
   margin-bottom: 50px;
 }
 
-.AboutUsEpilogueContainer {
-  width: 1430px;
-  position: relative;
-  font-size: 32px;
-  line-height: 41px;
-  font-weight: 300;
-  font-family: 'Nunito Sans';
-  color: #000;
-  text-align: justify;
-  display: inline-block;
-  height: 587px;
-  margin-top: -100px;
-}
-
-#regulation{
-  text-align: center;
-  margin-top: 40px;
-  width: 587px;
-  position: relative;
-  font-size: 60px;
-  line-height: 114px;
-  display: inline-block;
-  flex-shrink: 0;
-  left: calc(20% - 180px);
-  margin-right: calc(20%);
-}
-
-@media (min-width: 450px) and (max-width: 1824px) {
-  #regulation{
-    left: calc(20% - 140px);
-  }
-}
-
-@media (min-width: 600px) and (max-width: 1024px) {
-  #regulation{
-    left: calc(20% - 100px);
-  }
-}
-
 @media (max-width: 1468px) {
   #aboutUs{
     width: 80%;
     min-height: 200px;
     min-width: 300px;
   }
-}
-
-@media (max-width: 1000px) {
-  .ourHistory{
-    font-size: 45px;
-  };
-  #regulation{
-    font-size: 45px;
-  };
-}
-
-@media (max-width: 1200px) {
-  .rectangleParent{
-    flex-direction: column;
-  }
-
 }
 
 </style>

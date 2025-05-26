@@ -83,7 +83,7 @@ console.log(props.timeSchedule + "-------------");
 <style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
-@import "../assets/global.css";
+@import "../assets/css/global.css";
 
 .lessonsSchedule {
   position: absolute;
@@ -100,7 +100,7 @@ console.log(props.timeSchedule + "-------------");
   top: 49px;
   left: 164px;
   width: 1114px;
-  //width: 100%;
+  /*width: 100%;*/
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -119,7 +119,7 @@ console.log(props.timeSchedule + "-------------");
   background-color: rgba(8, 102, 58, 0.24);
   height: 598px;
   text-align: left;
-  //font-size: 80px;
+  /*font-size: 80px;*/
   color: #000;
   font-family: 'Nunito Sans';
   max-width: 1500px;

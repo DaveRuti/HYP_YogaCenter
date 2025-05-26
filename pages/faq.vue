@@ -14,7 +14,7 @@
         <img src="/faq.png" alt="Contact Image" class="page-image"/>
       </div>
         <FAQ/>
-      <div class="contact-row">
+      <!--<div class="contact-row">
         <ContactComponent
             v-for="(contact, index) in contacts"
             :key="index"
@@ -22,7 +22,7 @@
             :imageUrl="contact.imageUrl"
             :to="contact.to"
         />
-      </div>
+      </div>-->
     </div>
 
     <div class="footer">
@@ -57,7 +57,7 @@ const contacts = [
 
 .main {
   text-align: center;
-  padding: 100px 20px;
+  padding: 100px 20px 50px;
 }
 
 .navbar {
@@ -72,7 +72,6 @@ const contacts = [
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
   padding: 60px 30px;
   flex-wrap: wrap; /* permette layout a colonna su mobile */
   flex-direction: row;
@@ -81,12 +80,10 @@ const contacts = [
 }
 
 .page-image {
-  max-width: 400px;
+  max-width: 300px;
   width: 100%;
   height: auto;
   flex-shrink: 0;
-  padding-left: 20px;
-  padding-right: 20px;
   box-sizing: border-box;
 }
 
@@ -100,7 +97,6 @@ const contacts = [
   justify-items: center;
   justify-content: center;
   align-items: center;
-
 }
 
 .contact-row {
@@ -115,6 +111,7 @@ const contacts = [
   flex: 1; /* Ensures equal width for all components */
   min-width: 150px; /* Prevents components from shrinking too much */
 }
+
 
 h1 {
   font-size: clamp(3rem, 6vw, 4rem);
@@ -132,6 +129,10 @@ a {
   font-size: 1rem;
   color: #42b983;
   text-decoration: underline;
+}
+
+.footer{
+  padding-top: 0;
 }
 
 </style>
