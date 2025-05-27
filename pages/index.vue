@@ -233,7 +233,7 @@ body {
 }
 
 .content {
-  padding-top: 0;
+  padding-top: 10px;
 }
 
 /* Hero Section */
@@ -517,6 +517,10 @@ body {
 
 
 @media (max-width: 900px) {
+  .content {
+    padding-top: 50px;
+  }
+
   .hero-title {
     font-size: 3rem;
   }
@@ -558,6 +562,10 @@ body {
 
 
 @media (max-width: 600px) {
+
+  .content {
+    padding-top: 50px;
+  }
 
   .hero {
     aspect-ratio: 8/9;
