@@ -497,11 +497,19 @@ body {
 
 
   .stats {
-    flex-direction: column;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 2rem; /* Spacing between items */
+    margin-top: 3rem;
   }
 
+  .stat-number{
+    font-size: 2rem;
+  }
 
+  .stat-text{
+    font-size: 1rem;
+  }
 
 
   .cta-title {
@@ -510,23 +518,30 @@ body {
 }
 
 
-@media (max-width: 768px) {
-  .slider {
-    gap: 20px;
-  }
-}
-
-
 @media (max-width: 600px) {
   .hero-title {
+    padding-top: 50px;
     font-size: 2.5rem;
   }
-
 
   .hero-description {
     font-size: 1rem;
   }
 
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 2rem; /* Spacing between items */
+    margin-top: 3rem;
+  }
+
+  .stat-number{
+    font-size: 1.5rem;
+  }
+
+  .stat-text{
+    font-size: 1rem;
+  }
 
   .section-title {
     font-size: 2rem;
