@@ -214,7 +214,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
@@ -230,6 +230,10 @@ body {
   flex: 1;
   padding-left: 0;
   padding-right: 0;
+}
+
+.content {
+  padding-top: 0;
 }
 
 /* Hero Section */
