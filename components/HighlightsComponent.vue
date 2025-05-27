@@ -3,7 +3,7 @@
     <img :src="imageUrl" :alt="title" class="card-image" />
     <div class="card-content">
       <h3 class="card-title">{{ title }}</h3>
-      <p class="card-description">{{ description }}</p>
+      <p class="card-description">{{ truncatedDescription }}</p>
     </div>
   </div>
 </template>
@@ -40,6 +40,15 @@ export default {
       required: true
     }
   },
+  computed: {
+    truncatedDescription() {
+      const maxLength = 225; // Numero massimo di caratteri
+      if (this.description.length > maxLength) {
+        return this.description.slice(0, maxLength) + '...';
+      }
+      return this.description;
+    }
+  },
   methods: {
     goToTeacherPage() {
       // Navigate to the teacher page using the provided ID
@@ -69,7 +78,7 @@ export default {
 
 .card-image {
   width: 100%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -91,6 +100,11 @@ export default {
   font-size: 0.9rem;
   color: #666;
   line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 6; /* Numero massimo di righe */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 
