@@ -1,51 +1,67 @@
 <template>
-  <div class="navbar">
-    <Navbar />
-  </div>
 
-  <div class="container">
-    <header>
-      <h1>{{ teacher?.name }} {{ teacher?.surname }}</h1>
-    </header>
-
-    <div class="main-image-wrapper">
-      <img
-          :src="teacher?.image?.[0]?.url"
-          :alt="`${teacher?.name} ${teacher?.surname}`"
-      />
+  <div class="page">
+    <div class="navbar">
+      <Navbar />
     </div>
 
-    <section class="intro">
-      <h2>Description</h2>
-      <div class="intro-text">
-        <p v-html="teacher?.description"></p>
+    <div class="main">
+
+      <div class="content">
+
+        <div class="orientation-link">
+          <OrientationLink
+              :text="'Teachers'"
+              :route="'teacherslist'"
+              :activity="teacher.title || ''"
+          />
+        </div>
+
+        <div class="container">
+          <header>
+            <h1>{{ teacher?.name }} {{ teacher?.surname }}</h1>
+          </header>
+
+          <div class="main-image-wrapper">
+            <img
+                :src="teacher?.image?.[0]?.url"
+                :alt="`${teacher?.name} ${teacher?.surname}`"
+            />
+          </div>
+
+          <section class="intro">
+            <h2>Description</h2>
+            <div class="intro-text">
+              <p v-html="teacher?.description"></p>
+            </div>
+          </section>
+
+          <section class="activities">
+            <h2>Activities</h2>
+            <div class="activities-grid">
+              <ItemActivity
+                  v-for="activity in teacherActivities"
+                  :key="activity.id"
+                  :id="activity.id"
+                  :title="activity.title"
+                  :imageUrl="activity.image[0]?.url"
+                  :route="`/activity/${activity.id}`"
+              />
+            </div>
+          </section>
+
+          <section class="cv">
+            <h2>CV</h2>
+            <p v-html="teacher?.cv"></p>
+          </section>
+
+        </div>
       </div>
-    </section>
+    </div>
 
-    <section class="activities">
-      <h2>Activities</h2>
-      <div class="activities-grid">
-        <ItemActivity
-            v-for="activity in teacherActivities"
-            :key="activity.id"
-            :id="activity.id"
-            :title="activity.title"
-            :imageUrl="activity.image[0]?.url"
-            :route="`/activity/${activity.id}`"
-        />
-      </div>
-    </section>
-
-    <section class="cv">
-      <h2>CV</h2>
-      <p v-html="teacher?.cv"></p>
-    </section>
-
-
-  </div>
-
-  <div class="footer">
-    <Footer />
+    <div class="footer">
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -72,25 +88,11 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-}
-
-.footer {
-  padding-top: 100px;
-  margin: 0;
-  width: 100%;
-}
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 1rem;
-  padding-top: 120px;
 }
 
 header h1 {

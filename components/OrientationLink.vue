@@ -1,15 +1,12 @@
 <template>
-
   <div class="orientation-container">
-    <NuxtLink :to="'/' + route">
+    <NuxtLink :to="`/${route}`" :aria-label="`Navigate to ${text}`">
       <div class="text-link">{{ text }} &gt;</div>
     </NuxtLink>
-
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'OrientationLink',
   props: {
@@ -21,24 +18,12 @@ export default {
       type: String,
       required: true,
       default: 'error'
-    },
-    activity: {
-      type: String,
-      required: true
-    }
-  },
-  methods: {
-    onTextClick() {
-      let route = route;
-      this.$router.push('/' + route);
     }
   }
 };
-
 </script>
 
-<style  scoped>
-
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
 
 * {
@@ -49,8 +34,6 @@ export default {
 }
 
 .text-link {
-  padding: 0;
-  position: relative;
   font-size: 28px;
   text-decoration: underline;
   line-height: 41px;
@@ -59,6 +42,11 @@ export default {
   text-align: justify;
   display: inline-block;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.text-link:hover {
+  color: #08663A; /* Add a hover effect */
 }
 
 .orientation-container {
@@ -68,6 +56,4 @@ export default {
   width: 100%;
   height: 100%;
 }
-
-
 </style>
