@@ -1,80 +1,87 @@
 <template>
   <div>
-    <div class="navbar">
-      <Navbar />
+    <div class="page">
+      <div class="navbar">
+        <Navbar />
+      </div>
+
+      <div class="main">
+        <div class="content">
+          <section class="hero">
+            <div class="hero-content">
+              <div class="hero-text-container">
+                <h1 class="hero-title">Flow into - Peace<br>One Pose at a Time</h1>
+                <p class="hero-description">Whether you are mastering or beginning your journey, join our community for rejuvenating towards well-being</p>
+                <a href="/activitieslist" class="btn btn-light">See All Activities</a>
+              </div>
+
+              <div class="stats">
+                <div class="stat-item">
+                  <span class="stat-number">10,000</span>
+                  <span class="stat-text">Happy Students</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">5,000+</span>
+                  <span class="stat-text">Classes Monthly</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">95%</span>
+                  <span class="stat-text">Member satisfaction</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="activities">
+            <h2 class="section-title">Your healthy activities</h2>
+            <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a href="/highlights" class="btn btn-green">See Highlights</a>
+
+            <div class="cards-container">
+              <HighlightsComponent
+                  v-for="(activity, index) in highlightedActivities"
+                  :id="activity.id"
+                  :class="{ 'offset-card': index % 2 !== 0 }"
+                  :title="activity.title"
+                  :description="activity.description"
+                  :imageUrl="activity.image?.[0]?.url"
+              />
+
+          </div>
+        </section>
+
+        <section class="cta">
+          <div class="cta-content">
+            <h2 class="cta-title">Connect, Grow and<br>Thrive Together</h2>
+            <p class="cta-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a href="/activitieslist" class="btn btn-light">See All Activities</a>
+          </div>
+        </section>
+
+        <section class="teachers">
+          <h2 class="section-title">Know your teachers</h2>
+          <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <a href="/teacherslist" class="btn btn-green">Know your teachers</a>
+
+          <div class="slider-container">
+            <button class="arrow left" @click="scrollLeft">❮</button>
+            <div class="slider">
+                <ItemTeacher
+                    v-for="teacher in cyclicTeachers"
+                    :id="teacher.id"
+                    :title="`${teacher.name} ${teacher.surname}`"
+                    :imageUrl="teacher.image[0]?.url"
+                    :route="`/teacher/${teacher.id}`"
+                />
+            </div>
+            <button class="arrow right" @click="scrollRight">❯</button>
+          </div>
+        </section>
+
+
+      </div>
+      </div>
     </div>
-
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-text-container">
-          <h1 class="hero-title">Flow into - Peace<br>One Pose at a Time</h1>
-          <p class="hero-description">Whether you are mastering or beginning your journey, join our community for rejuvenating towards well-being</p>
-          <a href="/activitieslist" class="btn btn-light">See All Activities</a>
-        </div>
-
-        <div class="stats">
-          <div class="stat-item">
-            <span class="stat-number">10,000</span>
-            <span class="stat-text">Happy Students</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">5,000+</span>
-            <span class="stat-text">Classes Monthly</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">95%</span>
-            <span class="stat-text">Member satisfaction</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="activities">
-      <h2 class="section-title">Your healthy activities</h2>
-      <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <a href="/highlights" class="btn btn-green">See Highlights</a>
-
-      <div class="cards-container">
-        <HighlightsComponent
-            v-for="(activity, index) in highlightedActivities"
-            :id="activity.id"
-            :class="{ 'offset-card': index % 2 !== 0 }"
-            :title="activity.title"
-            :description="activity.description"
-            :imageUrl="activity.image?.[0]?.url"
-        />
-
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="cta-content">
-        <h2 class="cta-title">Connect, Grow and<br>Thrive Together</h2>
-        <p class="cta-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a href="/activitieslist" class="btn btn-light">See All Activities</a>
-      </div>
-    </section>
-
-    <section class="teachers">
-      <h2 class="section-title">Know your teachers</h2>
-      <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <a href="/teacherslist" class="btn btn-green">Know your teachers</a>
-
-      <div class="slider-container">
-        <button class="arrow left" @click="scrollLeft">❮</button>
-        <div class="slider">
-            <ItemTeacher
-                v-for="teacher in cyclicTeachers"
-                :id="teacher.id"
-                :title="`${teacher.name} ${teacher.surname}`"
-                :imageUrl="teacher.image[0]?.url"
-                :route="`/teacher/${teacher.id}`"
-            />
-        </div>
-        <button class="arrow right" @click="scrollRight">❯</button>
-      </div>
-    </section>
-
     <div class="footer">
       <Footer />
     </div>
@@ -219,10 +226,16 @@ body {
   overflow-x: hidden;
 }
 
+.main {
+  flex: 1;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /* Hero Section */
 .hero {
   position: relative;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-position: center;
   background-size: cover;
@@ -482,12 +495,34 @@ body {
   .cards-container > * {
     flex: 1 1 calc((100% - 2 * 2.5rem) / 3);
   }
+
+  .hero {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    aspect-ratio: 16/9;
+    margin-top: 0; /* Rimuove lo spazio tra navbar e hero */
+  }
 }
 
 
 @media (max-width: 900px) {
   .hero-title {
     font-size: 3rem;
+  }
+
+  .hero {
+    aspect-ratio: 10/9;
+  }
+
+  .hero-title{
+    padding-top: 0;
   }
 
 
@@ -519,8 +554,12 @@ body {
 
 
 @media (max-width: 600px) {
+
+  .hero {
+    aspect-ratio: 8/9;
+  }
+
   .hero-title {
-    padding-top: 50px;
     font-size: 2.5rem;
   }
 
