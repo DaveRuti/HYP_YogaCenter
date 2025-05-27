@@ -38,7 +38,7 @@ import Contacts from "~/pages/contacts.vue";
             <a href="https://x.com/KiribatiGov"><img src='../assets/twitter.png' alt="Twitter"></a>
             <a href="https://www.instagram.com/metrocagliari/"><img src='../assets/instagram.png' alt="Instagram"></a>
             <a href="https://www.facebook.com/groups/1101641663587587"><img src='../assets/facebook.png' alt="Facebook"></a>
-            <a href="https://t.me/GruppoTelegramCalabria"><img src='../assets/telegram.png' alt="Telegram"></a>
+            <a href="https://www.telegramitalia.it/gruppo-calabria-2/"><img src='../assets/telegram.png' alt="Telegram"></a>
           </div>
         </div>
         <div class="footer-contacts">
