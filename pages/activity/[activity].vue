@@ -8,15 +8,16 @@
 
           <div class="orientation-link">
             <OrientationLink
-              :text="'Activities'"
-              :route="'activitieslist'"
-              :activity="activity.title"/>
+                :text="'Activities'"
+                :route="'activitieslist'"
+                :activity="activity.title || ''"
+            />
           </div>
 
         <h1 class="title" id="activity-title">{{ activity.title }}</h1>
 
         <div class="image-description">
-        <img :src="activity.image?.[0]?.url" class="activity-img" alt="Activity Image"/>
+          <img :src="activity.image?.[0]?.url" class="activity-img" alt="Activity Image"/>
           <p class="activity-description">{{ activity.description }}</p>
         </div>
 
@@ -68,10 +69,10 @@ onMounted(async () => {
   teachers.value = await res.json();
   const res2 = await fetch(`/api/activity/${id}`);
   activity.value = await res2.json();
+
+  // Logga l'URL dell'immagine
+  console.log('URL immagine attività:', activity.value.image?.[0]?.url);
   })
-
-
-
 </script>
 
 <style scoped>

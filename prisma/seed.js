@@ -509,7 +509,7 @@ async function main() {
                 isHighlighted: true,
                 type: 'SEMINAR',
                 image: {
-                    create: [{ url: 'images/activity/MindfulEating.png' }],
+                    create: [{ url: '/images/activity/MindfulEating.png' }],
                 },
                 timeSchedule: {
                     create: [
@@ -545,7 +545,7 @@ async function main() {
                 isHighlighted: false,
                 type: 'SEMINAR',
                 image: {
-                    create: [{ url: 'images/activity/SoundHealing.png' }],
+                    create: [{ url: '/images/activity/SoundHealing.png' }],
                 },
                 timeSchedule: {
                     create: [

@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
             },
             include: {
                 image: true,
-                date: true,
+                timeSchedule: true,
             },
         });
 
