@@ -11,7 +11,7 @@
       <div class="title">
         <div class="content">
           <h1>About Us</h1>
-          <p>Our story, our passion for yoga, and our community.</p>
+          <p>Our story, our passion for yoga, and our community</p>
         </div>
       <img src="/aboutUs1.png" alt="About Us Image" class="top-image">
       </div>

@@ -7,7 +7,7 @@
       <div class="contact-container">
         <div class="content">
 
-            <h1>Contacts of our team</h1>
+            <h1>Contact Us</h1>
             <p>Ask Us Anything, Anywhere</p>
 
         </div>
