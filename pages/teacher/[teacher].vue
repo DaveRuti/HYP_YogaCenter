@@ -22,18 +22,9 @@
             <h1>{{ teacher?.name }} {{ teacher?.surname }}</h1>
           </header>
 
-          <div class="main-image-wrapper">
-            <img
-                :src="teacher?.image?.[0]?.url"
-                :alt="`${teacher?.name} ${teacher?.surname}`"
-            />
-          </div>
-
-          <section class="intro">
-            <h2>Description</h2>
-            <div class="intro-text">
-              <p v-html="teacher?.description"></p>
-            </div>
+          <section class="image-description">
+            <img :src="teacher.image?.[0]?.url" class="activity-img" alt="Activity Image"/>
+            <p class="activity-description">{{ teacher.description }}</p>
           </section>
 
           <section class="activities">
@@ -88,6 +79,40 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+
+.image-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  column-gap: 80px;
+  padding: 50px;
+  flex-wrap: wrap; /* Permette il wrap */
+}
+
+.activity-description {
+  max-width: 500px;
+  width: 100%; /* Occupa tutta la riga quando va sotto */
+  font-size: 20px;
+  height: auto;
+  line-height: 40px;
+  font-weight: 300;
+  text-align: justify;
+  display: inline-block;
+  margin-top: 20px; /* Spazio sopra quando va sotto */
+}
+
+.activity-img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
 .container {
   max-width: 1400px;
