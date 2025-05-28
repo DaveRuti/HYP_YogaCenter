@@ -291,9 +291,7 @@ body {
   padding-right: 0;
 }
 
-.content {
-  padding-top: 10px;
-}
+
 
 /* Hero Section */
 .hero {
@@ -346,6 +344,7 @@ body {
   font-weight: bold;
   margin-bottom: 1rem;
   line-height: 1.2;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 .hero-description {
@@ -568,32 +567,11 @@ body {
   }
 
   .hero {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0;
-    aspect-ratio: 16/9;
-    margin-top: 0; /* Rimuove lo spazio tra navbar e hero */
-  }
-}
-
-
-@media (max-width: 900px) {
-  .content {
-    padding-top: 50px;
+    aspect-ratio: 12/9;
   }
 
   .hero-title {
     font-size: 3rem;
-  }
-
-  .hero {
-    aspect-ratio: 10/9;
   }
 
   .hero-title{
@@ -615,6 +593,50 @@ body {
 
   .stat-number{
     font-size: 2rem;
+  }
+
+  .stat-text{
+    font-size: 1rem;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .content {
+    padding-top: 50px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero {
+    aspect-ratio: 11/9;
+  }
+
+  .hero-title{
+    padding-top: 0;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+
+  .cards-container > * {
+    flex: 1 1 calc((100% - 1 * 2.5rem) / 2);
+  }
+
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 2rem; /* Spacing between items */
+    margin-top: 3rem;
+  }
+
+  .stat-number{
+    font-size: 1.5rem;
   }
 
   .stat-text{
