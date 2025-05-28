@@ -17,11 +17,11 @@
 
               <div class="stats">
                 <div class="stat-item">
-                  <span class="stat-number">10,000</span>
+                  <span class="stat-number">1000</span>
                   <span class="stat-text">Happy Students</span>
                 </div>
                 <div class="stat-item">
-                  <span class="stat-number">5,000+</span>
+                  <span class="stat-number">50+</span>
                   <span class="stat-text">Classes Monthly</span>
                 </div>
                 <div class="stat-item">
@@ -53,28 +53,29 @@
         <section class="cta">
           <div class="cta-content">
             <h2 class="cta-title">Connect, Grow and<br>Thrive Together</h2>
-            <p class="cta-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="cta-description">Our range of classes and activities is designed to support every body and every intention—whether you're seeking strength, stillness, flexibility, or simply a moment of peace.
+              From energizing Vinyasa flows to guided meditation, workshops, and special events, each offering is crafted to help you reconnect, reset, and rediscover your inner flow.</p>
             <a href="/activitieslist" class="btn btn-light">See All Activities</a>
           </div>
         </section>
 
         <section class="teachers">
           <h2 class="section-title">Know your teachers</h2>
-          <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="section-description">At InnerFlow, our teachers are the heart of our community. Each of them brings a unique blend of experience, compassion, and deep knowledge of yoga and mindfulness. Whether guiding a dynamic flow or a gentle restorative practice, they hold space with presence and care—supporting you on your journey, one breath at a time.</p>
           <a href="/teacherslist" class="btn btn-green">Know your teachers</a>
 
           <div class="slider-container">
-            <button class="arrow left" @click="scrollLeft">❮</button>
+            <button class="arrow left" v-if="showLeftArrow" @click="scrollLeft">❮</button>
             <div class="slider">
                 <ItemTeacher
-                    v-for="teacher in cyclicTeachers"
-                    :id="teacher.id"
-                    :title="`${teacher.name} ${teacher.surname}`"
-                    :imageUrl="teacher.image[0]?.url"
-                    :route="`/teacher/${teacher.id}`"
+                  v-for="teacher in teachers"
+                  :id="teacher.id"
+                  :title="`${teacher.name} ${teacher.surname}`"
+                  :imageUrl="teacher.image[0]?.url"
+                  :route="`/teacher/${teacher.id}`"
                 />
             </div>
-            <button class="arrow right" @click="scrollRight">❯</button>
+            <button class="arrow right" v-if="showRightArrow" @click="scrollRight">❯</button>
           </div>
         </section>
 
@@ -89,7 +90,7 @@
 </template>
 
 <script>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import Navbar from "@/components/navbar.vue";
 import Footer from "@/components/footer.vue";
 import ItemTeacher from "~/components/ItemTeacher.vue";
@@ -126,13 +127,16 @@ export default {
     const ctaImage = ref('/assets/green background.png');
     const highlightedActivities = ref([]);
     const teachers = ref([]);
+    const showLeftArrow = ref(false);
+    const showRightArrow = ref(false);
 
-    // Duplica gli insegnanti per creare un effetto ciclico
-    const cyclicTeachers = computed(() => [
-      ...teachers.value,
-      ...teachers.value,
-      ...teachers.value,
-    ]);
+    const updateArrows = () => {
+      const slider = document.querySelector('.slider');
+      if (!slider) return;
+      showLeftArrow.value = slider.scrollLeft > 0;
+      showRightArrow.value = slider.scrollLeft + slider.offsetWidth < slider.scrollWidth - 1;
+    };
+
 
     // Fetch delle attività in evidenza dall'API
     const fetchHighlightedActivities = async () => {
@@ -159,6 +163,11 @@ export default {
 
         if (data && !data.error) {
           teachers.value = data;
+          setTimeout(() => {
+            updateArrows();
+            const slider = document.querySelector('.slider');
+            if (slider) slider.scrollLeft = 0;
+          }, 0);
         } else {
           console.error('Error fetching teachers:', data.error);
         }
@@ -167,28 +176,77 @@ export default {
       }
     };
 
+    // Gestione del drag and drop per lo slider
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    const enableSliderDrag = () => {
+      const slider = document.querySelector('.slider');
+      if (!slider) return;
+
+      const mouseDown = (e) => {
+        isDown = true;
+        slider.classList.add('dragging');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+      };
+
+      const mouseLeave = () => {
+        isDown = false;
+        slider.classList.remove('dragging');
+      };
+
+      const mouseUp = () => {
+        isDown = false;
+        slider.classList.remove('dragging');
+      };
+
+      const mouseMove = (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX); // distanza trascinata
+        slider.scrollLeft = scrollLeft - walk;
+      };
+
+      slider.addEventListener('mousedown', mouseDown);
+      slider.addEventListener('mouseleave', mouseLeave);
+      slider.addEventListener('mouseup', mouseUp);
+      slider.addEventListener('mousemove', mouseMove);
+
+      // Pulizia
+      onBeforeUnmount(() => {
+        slider.removeEventListener('mousedown', mouseDown);
+        slider.removeEventListener('mouseleave', mouseLeave);
+        slider.removeEventListener('mouseup', mouseUp);
+        slider.removeEventListener('mousemove', mouseMove);
+      });
+    };
+
+    function debounce(fn, delay) {
+      let timer = null;
+      return function(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(this, args), delay);
+      };
+    }
+
+    const debouncedUpdateArrows = debounce(updateArrows, 50);
+
     onMounted(() => {
       fetchHighlightedActivities();
       fetchTeachers();
-
-      const slider = document.querySelector('.slider');
-
-      if (slider) {
-
-        slider.addEventListener('wheel', (e) => {
-          const isHorizontalScroll = Math.abs(e.deltaX) > Math.abs(e.deltaY);
-
-          if (!isHorizontalScroll) {
-            return; // Allow vertical scrolling
-          }
-
-          e.preventDefault(); // Prevent default vertical scrolling
-          slider.scrollLeft += e.deltaY;
-        });
-      }
-
       window.addEventListener('resize', handleResize);
       handleResize();
+
+      // Aggiorna le frecce quando si scrolla
+      setTimeout(() => {
+        const slider = document.querySelector('.slider');
+        if (slider) slider.addEventListener('scroll', debouncedUpdateArrows);
+        updateArrows();
+        enableSliderDrag();
+      }, 0);
     });
 
     const handleResize = () => {
@@ -205,7 +263,8 @@ export default {
       highlightedActivities,
       teachers,
       handleResize,
-      cyclicTeachers,
+      showLeftArrow,
+      showRightArrow,
     };
   },
   beforeUnmount() {
@@ -453,7 +512,7 @@ body {
 }
 
 .slider {
-  justify-content: center; /* Centra il contenuto orizzontalmente */
+  padding: 0 30px;
   display: flex;
   gap: 30px;
   overflow-x: auto;
@@ -462,7 +521,8 @@ body {
 }
 
 .slider > * {
-  flex: 0 0 auto; /* Ensures children maintain their natural size */
+  flex: 0 0 400px; /* Larghezza fissa per ogni card */
+  max-width: 400px;
 }
 
 .slider::-webkit-scrollbar {
@@ -473,15 +533,22 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #08663A ;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
+  font-size: 1.5rem;
   cursor: pointer;
   z-index: 10;
+  opacity: 0.6;
 }
+
+.arrow:hover {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  }
 
 .arrow.left {
   left: 10px;
