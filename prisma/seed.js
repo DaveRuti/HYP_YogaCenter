@@ -249,18 +249,18 @@ async function main() {
                     create: [
                         {
                             day: "MONDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T11:00:00.000Z"),
+                            endTime: new Date("2025-05-20T13:00:00.000Z")
                         },
                         {
                             day: "WEDNESDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T15:00:00.000Z"),
+                            endTime: new Date("2025-05-20T17:00:00.000Z")
                         },
                         {
                             day: "FRIDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T16:00:00.000Z"),
+                            endTime: new Date("2025-05-20T17:00:00.000Z")
                         }
                     ]
                 }
@@ -286,19 +286,19 @@ async function main() {
                 timeSchedule: {
                     create: [
                         {
-                            day: "MONDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            day: "TUESDAY",
+                            startTime: new Date("2025-05-20T08:00:00.000Z"),
+                            endTime: new Date("2025-05-20T10:00:00.000Z")
                         },
                         {
                             day: "WEDNESDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T14:00:00.000Z"),
+                            endTime: new Date("2025-05-20T16:00:00.000Z")
                         },
                         {
-                            day: "FRIDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            day: "THURSDAY",
+                            startTime: new Date("2025-05-20T13:00:00.000Z"),
+                            endTime: new Date("2025-05-20T14:00:00.000Z")
                         }
                     ]
                 }
@@ -325,18 +325,18 @@ async function main() {
                     create: [
                         {
                             day: "MONDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T08:00:00.000Z"),
+                            endTime: new Date("2025-05-20T09:00:00.000Z")
+                        },
+                        {
+                            day: "TUESDAY",
+                            startTime: new Date("2025-05-20T12:00:00.000Z"),
+                            endTime: new Date("2025-05-20T13:00:00.000Z")
                         },
                         {
                             day: "WEDNESDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
-                        },
-                        {
-                            day: "FRIDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T15:00:00.000Z"),
+                            endTime: new Date("2025-05-20T17:00:00.000Z")
                         }
                     ]
                 }
@@ -362,19 +362,19 @@ async function main() {
                 timeSchedule: {
                     create: [
                         {
-                            day: "MONDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            day: "WEDNESDAY",
+                            startTime: new Date("2025-05-20T07:00:00.000Z"),
+                            endTime: new Date("2025-05-20T08:00:00.000Z")
                         },
                         {
-                            day: "WEDNESDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            day: "THURSDAY",
+                            startTime: new Date("2025-05-20T14:00:00.000Z"),
+                            endTime: new Date("2025-05-20T16:00:00.000Z")
                         },
                         {
                             day: "FRIDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T10:00:00.000Z"),
+                            endTime: new Date("2025-05-20T11:00:00.000Z")
                         }
                     ]
                 }
@@ -401,18 +401,18 @@ async function main() {
                     create: [
                         {
                             day: "MONDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T15:00:00.000Z"),
+                            endTime: new Date("2025-05-20T16:00:00.000Z")
                         },
                         {
                             day: "WEDNESDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T07:00:00.000Z"),
+                            endTime: new Date("2025-05-20T09:00:00.000Z")
                         },
                         {
-                            day: "FRIDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            day: "THURSDAY",
+                            startTime: new Date("2025-05-20T11:00:00.000Z"),
+                            endTime: new Date("2025-05-20T12:00:00.000Z")
                         }
                     ]
                 }
@@ -439,19 +439,19 @@ async function main() {
                 timeSchedule: {
                     create: [
                         {
-                            day: "MONDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            day: "TUESDAY",
+                            startTime: new Date("2025-05-20T09:00:00.000Z"),
+                            endTime: new Date("2025-05-20T10:00:00.000Z")
                         },
                         {
-                            day: "WEDNESDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            day: "THURSDAY",
+                            startTime: new Date("2025-05-20T13:00:00.000Z"),
+                            endTime: new Date("2025-05-20T15:00:00.000Z")
                         },
                         {
                             day: "FRIDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T09:00:00.000Z"),
+                            endTime: new Date("2025-05-20T11:00:00.000Z")
                         }
                     ]
                 }
@@ -477,19 +477,19 @@ async function main() {
                 timeSchedule: {
                     create: [
                         {
-                            day: "MONDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            day: "TUESDAY",
+                            startTime: new Date("2025-05-20T16:00:00.000Z"),
+                            endTime: new Date("2025-05-20T17:00:00.000Z")
                         },
                         {
                             day: "WEDNESDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T13:00:00.000Z"),
+                            endTime: new Date("2025-05-20T15:00:00.000Z")
                         },
                         {
                             day: "FRIDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T11:00:00.000Z"),
+                            endTime: new Date("2025-05-20T12:00:00.000Z")
                         }
                     ]
                 }
@@ -515,19 +515,19 @@ async function main() {
                     create: [
                         {
                             day: "MONDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T13:00:00.000Z"),
+                            endTime: new Date("2025-05-20T16:00:00.000Z")
                         },
                         {
                             day: "WEDNESDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T09:00:00.000Z"),
+                            endTime: new Date("2025-05-20T11:00:00.000Z")
                         },
-                        {
+                        /*{
                             day: "FRIDAY",
                             startTime: new Date("2025-05-20T19:00:00.000Z"),
                             endTime: new Date("2025-05-20T20:00:00.000Z")
-                        }
+                        }*/
                     ]
                 }
 
@@ -549,20 +549,20 @@ async function main() {
                 },
                 timeSchedule: {
                     create: [
-                        {
+                        /*{
                             day: "MONDAY",
                             startTime: new Date("2025-05-20T19:00:00.000Z"),
                             endTime: new Date("2025-05-20T20:00:00.000Z")
-                        },
+                        },*/
                         {
                             day: "WEDNESDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T14:00:00.000Z"),
+                            endTime: new Date("2025-05-20T16:00:00.000Z")
                         },
                         {
                             day: "FRIDAY",
-                            startTime: new Date("2025-05-20T19:00:00.000Z"),
-                            endTime: new Date("2025-05-20T20:00:00.000Z")
+                            startTime: new Date("2025-05-20T15:00:00.000Z"),
+                            endTime: new Date("2025-05-20T17:00:00.000Z")
                         }
                     ]
                 }
