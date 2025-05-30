@@ -73,6 +73,10 @@ onMounted(async () => {
   // Logga l'URL dell'immagine
   console.log('URL immagine attività:', activity.value.image?.[0]?.url);
   })
+
+useSeoMeta({
+  title: activity.value.title
+})
 </script>
 
 <style scoped>
@@ -165,7 +169,7 @@ onMounted(async () => {
 .teachers-title {
   font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 50px;
-  text-align: left;
+  text-align: center;
   width: 100%;
   margin-left: 200px;
 }

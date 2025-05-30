@@ -76,6 +76,12 @@ onMounted(async () => {
   const res2 = await fetch(`/api/teacher-activities/${id}`)
   teacherActivities.value = await res2.json()
 })
+
+const pageTitle = computed(teacher.value.name + " " + teacher.value.surname);
+
+useSeoMeta({
+  title: pageTitle
+})
 </script>
 
 <style scoped>

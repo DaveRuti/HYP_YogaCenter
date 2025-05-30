@@ -257,6 +257,10 @@ export default {
       }
     };
 
+    useSeoMeta({
+      title: "InnerFlow"
+    })
+
     return {
       heroImage,
       ctaImage,
