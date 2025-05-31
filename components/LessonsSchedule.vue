@@ -1,29 +1,12 @@
 
-<!--<script>
-
-export default {
-  name: 'DaySchedule',
-  props: {
-    activity: {
-      type: ref({}),
-      required: true
-    }
-  }
-};
-
-//console.log(this.activity);
-
-</script>-->
-
 <script setup>
 const props = defineProps({
   timeSchedule: Array,
 })
 
-// Destruttura la prop per usarla direttamente nel template
+// Destructures the prop to use it directly in the template
 const { timeSchedule } = props
 
-console.log('timeSchedule:', timeSchedule)
 </script>
 
 <template>
@@ -31,11 +14,14 @@ console.log('timeSchedule:', timeSchedule)
     <div class="frameParent">
       <h1 class="title">Lessons Schedule</h1>
       <div v-if="timeSchedule && timeSchedule.length > 0">
-        <div v-for="(daySchedule, index) in timeSchedule" :key="index" class="daySchedule">
-          <div class="day">{{ daySchedule.day }}:</div>
-          <div class="time">{{ new Date(daySchedule.startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }} - {{ new Date(daySchedule.endTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }}
-          </div>
-        </div>
+
+        <DaySchedule v-for="(daySchedule, index) in timeSchedule"
+                     :day = "daySchedule.day"
+                     :start-time = "daySchedule.startTime"
+                     :end-time = "daySchedule.endTime"
+                     :key = "index"
+          ></DaySchedule>
+
       </div>
       <div v-else>
         No lessons scheduled.
@@ -79,26 +65,6 @@ console.log('timeSchedule:', timeSchedule)
   gap: 40px;
   text-align: left;
   font-size: 32px;
-}
-
-.daySchedule {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  padding: 10px;
-  font-size: clamp(5px, 4vw, 30px);
-}
-
-.day {
-  font-weight: 700;
-  color: #000;
-  width: 300px;
-}
-
-@media (max-width: 600px) {
-  .day{
-    width: 200px;
-  }
 }
 
 </style>

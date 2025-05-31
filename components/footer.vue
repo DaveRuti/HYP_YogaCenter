@@ -12,7 +12,7 @@ import Contacts from "~/pages/contacts.vue";
           <ul>
             <li><router-link to="/teacherslist">Teachers</router-link></li>
             <li><router-link to="/activitieslist">Activities</router-link></li>
-            <li><a href="#">Regulation</a></li>
+            <!--<li><a href="#">Regulation</a></li>-->
           </ul>
         </div>
         <div class="footer-column">

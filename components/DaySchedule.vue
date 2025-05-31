@@ -20,117 +20,32 @@ export default {
 
 </script>
 <template>
-  <div class="dayParent">
-    <div class="day">
-      <p class="p">{{ day }}:                 </p>
-
-    </div>
-    <div class="div">
-      <p class="p" style="height: 3px">   </p>
-      <p class="p1">{{ startTime }} - {{ endTime }}</p>
+  <div class="daySchedule">
+    <div class="day">{{ day }}:</div>
+    <div class="time">{{ new Date(startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }} - {{ new Date(endTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }}
     </div>
   </div>
 </template>
 <style scoped>
 
-.p {
-  margin: 0;
-  white-space: pre-wrap;
-}
-.day {
-  width: 180px;
-  position: relative;
-  line-height: 41px;
-  font-weight: 300;
-  display: inline-block;
-  height: 29px;
-  flex-shrink: 0;
-}
-.p1 {
-  margin: 0;
-}
-.div {
-  width: 202px;
-  position: relative;
-  line-height: 41px;
-  font-weight: 300;
-  display: inline-block;
-  height: 33px;
-  flex-shrink: 0;
-}
-.dayParent {
+.daySchedule {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 80px;
-  margin-left: -20px;
+  gap: 20px;
+  padding: 10px;
+  font-size: clamp(5px, 4vw, 30px);
 }
 
-@media (max-width: 850px) {
-  .p {
-    margin: 0;
-    white-space: pre-wrap;
-  }
-
-  .day {
-    width: 172px;
-    position: relative;
-    line-height: 14px;
-    display: inline-block;
-    height: 29px;
-    flex-shrink: 0;
-    margin: 0;
-    left: -80px;
-    white-space: pre-wrap;
-    font-size: 20px;
-  }
-
-  .p1 {
-    margin: 0;
-  }
-
-  .div {
-    width: 202px;
-    position: relative;
-    line-height: 13px;
-    display: inline-block;
-    height: 33px;
-    flex-shrink: 0;
-    margin: 0;
-    left: -110px;
-    white-space: pre-wrap;
-    font-size: 20px;
-  }
-
-  .dayParent {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 80px;
-  }
+.day {
+  font-weight: 700;
+  color: #000;
+  width: 300px;
 }
 
-@media (max-width: 500px) {
-  .day {
-    width: 142px;
-    position: relative;
-    line-height: 14px;
-    display: inline-block;
-    height: 29px;
-    flex-shrink: 0;
-    margin: 0;
-    left: -100px;
-    white-space: pre-wrap;
-    font-size: 20px;
-  }
-  .dayParent {
-    gap: 1px;
+@media (max-width: 600px) {
+  .day{
+    width: 200px;
   }
 }
-
-
 
 </style>
