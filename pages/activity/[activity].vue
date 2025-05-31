@@ -65,17 +65,38 @@ const id = route.params.activity;
 
 
 onMounted(async () => {
-  const res = await fetch(`/api/activity-teachers/${id}`);
-  teachers.value = await res.json();
-  const res2 = await fetch(`/api/activity/${id}`);
-  activity.value = await res2.json();
+  try {
+    // fetch teachers for this activity
+    const res = await fetch(`/api/activity-teachers/${id}`);
+    const data = await res.json();
 
-  // Logga l'URL dell'immagine
-  console.log('URL immagine attività:', activity.value.image?.[0]?.url);
+    if (data && !data.error) {
+      teachers.value = data
+      console.log('Teachers loaded:', data)
+    } else {
+      console.error('Error fetching Teachers:', data.error)
+    }
+
+    // fetch activity data
+    const res2 = await fetch(`/api/activity/${id}`);
+    const data2 = await res2.json()
+
+
+    if (data2 && !data2.error) {
+      activity.value = data2
+      console.log('Activity loaded:', data2)
+    } else {
+      console.error('Error fetching Activity:', data2.error)
+    }
+
+  } catch (error) {
+    console.error('Failed to fetch Activity Infos:', error)
+  }
   })
 
 useSeoMeta({
-  title: activity.value.title
+  title: activity.value.title,
+  description: activity.value.description,
 })
 </script>
 

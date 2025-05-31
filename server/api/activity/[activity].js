@@ -4,18 +4,14 @@ const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
     try {
-        //Estraggo l'id
+        //Extracting the ID
         const id = event.context.params.activity;
-
-        console.log(id + "\n\n --------------- \n\n");
-        console.log('params:', event.context.params);
-        console.log('params:', event.context.params.activity);
 
         if (!id) {
             return { error: 'Missing ID' };
         }
 
-        //Recupero attività
+        //Query for the activity
         const activity = await prisma.activity.findUnique({
             where: {
                 id: parseInt(id)
@@ -26,17 +22,17 @@ export default defineEventHandler(async (event) => {
             },
         });
 
-        //Attività non trovata
+        //Activity not found exception
         if (!activity) {
-            return { error: 'Attività non trovata' };
+            return { error: 'Activity not found' };
         }
 
-        //Restituisco attività al client
+        //Return Activity to db client
         return activity;
     } catch (error) {
-        console.error('Errore durante la query:', error);
-        return { error: 'Errore nel recupero dell\'attività' };
+        console.error('Error during query execution:', error);
+        return { error: 'Error during activity fetching:' };
     } finally {
-        await prisma.$disconnect(); // Chiude la connessione con il DB
+        await prisma.$disconnect(); // Closes connection with db
     }
 });

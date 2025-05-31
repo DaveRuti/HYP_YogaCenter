@@ -4,11 +4,10 @@ const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
     try {
-
-        //const { id } = event.context.params.id;
-
+        //Extracting the ID
         const id = event.context.params.teacher;
 
+        //Query for the teacher
         const teacher = await prisma.teacher.findUnique({
             where: {
                 id: parseInt(id)
@@ -18,15 +17,17 @@ export default defineEventHandler(async (event) => {
             },
         });
 
+        //Teacher not found exception
         if (!teacher) {
             return { error: 'Teacher not found' };
         }
 
+        //Return teacher to db client
         return teacher;
     } catch (error) {
         console.error('Error during the query:', error);
         return { error: 'Error retrieving the teacher' };
     } finally {
-        await prisma.$disconnect();
+        await prisma.$disconnect(); // Closes connection with db
     }
 });

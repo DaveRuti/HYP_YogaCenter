@@ -31,8 +31,20 @@ import ItemActivity from '@/components/ItemActivity.vue';
 const activities = ref([]);
 
 onMounted(async () => {
-  const res = await fetch('/api/activities');
-  activities.value = await res.json();
+  try {
+    // fetch activities
+    const res = await fetch('/api/activities');
+    const data = await res.json();
+
+    if (data && !data.error) {
+      activities.value = data
+      console.log('Activities loaded:', data)
+    } else {
+      console.error('Error fetching Activities:', data.error)
+    }
+  } catch (error) {
+    console.error('Failed to fetch Activities:', error)
+  }
 });
 </script>
 

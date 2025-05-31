@@ -31,8 +31,21 @@ import ItemTeacher from '@/components/ItemTeacher.vue';
 const teachers = ref([]);
 
 onMounted(async () => {
-  const res = await fetch('/api/teachers');
-  teachers.value = await res.json();
+
+  try {
+    // fetch teachers
+    const res = await fetch('/api/teachers');
+    const data = await res.json();
+
+    if (data && !data.error) {
+      teachers.value = data
+      console.log('Teachers loaded:', data)
+    } else {
+      console.error('Error fetching Teachers:', data.error)
+    }
+  } catch (error) {
+    console.error('Failed to fetch Teachers:', error)
+  }
 });
 
 </script>

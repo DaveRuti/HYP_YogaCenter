@@ -3,32 +3,41 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-    const id = event.context.params.activity;
+    try {
+        //Extracting the ID
+        const id = event.context.params.activity;
 
-    if (!id) {
-        return { error: 'Missing ID' };
-    }
-
-    //Recupero attività
-    const activityTeachers = prisma.teacher.findMany({
-        where: {
-            teach: {
-                some: {
-                    activityId: parseInt(id)
-                }
-            }
-        },
-        include: {
-            image: true,
+        if (!id) {
+            return {error: 'Missing ID'};
         }
-    });
 
-    console.log(activityTeachers);
+        //Query for activity teachers
+        const activityTeachers = prisma.teacher.findMany({
+            where: {
+                teach: {
+                    some: {
+                        activityId: parseInt(id)
+                    }
+                }
+            },
+            include: {
+                image: true,
+            }
+        });
 
-    if (!activityTeachers) {
-        return { error: 'Attività non trovata' };
+
+        //Teachers not found exception
+        if (!activityTeachers) {
+            return {error: 'Teachers not found'};
+        }
+
+        //Return teachers to db client
+        return activityTeachers;
     }
-
-    //Restituisco attività al client
-    return activityTeachers;
+    catch (error) {
+        console.error('Error during query execution:', error);
+        return { error: 'Error during activity teachers fetching:' };
+    } finally {
+        await prisma.$disconnect(); // Closes connection with db
+    }
 });

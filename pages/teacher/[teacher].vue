@@ -68,19 +68,42 @@ const route = useRoute()
 const id = route.params.teacher
 
 onMounted(async () => {
-  // fetch teacher data
-  const res1 = await fetch(`/api/teacher/${id}`)
-  teacher.value = await res1.json()
+  try {
+    // fetch teacher data
+    const res1 = await fetch(`/api/teacher/${id}`)
+    const data = await res1.json()
 
-  // fetch activities for this teacher
-  const res2 = await fetch(`/api/teacher-activities/${id}`)
-  teacherActivities.value = await res2.json()
+    if (data && !data.error) {
+      teacher.value = data
+      console.log('Teacher loaded:', data)
+    } else {
+      console.error('Error fetching Teacher:', data.error)
+    }
+
+    // fetch activities for this teacher
+    const res2 = await fetch(`/api/teacher-activities/${id}`)
+    const data2 = await res2.json()
+
+
+    if (data2 && !data2.error) {
+      teacherActivities.value = data2
+      console.log('Teacher\'s Activities loaded:', data2)
+    } else {
+      console.error('Error fetching Teacher\'s Activities:', data2.error)
+    }
+
+  } catch (error) {
+    console.error('Failed to fetch Teacher Infos:', error)
+  }
+
+
 })
 
-const pageTitle = computed(teacher.value.name + " " + teacher.value.surname);
+const pageTitle = computed(() => teacher.value?.name + " " + teacher.value?.surname);
 
 useSeoMeta({
-  title: pageTitle
+  title: pageTitle,
+  description: pageTitle + " Profile page"
 })
 </script>
 
