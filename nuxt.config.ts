@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['@/assets/css/global.css'],
   app: {
-    baseURL: '/HYP_YogaCenter/'
+    baseURL: '/HYP_YogaCenter/',
+    buildAssetsDir: "assets"
   }
 })
