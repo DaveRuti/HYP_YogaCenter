@@ -28,11 +28,11 @@ const moveUnderline = (el) => {
 }
 
 const isActivitiesPage = computed(() => {
-  return route.path.startsWith('/activitieslist') || route.path.startsWith('/activity')
+  return route.path.startsWith('activitieslist') || route.path.startsWith('activity')
 })
 
 const isTeachersPage = computed(() => {
-  return route.path.startsWith('/teacherslist') || route.path.startsWith('/teacher')
+  return route.path.startsWith('teacherslist') || route.path.startsWith('teacher')
 })
 
 
@@ -42,12 +42,12 @@ const updateToActive = () => {
 
     // Forza sottolineatura su Activities se siamo in una pagina "Activities"
     if (isActivitiesPage.value) {
-      activeLink = navLinksRef.value?.querySelector('a[href="/activitieslist"]')
+      activeLink = navLinksRef.value?.querySelector('a[href="activitieslist"]')
     }
 
     // Forza sottolineatura su Teachers se siamo in una pagina "Teachers"
     if (isTeachersPage.value) {
-      activeLink = navLinksRef.value?.querySelector('a[href="/teacherslist"]')
+      activeLink = navLinksRef.value?.querySelector('a[href="teacherslist"]')
     }
 
     if (activeLink) moveUnderline(activeLink)
@@ -90,12 +90,12 @@ watch(() => route.fullPath, () => {
 
     <ul class="nav-links" :class="{ show: isMenuVisible }" ref="navLinksRef">
       <li><NuxtLink to="/" active-class="active-link" class="nav-link">Home</NuxtLink></li>
-      <li><NuxtLink to="/highlights" exact-active-class="active-link" class="nav-link">Highlights</NuxtLink></li>
-      <li><NuxtLink to="/activitieslist" active-class="active-link" class="nav-link">Activities</NuxtLink></li>
-      <li><NuxtLink to="/teacherslist" active-class="active-link" class="nav-link">Teachers</NuxtLink></li>
-      <li><NuxtLink to="/about" exact-active-class="active-link" class="nav-link">About Us</NuxtLink></li>
-      <li><NuxtLink to="/contacts" exact-active-class="active-link" class="nav-link">Contacts</NuxtLink></li>
-      <li><NuxtLink to="/faq" exact-active-class="active-link" class="nav-link">FAQ</NuxtLink></li>
+      <li><NuxtLink to="highlights" exact-active-class="active-link" class="nav-link">Highlights</NuxtLink></li>
+      <li><NuxtLink to="activitieslist" active-class="active-link" class="nav-link">Activities</NuxtLink></li>
+      <li><NuxtLink to="teacherslist" active-class="active-link" class="nav-link">Teachers</NuxtLink></li>
+      <li><NuxtLink to="about" exact-active-class="active-link" class="nav-link">About Us</NuxtLink></li>
+      <li><NuxtLink to="contacts" exact-active-class="active-link" class="nav-link">Contacts</NuxtLink></li>
+      <li><NuxtLink to="faq" exact-active-class="active-link" class="nav-link">FAQ</NuxtLink></li>
       <span ref="underlineRef" class="underline"></span>
     </ul>
   </nav>

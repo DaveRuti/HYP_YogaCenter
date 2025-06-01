@@ -35,7 +35,7 @@
           <section class="activities">
             <h2 class="section-title">Your healthy activities</h2>
             <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="/highlights" class="btn btn-green">See Highlights</a>
+            <a href="highlights" class="btn btn-green">See Highlights</a>
 
             <div class="cards-container">
               <HighlightsComponent
@@ -55,14 +55,14 @@
             <h2 class="cta-title">Connect, Grow and<br>Thrive Together</h2>
             <p class="cta-description">Our range of classes and activities is designed to support every body and every intention—whether you're seeking strength, stillness, flexibility, or simply a moment of peace.
               From energizing Vinyasa flows to guided meditation, workshops, and special events, each offering is crafted to help you reconnect, reset, and rediscover your inner flow.</p>
-            <a href="/activitieslist" class="btn btn-light">See All Activities</a>
+            <a href="activitieslist" class="btn btn-light">See All Activities</a>
           </div>
         </section>
 
         <section class="teachers">
           <h2 class="section-title">Know your teachers</h2>
           <p class="section-description">At InnerFlow, our teachers are the heart of our community. Each of them brings a unique blend of experience, compassion, and deep knowledge of yoga and mindfulness. Whether guiding a dynamic flow or a gentle restorative practice, they hold space with presence and care—supporting you on your journey, one breath at a time.</p>
-          <a href="/teacherslist" class="btn btn-green">Know your teachers</a>
+          <a href="teacherslist" class="btn btn-green">Know your teachers</a>
 
           <div class="slider-container">
             <button class="arrow left" v-if="showLeftArrow" @click="scrollLeft">❮</button>
@@ -72,7 +72,7 @@
                   :id="teacher.id"
                   :title="`${teacher.name} ${teacher.surname}`"
                   :imageUrl="teacher.image[0]?.url"
-                  :route="`/teacher/${teacher.id}`"
+                  :route="`teacher/${teacher.id}`"
                 />
             </div>
             <button class="arrow right" v-if="showRightArrow" @click="scrollRight">❯</button>
