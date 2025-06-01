@@ -12,7 +12,7 @@
               <div class="hero-text-container">
                 <h1 class="hero-title">Flow into - Peace<br>One Pose at a Time</h1>
                 <p class="hero-description">Whether you are mastering or beginning your journey, join our community for rejuvenating towards well-being</p>
-                <a href="/activitieslist" class="btn btn-light">See All Activities</a>
+                <a href="./activitieslist" class="btn btn-light">See All Activities</a>
               </div>
 
               <div class="stats">
